@@ -1,3 +1,3 @@
 # CV
 Ankit Parekh Online CV 
-https://akkiparekh.github.io/CV/
+https://ankitparekh007.github.io/resume
