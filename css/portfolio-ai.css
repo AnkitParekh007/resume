@@ -364,7 +364,7 @@ a:hover {
 
 .hero h1,
 .hero .hero-display {
-  font-size: clamp(2.15rem, 5.8vw, 3.65rem);
+  font-size: clamp(2.15rem, 5.8vw, 2.5rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -389,8 +389,7 @@ a:hover {
 .hero-lead {
   font-size: clamp(1.02rem, 2.2vw, 1.2rem);
   color: var(--muted);
-  max-width: 38rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-stats {
