@@ -2,7 +2,7 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg-deep: #07080d;
+  --bg-deep: #05060a;
   --bg-card: rgba(18, 22, 35, 0.72);
   --bg-card-solid: #121623;
   --border: rgba(120, 160, 255, 0.14);
@@ -346,13 +346,31 @@ a:hover {
   transform: translateY(0.05em);
 }
 
-.hero h1 {
-  font-size: clamp(2rem, 5.5vw, 3.35rem);
+.hero-kicker {
+  font-size: clamp(0.68rem, 1.35vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  max-width: 42rem;
+  line-height: 1.5;
+}
+
+.hero-kicker-sep {
+  color: rgba(91, 140, 255, 0.55);
+  padding: 0 0.15em;
+}
+
+.hero h1,
+.hero .hero-display {
+  font-size: clamp(2.15rem, 5.8vw, 3.65rem);
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   margin-bottom: 1rem;
 }
+
 
 .hero-title-gradient {
   background: linear-gradient(135deg, var(--text) 0%, var(--accent) 42%, var(--accent-2) 95%);
@@ -420,7 +438,7 @@ a:hover {
 
 /* Rotating taglines */
 .rotator {
-  min-height: 2.5rem;
+  min-height: 3.25rem;
   font-family: var(--mono);
   font-size: clamp(0.85rem, 2vw, 0.95rem);
   color: var(--accent);
@@ -431,9 +449,10 @@ a:hover {
 
 .rotator-lines {
   position: relative;
-  height: 1.75rem;
+  min-height: 2.75rem;
   overflow: hidden;
-  line-height: 2.5rem;
+  line-height: 3rem;
+  font-size: 1.25rem;
 }
 
 .rotator-lines span {
@@ -442,8 +461,9 @@ a:hover {
   top: 0;
   opacity: 0;
   animation: cycleText 12s infinite;
-  white-space: nowrap;
   font-weight: 500;
+  max-width: 100%;
+  padding-right: 0.5rem;
 }
 
 .rotator-lines span:nth-child(1) {
@@ -1194,6 +1214,141 @@ a:hover {
   border-top: 1px solid var(--border);
   font-size: 0.9rem;
   color: var(--text);
+}
+
+.glass-card--featured {
+  border-color: rgba(91, 140, 255, 0.22);
+  background: linear-gradient(
+    165deg,
+    rgba(18, 22, 35, 0.88) 0%,
+    rgba(91, 140, 255, 0.06) 55%,
+    rgba(56, 189, 248, 0.05) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.06);
+}
+
+[data-theme="light"] .glass-card--featured {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(99, 102, 241, 0.08) 50%,
+    rgba(6, 182, 212, 0.06) 100%
+  );
+  border-color: rgba(99, 102, 241, 0.22);
+}
+
+/* Copilot showcase + credibility */
+.copilot-showcase {
+  position: relative;
+}
+
+.copilot-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .copilot-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.copilot-tile {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: clamp(1.15rem, 2.8vw, 1.5rem);
+  height: 100%;
+  transition: border-color 0.25s ease, transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.copilot-tile:hover {
+  border-color: rgba(91, 140, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .copilot-tile:hover {
+  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.12);
+}
+
+.copilot-tile__eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.copilot-tile__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.copilot-tile__copy {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.credibility-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(
+    135deg,
+    rgba(91, 140, 255, 0.08) 0%,
+    rgba(18, 22, 35, 0.5) 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .credibility-strip {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+[data-theme="light"] .credibility-strip {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0.92) 100%);
+}
+
+.credibility-strip__item {
+  text-align: center;
+  padding: 0.35rem 0.25rem;
+}
+
+.credibility-strip__value {
+  display: block;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.credibility-strip__label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.35rem;
+  line-height: 1.35;
 }
 
 /* What makes this different */

@@ -19,7 +19,7 @@
 
     var meta = document.getElementById("themeColorMeta");
     if (meta) {
-      meta.setAttribute("content", theme === "light" ? "#eef2ff" : "#07080d");
+      meta.setAttribute("content", theme === "light" ? "#eef2ff" : "#05060a");
     }
 
     var btn = document.getElementById("themeToggle");
@@ -99,7 +99,7 @@
   }
 
   /* Active nav by section in view */
-  var navSections = ["vision", "building", "edge", "work-experiences", "experience", "contact"];
+  var navSections = ["about", "building", "expertise", "philosophy", "work-experiences", "impact", "contact"];
   var navLinks = document.querySelectorAll(".nav-section");
 
   function clearNavActive() {
