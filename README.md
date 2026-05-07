@@ -4,13 +4,15 @@
 
 # Ankit Parekh - Portfolio And Resume
 
-Personal portfolio site for [Ankit Parekh](https://github.com/AnkitParekh007), focused on AI frontend architecture, enterprise Angular, TypeScript, intelligent UI systems, and recruiter-friendly career proof.
+Personal portfolio and resume site for [Ankit Parekh](https://github.com/AnkitParekh007), focused on AI frontend architecture, enterprise Angular, TypeScript, intelligent UI systems, and recruiter-friendly career proof.
 
 **Live site:** [ankitparekh007.github.io/resume](https://ankitparekh007.github.io/resume/)
 
 ## What This Repo Is
 
-This repository contains the static portfolio and resume site published through GitHub Pages. It is designed to give recruiters, hiring managers, and technical reviewers a fast overview of my frontend architecture background, AI frontend positioning, resume downloads, and public GitHub proof projects.
+This repository contains my personal static portfolio and resume site published through GitHub Pages. It is maintained by me only and is designed to give recruiters, hiring managers, and technical reviewers a fast overview of my frontend architecture background, AI frontend positioning, resume downloads, and public GitHub proof projects.
+
+This is not an open-source collaboration repo. It is the source for my public portfolio.
 
 ## What It Demonstrates
 
@@ -90,6 +92,8 @@ npx serve .
 
 ## How To Update The Resume
 
+This section is for my own maintenance workflow.
+
 1. Update `index.html` for portfolio text, role positioning, project cards, and links.
 2. Update `AnkitParekh_Resume.pdf` and `AnkitParekh_Resume.docx` when resume content changes.
 3. Keep the GitHub project links aligned with pinned repositories.
@@ -126,3 +130,7 @@ For a quick review:
 - Portfolio: [ankitparekh007.github.io/resume](https://ankitparekh007.github.io/resume/)
 - GitHub: [github.com/AnkitParekh007](https://github.com/AnkitParekh007)
 - LinkedIn: [linkedin.com/in/akkiparekh](https://in.linkedin.com/in/akkiparekh)
+
+## Ownership
+
+This repository is maintained by Ankit Parekh as a personal portfolio and resume site. External changes are not expected here.
