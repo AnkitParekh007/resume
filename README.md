@@ -24,36 +24,42 @@ I build frontend systems where AI is part of the product experience, not just a 
 
 ### Frontend Core
 
-<p>
-  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white" alt="RxJS" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111827" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-</p>
+<table>
+  <tr>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" width="42" alt="Angular" /><br />Angular</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="42" alt="TypeScript" /><br />TypeScript</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rxjs/rxjs-original.svg" width="42" alt="RxJS" /><br />RxJS</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="42" alt="JavaScript" /><br />JavaScript</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="42" alt="HTML5" /><br />HTML5</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="42" alt="CSS3" /><br />CSS3</td>
+  </tr>
+</table>
 
 ### AI Frontend UX
 
-<p>
-  <img src="https://img.shields.io/badge/Copilot%20UX-111827?style=for-the-badge&logo=githubcopilot&logoColor=white" alt="Copilot UX" />
-  <img src="https://img.shields.io/badge/RAG%20UI-0F766E?style=for-the-badge&logo=readthedocs&logoColor=white" alt="RAG UI" />
-  <img src="https://img.shields.io/badge/MCP%20Tools-4F46E5?style=for-the-badge&logo=protocols.io&logoColor=white" alt="MCP Tools" />
-  <img src="https://img.shields.io/badge/Streaming%20UX-0284C7?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streaming UX" />
-  <img src="https://img.shields.io/badge/Agent%20Workflows-7C3AED?style=for-the-badge&logo=openai&logoColor=white" alt="Agent Workflows" />
-</p>
+<table>
+  <tr>
+    <td align="center" width="120"><img src="assets/icons/copilot-ux.svg" width="42" alt="Copilot UX" /><br />Copilot UX</td>
+    <td align="center" width="120"><img src="assets/icons/rag-ui.svg" width="42" alt="RAG UI" /><br />RAG UI</td>
+    <td align="center" width="120"><img src="assets/icons/mcp-tools.svg" width="42" alt="MCP Tools" /><br />MCP Tools</td>
+    <td align="center" width="120"><img src="assets/icons/streaming-ux.svg" width="42" alt="Streaming UX" /><br />Streaming UX</td>
+    <td align="center" width="120"><img src="assets/icons/agent-workflows.svg" width="42" alt="Agent Workflows" /><br />Agent Workflows</td>
+  </tr>
+</table>
 
 ### UI Architecture And Delivery
 
-<p>
-  <img src="https://img.shields.io/badge/Design%20Systems-334155?style=for-the-badge&logo=storybook&logoColor=white" alt="Design Systems" />
-  <img src="https://img.shields.io/badge/Enterprise%20UI-0F172A?style=for-the-badge&logo=windowsterminal&logoColor=white" alt="Enterprise UI" />
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
-  <img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages" />
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes" />
-</p>
+<table>
+  <tr>
+    <td align="center" width="112"><img src="assets/icons/design-systems.svg" width="42" alt="Design Systems" /><br />Design Systems</td>
+    <td align="center" width="112"><img src="assets/icons/enterprise-ui.svg" width="42" alt="Enterprise UI" /><br />Enterprise UI</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="42" alt="Bootstrap" /><br />Bootstrap</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="42" alt="GitHub Pages" /><br />GitHub Pages</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="42" alt="AWS" /><br />AWS</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="42" alt="Docker" /><br />Docker</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="42" alt="Kubernetes" /><br />Kubernetes</td>
+  </tr>
+</table>
 
 ## Featured GitHub Proof Repos
 

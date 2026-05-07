@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Agent Workflows">
+  <circle cx="48" cy="24" r="12" fill="#7c3aed"/>
+  <circle cx="24" cy="68" r="12" fill="#38bdf8"/>
+  <circle cx="72" cy="68" r="12" fill="#a78bfa"/>
+  <path d="M43 34L29 58M53 34l14 24M36 68h24" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="48" cy="24" r="5" fill="#ffffff"/>
+  <circle cx="24" cy="68" r="5" fill="#ffffff"/>
+  <circle cx="72" cy="68" r="5" fill="#ffffff"/>
+</svg>
