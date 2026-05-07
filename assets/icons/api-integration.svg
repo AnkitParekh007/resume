@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="API Integration">
+  <rect x="12" y="30" width="26" height="36" rx="8" fill="#0284c7"/>
+  <rect x="58" y="30" width="26" height="36" rx="8" fill="#7c3aed"/>
+  <path d="M38 48h20M50 38l10 10-10 10" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 45h8M67 45h8M21 55h8M67 55h8" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+</svg>

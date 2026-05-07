@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="State Management">
+  <circle cx="24" cy="28" r="12" fill="#38bdf8"/>
+  <circle cx="72" cy="28" r="12" fill="#8b5cf6"/>
+  <circle cx="48" cy="68" r="12" fill="#14b8a6"/>
+  <path d="M36 28h24M30 39l12 18M66 39L54 57" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+</svg>

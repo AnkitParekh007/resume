@@ -33,6 +33,14 @@ I build frontend systems where AI is part of the product experience, not just a 
     <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="42" alt="HTML5" /><br />HTML5</td>
     <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="42" alt="CSS3" /><br />CSS3</td>
   </tr>
+  <tr>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="42" alt="Node.js" /><br />Node.js</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" width="42" alt="npm" /><br />npm</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" width="42" alt="Sass" /><br />Sass</td>
+    <td align="center" width="96"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="42" alt="Bootstrap" /><br />Bootstrap</td>
+    <td align="center" width="96"><img src="assets/icons/component-ui.svg" width="42" alt="Component UI" /><br />Components</td>
+    <td align="center" width="96"><img src="assets/icons/responsive-ui.svg" width="42" alt="Responsive UI" /><br />Responsive UI</td>
+  </tr>
 </table>
 
 ### AI Frontend UX
@@ -45,16 +53,31 @@ I build frontend systems where AI is part of the product experience, not just a 
     <td align="center" width="120"><img src="assets/icons/streaming-ux.svg" width="42" alt="Streaming UX" /><br />Streaming UX</td>
     <td align="center" width="120"><img src="assets/icons/agent-workflows.svg" width="42" alt="Agent Workflows" /><br />Agent Workflows</td>
   </tr>
+  <tr>
+    <td align="center" width="120"><img src="assets/icons/tool-timeline.svg" width="42" alt="Tool Timeline" /><br />Tool Timeline</td>
+    <td align="center" width="120"><img src="assets/icons/action-approval.svg" width="42" alt="Action Approval" /><br />Approvals</td>
+    <td align="center" width="120"><img src="assets/icons/context-ui.svg" width="42" alt="Context UI" /><br />Context UI</td>
+    <td align="center" width="120"><img src="assets/icons/guardrails.svg" width="42" alt="Guardrails" /><br />Guardrails</td>
+    <td align="center" width="120"><img src="assets/icons/error-recovery.svg" width="42" alt="Error Recovery" /><br />Recovery UX</td>
+  </tr>
 </table>
 
-### UI Architecture And Delivery
+### Architecture, Tooling And Delivery
 
 <table>
   <tr>
     <td align="center" width="112"><img src="assets/icons/design-systems.svg" width="42" alt="Design Systems" /><br />Design Systems</td>
     <td align="center" width="112"><img src="assets/icons/enterprise-ui.svg" width="42" alt="Enterprise UI" /><br />Enterprise UI</td>
-    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="42" alt="Bootstrap" /><br />Bootstrap</td>
-    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="42" alt="GitHub Pages" /><br />GitHub Pages</td>
+    <td align="center" width="112"><img src="assets/icons/micro-frontends.svg" width="42" alt="Micro-Frontends" /><br />Micro-Frontends</td>
+    <td align="center" width="112"><img src="assets/icons/state-management.svg" width="42" alt="State Management" /><br />State Mgmt</td>
+    <td align="center" width="112"><img src="assets/icons/api-integration.svg" width="42" alt="API Integration" /><br />API Integration</td>
+    <td align="center" width="112"><img src="assets/icons/accessibility.svg" width="42" alt="Accessibility" /><br />Accessibility</td>
+  </tr>
+  <tr>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="42" alt="Git" /><br />Git</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="42" alt="GitHub" /><br />GitHub</td>
+    <td align="center" width="112"><img src="assets/icons/github-pages.svg" width="42" alt="GitHub Pages" /><br />GitHub Pages</td>
+    <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" width="42" alt="Jenkins" /><br />Jenkins</td>
     <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="42" alt="AWS" /><br />AWS</td>
     <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="42" alt="Docker" /><br />Docker</td>
     <td align="center" width="112"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="42" alt="Kubernetes" /><br />Kubernetes</td>
