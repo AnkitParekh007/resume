@@ -88,10 +88,28 @@ I build frontend systems where AI is part of the product experience, not just a 
 
 | Repo | What it proves |
 | --- | --- |
-| [angular-ai-copilot-starter](https://github.com/AnkitParekh007/angular-ai-copilot-starter) | Angular copilot demo with streaming chat UX, RAG source cards, tool-call timeline, action approvals, mock MCP tools, and enterprise agent modes. |
-| [ngx-copilot-sdk](https://github.com/AnkitParekh007/ngx-copilot-sdk) | Reusable Angular SDK patterns for embedding AI chat, RAG citations, tool calling, approvals, and agent workflows into enterprise applications. |
-| [ai-ui-agent-demo](https://github.com/AnkitParekh007/ai-ui-agent-demo) | UI-aware Angular agent demo that reads page context, suggests workflow actions, requests approval, and shows execution state. |
-| [frontend-ai-patterns](https://github.com/AnkitParekh007/frontend-ai-patterns) | Angular and TypeScript pattern library for AI frontend systems: streaming UX, RAG citations, MCP tools, approvals, state machines, retries, and guardrails. |
+| [interview-ops](https://github.com/AnkitParekh007/interview-ops) | Local-first AI developer tool with Angular Studio, provider abstraction, structured scorecards, and ethics guardrails. |
+| [angular-ai-copilot-starter](https://github.com/AnkitParekh007/angular-ai-copilot-starter) | Angular copilot UI with streaming chat, RAG source cards, tool timeline, approvals, and enterprise-safe mock boundaries. |
+| [devdocs-forge-agent](https://github.com/AnkitParekh007/devdocs-forge-agent) | AI documentation agent with provider abstraction, local-first workflow, safe transcript ingestion, and generated docs review flow. |
+| [Agentic-Engineering-Playbook](https://github.com/AnkitParekh007/Agentic-Engineering-Playbook) | Six runnable AI engineering projects plus live docs, contributor onboarding, and production-minded learning paths. |
+| [org-ai-force](https://github.com/AnkitParekh007/org-ai-force) | Enterprise Angular + NestJS AI workspace architecture covering admin governance, pilot rollout, RAG, SSE, and orchestration. |
+| [ngx-copilot-sdk](https://github.com/AnkitParekh007/ngx-copilot-sdk) | Experimental Angular copilot SDK architecture with reusable shells, adapters, context providers, and approval components. |
+
+## Hiring Manager Review Path
+
+- 30 seconds: scan the headline, target role fit, and contact links
+- 3 minutes: review the proof repo table above and open `angular-ai-copilot-starter` plus `interview-ops`
+- 10 minutes: inspect `org-ai-force`, `Agentic-Engineering-Playbook`, and the live portfolio site for architectural depth
+
+## Portfolio Positioning
+
+This repository is the public portfolio surface. My strongest AI frontend and architecture proof lives in:
+
+- [angular-ai-copilot-starter](https://github.com/AnkitParekh007/angular-ai-copilot-starter)
+- [interview-ops](https://github.com/AnkitParekh007/interview-ops)
+- [org-ai-force](https://github.com/AnkitParekh007/org-ai-force)
+- [Agentic-Engineering-Playbook](https://github.com/AnkitParekh007/Agentic-Engineering-Playbook)
+- [ngx-copilot-sdk](https://github.com/AnkitParekh007/ngx-copilot-sdk)
 
 ## Frontend Strengths
 
