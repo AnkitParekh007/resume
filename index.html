@@ -298,7 +298,7 @@ h1 .ln.type { display: grid }
 .full { padding-block: 104px; border-bottom: 1px solid var(--line) }
 .head { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; margin-bottom: 24px }
 .tile { flex: none; width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; color: var(--link); background: color-mix(in srgb, var(--link) 12%, transparent) }
-.tile svg, .cert svg, .btn svg { display: block }
+.tile svg, .btn svg { display: block }
 .ic { flex: none; display: block }
 
 .edu-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px }
@@ -307,14 +307,6 @@ h1 .ln.type { display: grid }
 .edu-card h3 { font-size: 18px; font-weight: 700; line-height: 1.25; margin-top: 8px }
 .edu-card p { font-size: 15.5px; margin-top: 6px }
 
-.cert-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden }
-.cert { display: flex; align-items: center; gap: 14px; padding: 14px 16px; height: 100%; background: var(--sheet); color: var(--ink); text-decoration: none }
-.cert .badge { flex: none; color: var(--link) }
-.cert .go { flex: none; color: var(--muted); margin-left: auto }
-.cert b { display: block; font-weight: 500; font-size: 15.5px; line-height: 1.3 }
-.cert small { display: block; font-size: 13px; color: var(--muted); margin-top: 2px }
-.cert:hover b, .cert:hover .go { color: var(--link) }
-.cert:focus-visible { outline-offset: -2px }
 
 .skills-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 32px }
 .skills-grid h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px }
@@ -427,7 +419,7 @@ h1 .ln.type { display: grid }
   .proof li, .proof li + li { padding: 16px 12px 16px 0; border-left: 0; font-size: 15.5px }
   .proof li:nth-child(even) { border-left: 1px solid var(--line); padding-left: 16px }
   .proof li:nth-child(n+3) { border-top: 1px solid var(--line) }
-  .cert-list, .feat, .w-feat { grid-template-columns: minmax(0, 1fr) }
+  .feat, .w-feat { grid-template-columns: minmax(0, 1fr) }
   .w-feat > *, .w-feat > :nth-child(2), .w-feat > :nth-child(3), .w-feat > .lead { grid-column: auto }
   .bento6 { grid-template-columns: minmax(0, 1fr) }
   .bento6 > * { grid-column: auto }
@@ -466,7 +458,6 @@ h1 .ln.type { display: grid }
 .w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows {
   background: var(--card-wash); border: 1px solid var(--card-edge); border-radius: var(--card-radius); box-shadow: var(--card-shadow);
   transition: transform .25s cubic-bezier(.2, .7, .2, 1), box-shadow .25s, border-color .25s }
-.cert-list { border-color: var(--card-edge); border-radius: var(--card-radius); box-shadow: var(--card-shadow) }
 .c-feat { border-radius: var(--card-radius); box-shadow: var(--card-shadow) }
 .a-quote blockquote { border-radius: var(--card-radius); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 18px 40px -14px color-mix(in srgb, var(--spark-3) 55%, transparent) }
 .d-pane { box-shadow: var(--card-hi), 0 14px 36px -10px color-mix(in srgb, var(--c) 32%, transparent) }
@@ -481,7 +472,6 @@ h1 .ln.type { display: grid }
 .skip { position: absolute; left: 16px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 10px; background: var(--sheet); color: var(--ink); font-weight: 600; text-decoration: none; box-shadow: var(--card-shadow) }
 .skip:focus { top: 12px }
 .edu-card { max-width: 440px }
-#courses .cert-list.clip li:nth-child(n+5) { display: none }
 .more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--card-edge); background: var(--sheet); color: var(--link); font: 600 14.5px var(--text); cursor: pointer }
 .more[aria-expanded="true"] .ic { transform: rotate(180deg) }
 .more:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
@@ -491,6 +481,59 @@ h1 .ln.type { display: grid }
 @media (min-width: 761px) and (max-width: 1180px) {
   .c-early summary { grid-template-columns: 96px minmax(0, 1.35fr) minmax(0, 1fr) 16px }
   .c-early summary em { display: none }
+}
+
+/* Courses & certificates: academy filter over one credential list */
+:root { --lc: #0f766e }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --lc: #5eead4 } }
+:root[data-theme="dark"] { --lc: #5eead4 }
+/* Shared pieces */
+.cr-mark { width: var(--m); height: var(--m); flex: none; display: grid; place-items: center; border-radius: calc(var(--m) * .28) }
+.cr-mark svg { display: block }
+.cr-mark.cl { color: #d97757; background: color-mix(in srgb, #d97757 15%, transparent) }
+.cr-mark.lc { color: var(--lc); background: color-mix(in srgb, var(--lc) 15%, transparent) }
+.cr-mark.lc span { font: 700 calc(var(--m) * .36) / 1 var(--mono); letter-spacing: -.02em }
+.cr-mark.oa { color: var(--ink); background: color-mix(in srgb, var(--ink) 9%, transparent) }
+.type { flex: none; font: 500 11.5px/1 var(--mono); letter-spacing: .03em; padding: 5px 9px; border-radius: 999px; white-space: nowrap }
+.type.badge { color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent) }
+.type.crt { color: var(--link); background: color-mix(in srgb, var(--link) 11%, transparent) }
+.type.done { color: var(--muted); box-shadow: inset 0 0 0 1px var(--line) }
+.ic-gap { width: 14px; flex: none }
+.cr-next { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 14px; color: var(--muted) }
+.cr-next b { font: 500 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+.cr-next span { display: inline-flex; align-items: center; gap: 7px }
+.cr-next .cr-mark { opacity: .8 }
+
+/* Option 1: academy tabs */
+.o1-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px }
+.o1-tabs button { display: flex; align-items: center; gap: 10px; padding: 12px; text-align: left; cursor: pointer; font: inherit; color: var(--body); border-radius: 14px; border: 1px solid var(--line); background: var(--sheet); transition: border-color .2s, box-shadow .2s, transform .2s }
+.o1-tabs button:hover { border-color: var(--card-edge); transform: translateY(-2px) }
+.o1-tabs button[aria-pressed="true"] { background: var(--card-wash); border-color: color-mix(in srgb, var(--spark-2) 45%, var(--line)); box-shadow: var(--card-shadow) }
+.o1-tabs b { display: block; color: var(--ink); font-size: 14.5px; line-height: 1.25 }
+.o1-tabs small { display: block; font: 400 12px var(--mono); color: var(--muted); margin-top: 2px }
+.o1-all { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; flex: none; color: #fff; background: linear-gradient(135deg, var(--btn-1), var(--btn-2)) }
+.o1-list { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--card-edge); border: 1px solid var(--card-edge); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); list-style: none; padding: 0 }
+.o1-list li { background: var(--sheet) }
+.o1-list li[hidden] { display: none }
+.o1-list.clip li:nth-child(n+9) { display: none }
+.o1-item { display: flex; align-items: center; gap: 12px; padding: 13px 16px; height: 100%; color: var(--ink); text-decoration: none }
+.o1-t { min-width: 0; flex: 1 }
+.o1-t b { display: block; font-weight: 500; font-size: 15px; line-height: 1.3 }
+.o1-t small { display: block; font-size: 12.5px; color: var(--muted); margin-top: 1px }
+a.o1-item:hover b { color: var(--link) }
+
+@media (max-width: 900px) {
+  .o1-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+}
+@media (max-width: 760px) {
+  .o1-list { grid-template-columns: minmax(0, 1fr) }
+  .o1-tabs button, .o1-tabs button > span { min-width: 0 }
+  .o1-tabs { gap: 8px }
+  .o1-tabs button { padding: 10px; gap: 8px }
+  .o1-tabs b { font-size: 13.5px }
+  .o1-tabs small { font-size: 11px }
+  .o1-item { padding: 12px 14px; gap: 10px }
+  .o1-item > .ic { display: none }
 }
 @media print {
   .c-early summary { grid-template-columns: 96px minmax(0, 1.35fr) minmax(0, 1fr) 16px }
@@ -502,7 +545,7 @@ h1 .ln.type { display: grid }
   .skip, header.top, .toc, .toc-btn, .cta, .more, .dots, .caret, .d-list { display: none !important }
   body { background: #fff }
   .row, .close { padding-block: 22px; break-inside: avoid-page }
-  .w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows, .cert-list, .c-feat, .d-pane { box-shadow: none !important; background: #fff !important }
+  .w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows, .o1-list, .c-feat, .d-pane { box-shadow: none !important; background: #fff !important }
   .type > span:last-child { display: none } .type .sizer { visibility: visible }
   .d-pane[hidden] { display: block !important; margin-top: 12px }
 }
@@ -679,13 +722,46 @@ h1 .ln.type { display: grid }
           </div>
     </section>
 
-    <section class="row" id="courses">
-      <h2><span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></span>Courses<small>12 · Anthropic Academy</small></h2>
-      <div>
-        <ul class="cert-list clip" id="certs"></ul>
-        <button class="more" id="certMore" type="button" aria-expanded="false" aria-controls="certs">Show all 12 courses<svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg></button>
-      </div>
-    </section>
+    <section class="row" id="courses"><h2><span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></span>Courses &amp; certificates<small>27 · 3 academies</small></h2>
+<div class="o1">
+  <div class="o1-tabs" role="group" aria-label="Filter by academy">
+    <button aria-pressed="true" data-f="all"><span class="o1-all"><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-layers"></use></svg></span><span><b>All</b><small>27 credentials</small></span></button>
+    <button aria-pressed="false" data-f="cl"><span class="cr-mark cl" style="--m:30px" aria-hidden="true"><svg class="ic" width="17" height="17" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span><b>Claude Academy</b><small>15 courses · 12 badges</small></span></button>
+    <button aria-pressed="false" data-f="lc"><span class="cr-mark lc" style="--m:30px" aria-hidden="true"><span>LC</span></span><span><b>LangChain Academy</b><small>11 certificates</small></span></button>
+    <button aria-pressed="false" data-f="oa"><span class="cr-mark oa" style="--m:30px" aria-hidden="true"><svg class="ic" width="17" height="17" aria-hidden="true"><use href="#b-openai"></use></svg></span><span><b>OpenAI Academy</b><small>1 badge</small></span></button>
+  </div>
+  <ul class="o1-list clip" id="crList">
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/9ngndzgl7g"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Building Reliable Agents with LangSmith</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/model-context-protocol-advanced-topics"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Model Context Protocol: Advanced topics</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="oa"><div class="o1-item"><span class="cr-mark oa" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-openai"></use></svg></span><span class="o1-t"><b>Scope AI Solutions</b><small>OpenAI Academy</small></span><em class="type badge">Badge · 100%</em><span class="ic-gap"></span></div></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/tool-use-with-the-messages-api"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Tool use with the Messages API</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/7aln847oud"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Monitoring Production Agents</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/claude-code-in-action"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Claude Code in action</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/m7j8n1e6sa"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Introduction to Deep Agents</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/introduction-to-subagents"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Introduction to subagents</b><small>Claude Academy</small></span><em class="type done">Completed</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/g2rh3fl4sq"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Autonomous Agent Improvement with LangSmith Engine</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/u97ooqzxoy"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Agent Observability & Evaluations (LangSmith)</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/introduction-to-model-context-protocol"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Introduction to Model Context Protocol</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/introduction-to-agent-skills"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Introduction to agent skills</b><small>Claude Academy</small></span><em class="type done">Completed</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/building-effective-human-agent-teams"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Building effective human-agent teams</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/wxp9mimocs"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Introduction to LangSmith Deployment</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/ai-native-sdlc-playbook"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>The AI-native SDLC playbook</b><small>Claude Academy</small></span><em class="type done">Completed</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Deploying Claude Enterprise with confidence</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/vofrkyixjx"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>LangGraph Essentials (TypeScript)</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/mbhsacjray"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>LangChain Essentials (TypeScript)</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/ybz8a2gox0"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Introduction to LangGraph (Python)</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/eqsrrwtlls"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>Introduction to LangChain (Python)</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="lc"><a class="o1-item" href="https://academy.langchain.com/certificates/dvhqf0meez"><span class="cr-mark lc" style="--m:28px" aria-hidden="true"><span>LC</span></span><span class="o1-t"><b>LangSmith Essentials</b><small>LangChain Academy</small></span><em class="type crt">Certificate</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/claude-platform-101"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Claude Platform 101</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/claude-code-101"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Claude Code 101</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/ai-fluency-for-builders"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>AI Fluency for builders</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/ai-fluency-framework-foundations"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>AI Fluency: Framework and foundations</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/claude-101"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>Claude 101</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+    <li data-p="cl"><a class="o1-item" href="https://academy.claude.com/courses/ai-capabilities-and-limitations"><span class="cr-mark cl" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-anthropic"></use></svg></span><span class="o1-t"><b>AI capabilities and limitations</b><small>Claude Academy</small></span><em class="type badge">Badge</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
+  </ul>
+  <button class="more" id="crMore" type="button" aria-expanded="false" aria-controls="crList">Show all 27<svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg></button>
+  <p class="cr-next"><b>In progress</b><span><span class="cr-mark cl" style="--m:18px" aria-hidden="true"><svg class="ic" width="10" height="10" aria-hidden="true"><use href="#b-anthropic"></use></svg></span>Building with the Claude API</span><span><span class="cr-mark oa" style="--m:18px" aria-hidden="true"><svg class="ic" width="10" height="10" aria-hidden="true"><use href="#b-openai"></use></svg></span>Design and Build Agentic Systems</span><span><span class="cr-mark cl" style="--m:18px" aria-hidden="true"><svg class="ic" width="10" height="10" aria-hidden="true"><use href="#b-anthropic"></use></svg></span>Introduction to Claude Cowork</span></p>
+</div></section>
 
     <section class="row" id="stack">
       <h2><span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></span>Skills<small>Stack &amp; status</small></h2>
@@ -784,34 +860,27 @@ h1 .ln.type { display: grid }
   document.addEventListener('click', function (e) { if (!resMenu.contains(e.target)) setRes(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setRes(false); });
 
-  var certs = [
-    ['Introduction to subagents', 'introduction-to-subagents'],
-    ['Introduction to agent skills', 'introduction-to-agent-skills'],
-    ['The AI-native SDLC playbook', 'ai-native-sdlc-playbook'],
-    ['Model Context Protocol: Advanced topics', 'model-context-protocol-advanced-topics'],
-    ['Claude Code in action', 'claude-code-in-action'],
-    ['Introduction to Model Context Protocol', 'introduction-to-model-context-protocol'],
-    ['Claude Platform 101', 'claude-platform-101'],
-    ['Claude Code 101', 'claude-code-101'],
-    ['AI Fluency for builders', 'ai-fluency-for-builders'],
-    ['AI Fluency: Framework and foundations', 'ai-fluency-framework-foundations'],
-    ['Claude 101', 'claude-101'],
-    ['AI capabilities and limitations', 'ai-capabilities-and-limitations']
-  ];
-  var badge = '<svg class="badge" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg>';
-  var go = '<svg class="go" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
-  document.getElementById('certs').innerHTML = certs.map(function (c) {
-    return '<li><a class="cert" href="https://academy.claude.com/courses/' + c[1] + '">' + badge + '<span><b>' + c[0] + '</b><small>Anthropic Academy</small></span>' + go + '</a></li>';
-  }).join('');
-  var certMore = document.getElementById('certMore'), certList = document.getElementById('certs');
-  certMore.addEventListener('click', function () {
-    var open = certList.classList.toggle('clip') === false;
-    certMore.setAttribute('aria-expanded', String(open));
-    certMore.firstChild.nodeValue = open ? 'Show fewer courses' : 'Show all 12 courses';
+  var crList = document.getElementById('crList'), crMore = document.getElementById('crMore');
+  var crTabs = Array.prototype.slice.call(document.querySelectorAll('.o1-tabs button'));
+  function crLabel(open) { crMore.firstChild.nodeValue = open ? 'Show fewer' : 'Show all 27'; }
+  crMore.addEventListener('click', function () {
+    var open = crList.classList.toggle('clip') === false;
+    crMore.setAttribute('aria-expanded', String(open));
+    crLabel(open);
   });
+  function crFilter(f) {
+    crTabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.f === f)); });
+    crList.querySelectorAll('li').forEach(function (li) { li.hidden = f !== 'all' && li.dataset.p !== f; });
+    crList.classList.toggle('clip', f === 'all');
+    crMore.hidden = f !== 'all';
+    crMore.setAttribute('aria-expanded', 'false');
+    crLabel(false);
+  }
+  crTabs.forEach(function (t) { t.addEventListener('click', function () { crFilter(t.dataset.f); }); });
   window.addEventListener('beforeprint', function () {
     document.querySelectorAll('details').forEach(function (d) { d.open = true; });
-    certList.classList.remove('clip');
+    crFilter('all');
+    crList.classList.remove('clip');
   });
 
   // Table of contents: the active section is the last one whose top has passed 40% of the viewport.
