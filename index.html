@@ -1,1041 +1,868 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark light" />
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem("theme");
-          if (t === "light" || t === "dark") {
-            document.documentElement.setAttribute("data-theme", t);
-          } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-            document.documentElement.setAttribute("data-theme", "light");
-          }
-        } catch (e) {}
-      })();
-    </script>
-    <title>Ankit Parekh — AI Frontend Architect · Enterprise Angular</title>
-    <meta
-      name="description"
-      content="AI Frontend Architect and Enterprise Angular Architect with 18+ years experience — copilots, multi-agent systems, RAG, and intelligent enterprise UI."
-    />
-    <meta
-      name="keywords"
-      content="AI Frontend Architect, Enterprise Angular, copilot, multi-agent, RAG, frontend architecture, enterprise UI"
-    />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
-    <link rel="manifest" href="favicons/manifest.json" />
-    <meta id="themeColorMeta" name="theme-color" content="#05060a" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link href="css/portfolio-ai.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="bg-mesh" aria-hidden="true"></div>
-    <div class="bg-grid" aria-hidden="true"></div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://ankitparekh007.github.io/resume/">
+<meta property="og:url" content="https://ankitparekh007.github.io/resume/">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="manifest" href="favicons/manifest.json">
+<title>Ankit Parekh · Principal Frontend &amp; AI Agent Architect</title>
+<meta name="description" content="Ankit Parekh, Principal Frontend &amp; AI Agent Architect. Enterprise Angular, in-app AI copilots and agents, RAG and evals. Based in Mumbai, open to relocation or remote.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Ankit Parekh · Principal Frontend &amp; AI Agent Architect">
+<meta property="og:description" content="Ankit Parekh, Principal Frontend &amp; AI Agent Architect. Enterprise Angular, in-app AI copilots and agents, RAG and evals. Based in Mumbai, open to relocation or remote.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ankit Parekh","jobTitle":"Principal Frontend & AI Agent Architect","address":{"@type":"PostalAddress","addressLocality":"Mumbai","addressCountry":"IN"},"alumniOf":"Atharva College of Engineering","sameAs":["https://in.linkedin.com/in/akkiparekh","https://github.com/AnkitParekh007"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a resume read like a ledger. Every section is a row with a fixed label column, so skimmers run down the left edge. */
+:root {
+  --paper: #f6f7fd; --sheet: #ffffff; --ink: #0e1030; --body: #474b6b; --muted: #676b8a;
+  --line: #dcdff0; --link: #5b34e0; --ok: #0e9f7e;
+  --spark-1: #0891b2; --spark-2: #4f46e5; --spark-3: #7c3aed; --spark-4: #c026d3;
+  --btn-1: #4f46e5; --btn-2: #7c3aed; --on-btn: #ffffff;
+  --glow-1: rgba(79, 70, 229, .16); --glow-2: rgba(8, 145, 178, .14); --glow-3: rgba(192, 38, 211, .10);
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --text: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --label-col: 170px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0b0c1e; --sheet: #14162f; --ink: #f1f2ff; --body: #b6b9d6; --muted: #8e91b3;
+  --line: #272a4b; --link: #b3a1ff; --ok: #34d3a6;
+  --spark-1: #22d3ee; --spark-2: #818cf8; --spark-3: #a78bfa; --spark-4: #e879f9;
+  --glow-1: rgba(99, 102, 241, .24); --glow-2: rgba(34, 211, 238, .13); --glow-3: rgba(232, 121, 249, .12); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0b0c1e; --sheet: #14162f; --ink: #f1f2ff; --body: #b6b9d6; --muted: #8e91b3;
+  --line: #272a4b; --link: #b3a1ff; --ok: #34d3a6;
+  --spark-1: #22d3ee; --spark-2: #818cf8; --spark-3: #a78bfa; --spark-4: #e879f9;
+  --glow-1: rgba(99, 102, 241, .24); --glow-2: rgba(34, 211, 238, .13); --glow-3: rgba(232, 121, 249, .12); color-scheme: dark }
 
-    <nav class="navbar navbar-expand-lg site-nav fixed-top" aria-label="Primary">
-      <div class="container">
-        <a class="navbar-brand brand-mark" href="#home">
-          <span class="brand-monogram" aria-hidden="true">AP</span>
-          Ankit Parekh
-        </a>
-        <div class="d-flex align-items-center gap-2 ms-auto ms-lg-3 order-lg-2">
-          <button
-            type="button"
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Switch to light theme"
-            title="Theme"
-          >
-            <svg class="theme-toggle-icon sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-            </svg>
-            <svg class="theme-toggle-icon moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-          <button
-            class="navbar-toggler border-0 shadow-none p-2"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMain"
-            aria-controls="navMain"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse order-lg-1 flex-lg-grow-1" id="navMain">
-          <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-1 pt-3 pt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="about" href="#about"
-                ><i class="bi bi-person-badge" aria-hidden="true"></i><span>Position</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="building" href="#building"
-                ><i class="bi bi-layers" aria-hidden="true"></i><span>Platforms</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="expertise" href="#expertise"
-                ><i class="bi bi-stars" aria-hidden="true"></i><span>Expertise</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="philosophy" href="#philosophy"
-                ><i class="bi bi-gem" aria-hidden="true"></i><span>Principles</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="work-experiences" href="#work-experiences"
-                ><i class="bi bi-briefcase" aria-hidden="true"></i><span>Experience</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="impact" href="#impact"
-                ><i class="bi bi-globe2" aria-hidden="true"></i><span>Sectors</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-custom nav-section" data-section="contact" href="#contact"
-                ><i class="bi bi-chat-dots" aria-hidden="true"></i><span>Connect</span></a
-              >
-            </li>
-            <li class="nav-item ms-lg-2">
-              <a
-                class="btn btn-nav-cta"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#resumeDownloadModal"
-                ><i class="bi bi-file-earmark-person" aria-hidden="true"></i><span>Résumé</span></a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+* { box-sizing: border-box }
+html { scroll-behavior: smooth; scroll-padding-top: 76px }
+body { background: var(--paper); color: var(--body); font: 400 17px/1.6 var(--text); -webkit-font-smoothing: antialiased }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper) }
+a { color: inherit }
+h1, h2, h3 { color: var(--ink); font-family: var(--display); margin: 0; text-wrap: balance }
+p, ul, dl, dd { margin: 0; padding: 0 }
+ul { list-style: none }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px }
 
-    <header class="hero" id="home">
-      <div class="container">
-        <div class="row align-items-center gy-5">
-          <div class="col-lg-7">
-            <p class="hero-kicker">
-              AI Frontend Architect <span class="hero-kicker-sep" aria-hidden="true">•</span> Enterprise Angular Architect
-              <span class="hero-kicker-sep" aria-hidden="true">•</span> 18+ Years Experience
-            </p>
-            <h1 class="hero-display">
-              Intelligent UI for <span class="hero-title-gradient">serious products</span>
-            </h1>
-            <p class="hero-lead">
-              I’m <strong>Ankit Parekh</strong> — I design and ship enterprise frontends where copilots, agents, and RAG
-              sit inside real applications: clear UX, defensible architecture, and delivery that survives security,
-              scale, and roadmap churn.
-            </p>
-            <div class="rotator mb-3" aria-live="polite">
-              <div class="rotator-lines">
-                <span>Enterprise Angular &amp; platform-scale UI</span>
-                <span>Copilots that plan, execute, and recover in-app</span>
-                <span>RAG + tools wired to real workflows</span>
-                <span>Prototype → production → sustainment</span>
-              </div>
-            </div>
-            <div class="hero-stats row g-2 g-md-3 mb-4" aria-label="At a glance">
-              <div class="col-6 col-md-3">
-                <div class="hero-stat">
-                  <span class="hero-stat-value">18+</span>
-                  <span class="hero-stat-label">Years in product &amp; enterprise UI</span>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="hero-stat">
-                  <span class="hero-stat-value">Angular</span>
-                  <span class="hero-stat-label">Large apps, boundaries, platform patterns</span>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="hero-stat">
-                  <span class="hero-stat-value">AI</span>
-                  <span class="hero-stat-label">Copilots, agents, RAG, intelligent UX</span>
-                </div>
-              </div>
-              <div class="col-6 col-md-3">
-                <div class="hero-stat">
-                  <span class="hero-stat-value">Lead</span>
-                  <span class="hero-stat-label">Direction, delivery, cross-functional ownership</span>
-                </div>
-              </div>
-            </div>
-            <div class="pill-row" aria-label="Focus areas">
-              <span class="pill pill-accent"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i> Angular &amp; TypeScript</span>
-              <span class="pill pill-accent"><i class="bi bi-cpu" aria-hidden="true"></i> AI &amp; LLM systems</span>
-              <span class="pill pill-accent"><i class="bi bi-diagram-3" aria-hidden="true"></i> Multi-agent &amp; RAG</span>
-              <span class="pill"><i class="bi bi-cloud" aria-hidden="true"></i> Cloud delivery</span>
-              <span class="pill"><i class="bi bi-layers" aria-hidden="true"></i> Platform UX</span>
-            </div>
-            <div class="hero-actions">
-              <a class="btn btn-primary-ai" href="#building"
-                ><i class="bi bi-arrow-down-circle" aria-hidden="true"></i> Explore platforms</a
-              >
-              <a class="btn btn-ghost" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer"
-                ><i class="bi bi-github" aria-hidden="true"></i> GitHub</a
-              >
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <div class="hero-visual">
-              <div class="hero-terminal" aria-hidden="true">
-                <div class="hero-terminal-chrome">
-                  <span class="hero-terminal-dot" style="background: #ff6b6b"></span>
-                  <span class="hero-terminal-dot" style="background: #f7c948"></span>
-                  <span class="hero-terminal-dot" style="background: #42ba58"></span>
-                  <span class="hero-terminal-filename">copilot-runtime.ts</span>
-                </div>
-                <div class="hero-terminal-code">
-                  <p class="hero-terminal-line hero-terminal-line-1">
-                    <code>const mode = "agent"; orchestrator.plan(goal);</code>
-                  </p>
-                  <p class="hero-terminal-line hero-terminal-line-2">
-                    <code>context.load(docs, codebase, uiMap, intent);</code>
-                  </p>
-                  <p class="hero-terminal-line hero-terminal-line-3">
-                    <code>execute.navigate().fill().evaluate().retry();</code>
-                  </p>
-                </div>
-              </div>
-              <div class="hero-orbit">
-                <img
-                  class="hero-avatar"
-                  src="img/profile.jpg"
-                  width="200"
-                  height="200"
-                  alt="Ankit Parekh"
-                />
-              </div>
-              <div class="hero-tag"><i class="bi bi-person-badge" aria-hidden="true"></i> Architect · Product-grade AI UI</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+.wrap { max-width: 1120px; margin-inline: auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)) }
+.mono { font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em }
 
-    <hr class="soft" />
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line) }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px }
+.brand { font: 700 18px var(--display); color: var(--ink); text-decoration: none }
+.top nav { display: flex; align-items: center; gap: 22px; font-size: 15px }
+.top nav a { text-decoration: none; color: var(--body) }
+.top nav a:hover { color: var(--link) }
+.res { position: relative }
+.res-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 2px; font: 400 15px var(--text); color: var(--body); background: none; border: 0; cursor: pointer }
+.res-btn:hover, .res-btn[aria-expanded="true"] { color: var(--link) }
+.res-btn .ic { transition: transform .15s }
+.res-btn[aria-expanded="true"] .ic { transform: rotate(180deg) }
+.res-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 150px; display: grid; gap: 2px; padding: 6px; background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 30px var(--glow-1) }
+.res-menu[hidden] { display: none }
+.top nav .res-menu a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; color: var(--ink) }
+.top nav .res-menu a:hover { color: var(--link); background: color-mix(in srgb, var(--link) 10%, transparent) }
+.btn-theme { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; background: none; color: var(--ink); border: 1px solid var(--line); border-radius: 50%; cursor: pointer }
+.btn-theme span { display: grid }
+.btn-theme span[hidden] { display: none }
+.btn-theme:hover { border-color: var(--ink) }
 
-    <section class="section reveal" id="about" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-person-badge" aria-hidden="true"></i> Positioning</p>
-        <h2>Architecture-first frontend — built for AI in production</h2>
-        <p class="section-intro">
-          I work at the intersection of <strong>enterprise Angular</strong>, <strong>intelligent UI</strong>, and
-          <strong>AI-native product design</strong>. That means clear module boundaries and contracts, UX that stays
-          coherent when models and tools change, and copilot features that behave like operators inside the app — not
-          detached chat windows.
-        </p>
-        <p class="section-intro mb-0">
-          For engineering leaders and founders: I bring <strong>18+ years</strong> of shipping complex web products,
-          hands-on depth in large frontends, and a disciplined approach to embedding <strong>copilots, RAG, and
-          multi-agent workflows</strong> without trading away reliability, accessibility, or long-term ownership.
-        </p>
-        <blockquote class="quote-block mt-4 mb-0">
-          <i class="bi bi-lightbulb quote-block-icon" aria-hidden="true"></i>
-          The interface is part of the reasoning loop — context, constraints, and outcomes flow both ways. I build
-          systems where agents <em>act</em> with guardrails, not where they only generate text.
-        </blockquote>
-      </div>
-    </section>
+.hero { padding-block: 72px 56px; background:
+  radial-gradient(46% 70% at 88% 12%, var(--glow-1), transparent 70%),
+  radial-gradient(40% 60% at 62% 90%, var(--glow-2), transparent 70%),
+  radial-gradient(34% 56% at 6% 8%, var(--glow-3), transparent 70%) }
+.eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; color: var(--link); text-transform: uppercase; letter-spacing: .08em; font-size: 13px; margin-bottom: 18px }
+.eyebrow i { font-style: normal; color: var(--muted) }
+.hi { font-size: 20px; color: var(--body) }
+.hi b { font-weight: 600; background: linear-gradient(95deg, var(--spark-1), var(--spark-3)); -webkit-background-clip: text; background-clip: text; color: transparent }
+h1 { font-size: clamp(36px, 6vw, 72px); font-weight: 800; line-height: 1.08; letter-spacing: -.025em; margin-top: 8px; text-wrap: initial }
+h1 .ln { display: block }
+.dots { display: inline-flex; gap: .12em; margin-left: .14em; vertical-align: .08em }
+.dots i { width: .13em; height: .13em; border-radius: 50%; animation: pulse 1.4s infinite ease-in-out }
+.dots i:nth-child(1) { background: var(--spark-1) }
+.dots i:nth-child(2) { background: var(--spark-2); animation-delay: .18s }
+.dots i:nth-child(3) { background: var(--spark-3); animation-delay: .36s }
+@keyframes pulse { 0%, 100% { opacity: .3 } 50% { opacity: 1 } }
 
-    <section class="section pt-0 reveal" id="building" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-box-seam" aria-hidden="true"></i> Flagship initiatives</p>
-        <h2>What I build</h2>
-        <p class="section-intro">
-          Two parallel tracks: a <strong>product-grade embedded copilot</strong> for enterprise Angular / web apps, and a
-          <strong>platform direction</strong> that packages runtime, ingestion, and UI so teams can adopt AI-native
-          behavior without one-off integrations.
-        </p>
-        <div class="row g-4 stagger-row">
-          <div class="col-md-6">
-            <article class="glass-card reveal-child glass-card--featured">
-              <h3>
-                <i class="bi bi-robot card-title-icon" aria-hidden="true"></i>
-                Embedded copilot for enterprise apps
-              </h3>
-              <p class="text-muted-custom mb-3">
-                A copilot that lives <em>inside</em> the product — not a generic sidebar. It understands navigation,
-                tasks, and context so operators get answers <strong>and</strong> completed work across real workflows.
-              </p>
-              <ul class="icon-list">
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Multi-agent system (plan / execute / debug / ask)</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>RAG across docs, codebase, and workflows</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Action execution — APIs, navigation, workflows</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>UI awareness — DOM + context understanding</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Self-healing loops — evaluation + retry</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Long-running task orchestration</span></li>
-              </ul>
-              <p class="card-goal mb-0">
-                <strong>Outcome:</strong> AI behaves like a trained operator — plan, execute, recover — inside your UI.
-              </p>
-            </article>
-          </div>
-          <div class="col-md-6">
-            <article class="glass-card reveal-child glass-card--featured">
-              <h3>
-                <i class="bi bi-puzzle-fill card-title-icon" aria-hidden="true"></i>
-                Copilot runtime &amp; SDK direction
-              </h3>
-              <p class="text-muted-custom mb-3">
-                A structured path to turn complex web apps into AI-native products: copilot shell, agent orchestration,
-                tool execution, and ingestion — with <strong>enterprise boundaries</strong> teams can own long-term.
-              </p>
-              <ul class="icon-list">
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Plug-and-play copilot UI</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Agent orchestration engine</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Tool execution framework</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Multi-source ingestion (docs + repo + APIs)</span></li>
-                <li><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Enterprise-ready patterns</span></li>
-              </ul>
-              <p class="card-goal mb-0">
-                <strong>North star:</strong> Product-owned AI on the frontend — comparable surface area to major copilot
-                platforms, designed for teams that ship in Angular and TypeScript.
-              </p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+/* The sizer holds the longest phrase invisibly, so the page never moves while the live line types. */
+h1 .ln.type { display: grid }
+.type > * { grid-area: 1 / 1; min-width: 0 }
+.type .sizer { visibility: hidden }
+.typed { background: linear-gradient(95deg, var(--spark-1), var(--spark-2) 38%, var(--spark-3) 68%, var(--spark-4)); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .1em }
+.caret { display: inline-block; width: .06em; height: .86em; margin-left: .05em; vertical-align: -.08em; background: var(--spark-3); animation: blink 1s steps(1) infinite }
+@keyframes blink { 50% { opacity: 0 } }
 
-    <section class="section pt-0 reveal copilot-showcase" id="copilot" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-stars" aria-hidden="true"></i> AI copilot layer</p>
-        <h2>How the copilot shows up in product</h2>
-        <p class="section-intro">
-          Recruiters and tech leads can skim this as a <strong>capability map</strong>: what “AI-native” means in
-          execution, not buzzwords.
-        </p>
-        <div class="copilot-grid">
-          <article class="copilot-tile reveal-child">
-            <span class="copilot-tile__eyebrow">Orchestration</span>
-            <h3 class="copilot-tile__title">Multi-agent workflows</h3>
-            <p class="copilot-tile__copy">
-              Plan / execute / debug / ask patterns with clear handoffs — so complex tasks decompose into observable
-              steps instead of one opaque completion.
-            </p>
-          </article>
-          <article class="copilot-tile reveal-child">
-            <span class="copilot-tile__eyebrow">Context</span>
-            <h3 class="copilot-tile__title">RAG that matches the job</h3>
-            <p class="copilot-tile__copy">
-              Docs, code, APIs, and UI maps combined responsibly — retrieval tuned for enterprise constraints, not demo
-              accuracy alone.
-            </p>
-          </article>
-          <article class="copilot-tile reveal-child">
-            <span class="copilot-tile__eyebrow">Action</span>
-            <h3 class="copilot-tile__title">Tools &amp; UI execution</h3>
-            <p class="copilot-tile__copy">
-              Agents drive navigation, forms, and backend calls with retries and evaluation — measurable outcomes, not
-              static answers.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+.lede { font-size: 20px; line-height: 1.5; margin-top: 22px; max-width: 36em }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px }
+.btn { display: inline-flex; align-items: center; gap: 8px; font: 600 16px var(--text); text-decoration: none; padding: 12px 24px; border-radius: 999px; border: 1px solid var(--ink); color: var(--ink); background: none; cursor: pointer }
+.btn.primary { background: linear-gradient(95deg, var(--btn-1), var(--btn-2)); border-color: transparent; color: var(--on-btn) }
+.btn:hover { transform: translateY(-1px) }
 
-    <section class="section pt-0 reveal edge-zone" id="philosophy" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-gem" aria-hidden="true"></i> Engineering philosophy</p>
-        <h2>What makes this different</h2>
-        <p class="section-intro">
-          Most teams ship screens. I build <strong>systems where the frontend participates in decisions</strong> — an
-          architecture-first layer under load, audits, and roadmap churn. Four differences that show up in production.
-        </p>
-        <div class="edge-board">
-          <div class="row g-3 g-md-4 stagger-row align-items-stretch">
-            <div class="col-md-6 col-xl-3">
-              <article class="edge-pillar edge-pillar--layer reveal-child">
-                <div class="edge-pillar__icon" aria-hidden="true">
-                  <i class="bi bi-layers-fill"></i>
-                </div>
-                <h3 class="edge-pillar__title">AI as a system layer</h3>
-                <p class="edge-pillar__copy">
-                  Not a bolt-on chat widget — intelligence wired into navigation, state, and
-                  contracts so the product stays coherent as models and tools evolve.
-                </p>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <article class="edge-pillar edge-pillar--engine reveal-child">
-                <div class="edge-pillar__icon" aria-hidden="true">
-                  <i class="bi bi-diagram-3-fill"></i>
-                </div>
-                <h3 class="edge-pillar__title">Frontend in the decision loop</h3>
-                <p class="edge-pillar__copy">
-                  The UI isn’t only for display — it feeds context, constraints, and outcomes back
-                  into planning so agents and users stay aligned.
-                </p>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <article class="edge-pillar edge-pillar--action reveal-child">
-                <div class="edge-pillar__icon" aria-hidden="true">
-                  <i class="bi bi-lightning-charge-fill"></i>
-                </div>
-                <h3 class="edge-pillar__title">Execution, not only answers</h3>
-                <p class="edge-pillar__copy">
-                  Agents that drive APIs, workflows, and recovery paths — measurable steps, retries,
-                  and guardrails instead of one-off completions.
-                </p>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <article class="edge-pillar edge-pillar--craft reveal-child">
-                <div class="edge-pillar__icon" aria-hidden="true">
-                  <i class="bi bi-tools"></i>
-                </div>
-                <h3 class="edge-pillar__title">Architecture-first delivery</h3>
-                <p class="edge-pillar__copy">
-                  Enterprise discipline: boundaries, ownership, and sustainment — so AI features
-                  don’t collapse under cross-team change and long-term ownership.
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line) }
+.proof li { display: grid; gap: 10px; align-content: start; padding: 22px 20px 22px 0; min-width: 0; font: 600 16.5px/1.3 var(--text); color: var(--ink) }
+.proof li + li { border-left: 1px solid var(--line); padding-left: 20px }
+.proof .ic { color: var(--link) }
 
-    <section class="section pt-0 reveal" id="expertise" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-wrench-adjustable" aria-hidden="true"></i> Core expertise</p>
-        <h2>Capabilities — how I ship</h2>
-        <p class="section-intro">
-          Stated as <strong>outcomes</strong>, not a keyword dump: enterprise Angular and TypeScript at scale, AI
-          features that stay maintainable, and cloud-backed delivery with operational discipline.
-        </p>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <h3 class="h6 stack-col-title text-uppercase letter-spacing-1 text-muted-custom mb-2">
-              <i class="bi bi-code-slash" aria-hidden="true"></i> Frontend &amp; architecture
-            </h3>
-            <div class="stack-grid">
-              <span class="stack-pill"><i class="bi bi-grid-1x2" aria-hidden="true"></i> Angular (enterprise)</span>
-              <span class="stack-pill"><i class="bi bi-filetype-ts" aria-hidden="true"></i> TypeScript</span>
-              <span class="stack-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> React (where relevant)</span>
-              <span class="stack-pill"><i class="bi bi-filetype-js" aria-hidden="true"></i> JavaScript</span>
-              <span class="stack-pill"><i class="bi bi-filetype-html" aria-hidden="true"></i> HTML / CSS</span>
-              <span class="stack-pill"><i class="bi bi-diagram-3" aria-hidden="true"></i> Module &amp; platform design</span>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <h3 class="h6 stack-col-title text-uppercase letter-spacing-1 text-muted-custom mb-2">
-              <i class="bi bi-cpu" aria-hidden="true"></i> AI / intelligent UI
-            </h3>
-            <div class="stack-grid">
-              <span class="stack-pill"><i class="bi bi-robot" aria-hidden="true"></i> Copilots &amp; agents</span>
-              <span class="stack-pill"><i class="bi bi-diagram-3-fill" aria-hidden="true"></i> Multi-agent orchestration</span>
-              <span class="stack-pill"><i class="bi bi-search" aria-hidden="true"></i> RAG &amp; retrieval UX</span>
-              <span class="stack-pill"><i class="bi bi-filetype-py" aria-hidden="true"></i> Python</span>
-              <span class="stack-pill"><i class="bi bi-terminal" aria-hidden="true"></i> Node.js</span>
-            </div>
-            <p class="stack-note mb-0">
-              <i class="bi bi-info-circle" aria-hidden="true"></i> LLM integrations (OpenAI, Anthropic) · Streaming UI ·
-              Prompt &amp; tool contracts · Guardrails &amp; evaluation loops
-            </p>
-          </div>
-          <div class="col-md-4">
-            <h3 class="h6 stack-col-title text-uppercase letter-spacing-1 text-muted-custom mb-2">
-              <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i> Cloud &amp; delivery
-            </h3>
-            <div class="stack-grid">
-              <span class="stack-pill"><i class="bi bi-cloud" aria-hidden="true"></i> AWS</span>
-              <span class="stack-pill"><i class="bi bi-box-seam" aria-hidden="true"></i> Docker</span>
-              <span class="stack-pill"><i class="bi bi-diagram-3" aria-hidden="true"></i> Kubernetes</span>
-              <span class="stack-pill"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i> Jenkins / CI</span>
-            </div>
-          </div>
-        </div>
-        <p class="mt-4 mb-0 text-muted-custom small">
-          <i class="bi bi-github" aria-hidden="true"></i> Implementation samples and experiments on
-          <a href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">GitHub</a>.
-        </p>
-      </div>
-    </section>
+.row { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); gap: 48px; padding-block: 104px; border-bottom: 1px solid var(--line) }
+.row > h2 { font-size: 15px; font-weight: 700; letter-spacing: 0; position: sticky; top: 84px; align-self: start }
+.row > h2 .tile { margin-bottom: 10px }
+.row > h2 small { display: block; font: 400 12.5px var(--mono); color: var(--muted); margin-top: 4px }
 
-    <section class="section pt-0 reveal" id="work-experiences" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-calendar3" aria-hidden="true"></i> Experience</p>
-        <h2>Where I’ve led delivery</h2>
-        <p class="section-intro">
-          A progression from hands-on enterprise UI to <strong>technical direction</strong> — architecture, UX
-          engineering, sustainment, and cross-functional ownership. Expand any role for detail.
-        </p>
-        <div class="credibility-strip reveal-child" role="region" aria-label="Experience summary">
-          <div class="credibility-strip__item">
-            <span class="credibility-strip__value">18+ yrs</span>
-            <span class="credibility-strip__label">Shipping web &amp; product UI</span>
-          </div>
-          <div class="credibility-strip__item">
-            <span class="credibility-strip__value">Lead</span>
-            <span class="credibility-strip__label">Stack fit, boundaries, delivery trade-offs</span>
-          </div>
-          <div class="credibility-strip__item">
-            <span class="credibility-strip__value">Enterprise</span>
-            <span class="credibility-strip__label">Dense workflows, multi-module apps</span>
-          </div>
-          <div class="credibility-strip__item">
-            <span class="credibility-strip__value">Partner</span>
-            <span class="credibility-strip__label">Design, platform, DevOps alignment</span>
-          </div>
-        </div>
-        <div class="accordion work-accordion stagger-row" id="workAccordion">
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-bluemeteor"
-                aria-expanded="true"
-                aria-controls="we-bluemeteor"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>Sep 2022 – Oct 2026</span>
-                  <span class="work-role">Frontend Architect (Contract), Bluemeteor (formerly Codifyd)</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-bluemeteor" class="accordion-collapse collapse show" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="https://bluemeteor.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> bluemeteor.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Rejoined as contract Frontend Architect for an AI-powered product content platform (PIM / PXM / DAM) serving 20+ enterprise customers and ~10M SKUs</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Architected and led SOP Co-Pilot end to end (Angular client + NestJS service): in-app Ask with cited answers, and an Agent that plans multi-step UI actions and runs them only after user approval</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Plan-first agent design: deterministic action catalog, read vs data-changing risk classes, approvals, re-plan on failure, audit ledger, multi-provider LLM routing and hybrid retrieval</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Built the agent evaluation harness and release gates; shipped as an enterprise pilot behind feature flags</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Led AI-assisted mapping and finalize-mapping across supplier and retailer apps, replacing field-by-field manual mapping with suggestions, review and bulk accept</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Owned AG Grid Enterprise screens and multi-environment release pipelines; removed a multi-minute UI freeze by scoping hundreds of per-field lookups to the visible region</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+.cap-ic { display: block; color: var(--link); margin-bottom: 8px }
+.w-feat { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px }
+.w-feat > * { grid-column: span 4 }
+.w-feat > :nth-child(2), .w-feat > :nth-child(3) { grid-column: span 3 }
+.w-feat > .lead { grid-column: span 6 }
+.w-card { min-width: 0; padding: 16px; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px }
+.w-tile { display: grid; place-items: center; width: 38px; height: 38px; margin-bottom: 10px; border-radius: 8px; color: var(--link); background: color-mix(in srgb, var(--link) 12%, transparent) }
+.w-card h3 { font-size: 17px; font-weight: 700; line-height: 1.25 }
+.w-card p { font-size: 14.5px; line-height: 1.45; margin-top: 4px }
+.w-card.lead { padding: 20px; background: linear-gradient(150deg, color-mix(in srgb, var(--spark-2) 10%, var(--sheet)), var(--sheet) 65%) }
+.w-tile.big { width: 48px; height: 48px }
+.w-card.lead small { color: var(--link) }
+.w-card.lead h3 { font-size: 23px; margin-top: 4px }
+.w-card.lead p { font-size: 16px; margin-top: 8px }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-forto"
-                aria-expanded="false"
-                aria-controls="we-forto"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>Sep 2021 – Sep 2022</span>
-                  <span class="work-role">Senior Frontend Engineer, Forto · Berlin</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-forto" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="https://forto.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> forto.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Relocated to Berlin to join a digital freight-forwarding platform as Senior Frontend Engineer</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Built frontend features for logistics dashboards, shipment visibility, exception handling and role-based workflows</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+.a-quote { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px }
+.a-quote blockquote { display: flex; flex-direction: column; justify-content: center; gap: 14px; margin: 0; padding: 26px; border-radius: 12px; color: var(--on-btn); background: linear-gradient(150deg, var(--btn-1), var(--btn-2) 70%) }
+.a-quote blockquote p { font: 700 clamp(24px, 3vw, 31px)/1.15 var(--display); letter-spacing: -.01em }
+.a-quote blockquote small { font-size: 15px; line-height: 1.45; opacity: .88 }
+.a-mini { display: grid; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; overflow: hidden }
+.a-mini li { display: flex; gap: 12px; padding: 13px 16px; border-top: 1px solid var(--line) }
+.a-mini li:first-child { border-top: 0 }
+.a-mini .ic { color: var(--link); margin-top: 3px }
+.a-mini b { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.3; color: var(--ink) }
+.a-mini small { display: block; font-size: 13.5px; line-height: 1.45; margin-top: 2px }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-codifyd"
-                aria-expanded="false"
-                aria-controls="we-codifyd"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2018 – 2021</span>
-                  <span class="work-role">Team Lead, Codifyd</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-codifyd" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="https://bluemeteor.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Now Bluemeteor</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Led a team of 7 developers and owned frontend architecture across multiple products (retailer PIM, supplier portal, BridgeWeb)</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Owned technical direction for web products: stack fit, integration contracts, and delivery trade-offs</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Defined front-end architecture and system boundaries for large, multi-module web applications</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Authored wireframes and interaction flows to de-risk build scope and align design with engineering constraints</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Ran sustainment on production codebases: refactors, regression control, and release coordination</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Drove UX engineering: reusable UI patterns, consistency across features, and usability-led iteration</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Partnered with DevOps and platform teams on CI/CD, build tooling, env-specific defects, and cross-stack troubleshooting</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+/* Experience */
+:where(#work ol, #work ul) { list-style: none; margin: 0; padding: 0 }
+#work em { font-style: normal }
+#work h3 { font-weight: 700; line-height: 1.25 }
+#work summary { list-style: none; cursor: pointer }
+#work summary::-webkit-details-marker { display: none }
+#work summary .ic { transition: transform .2s }
+#work details[open] > summary .ic { transform: rotate(180deg) }
+#work summary:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px }
+.kr { display: grid; gap: 6px; margin-top: 10px; font-size: 15px; line-height: 1.45 }
+.kr li { padding-left: 16px; position: relative }
+.kr li::before { content: ""; position: absolute; left: 0; top: .7em; width: 7px; height: 1px; background: var(--muted) }
+.c-feat > details > summary, .c-body > details > summary { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-weight: 600; font-size: 14.5px; color: var(--ink) }
+@media (prefers-reduced-motion: reduce) { #work * { transition: none !important } }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-zooty"
-                aria-expanded="false"
-                aria-controls="we-zooty"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2016 – 2018</span>
-                  <span class="work-role">Front-end Expert, Zooty.in</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-zooty" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="https://www.zooty.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> zooty.in</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Steered technical approach for web initiatives: dependencies, sequencing, and implementation strategy</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Designed UI structure, component boundaries, and state ownership for customer-facing web apps</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Produced wireframes and low-fidelity flows to lock requirements before high-cost implementation</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Maintained live systems: defect triage, performance hotspots, and incremental hardening</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Owned UX outcomes: interaction design, edge-case handling, and design–engineering alignment</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Debugged toolchain and runtime issues spanning bundlers, browser targets, deployment artifacts, and team workflows</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+/* Experience: date column | rail | content */
+.c-rail { position: relative; --dcol: 112px; --rail: 48px }
+.c-rail::before { content: ""; position: absolute; left: calc(var(--dcol) + var(--rail) / 2 - 1px); top: 10px; bottom: 0; width: 2px; background: linear-gradient(var(--spark-2), var(--spark-1) 72%, var(--line)) }
+.c-item { position: relative; display: grid; grid-template-columns: var(--dcol) var(--rail) minmax(0, 1fr); padding-bottom: 30px }
+.c-item:last-child { padding-bottom: 0 }
+.c-when { grid-column: 1; color: var(--muted); line-height: 1.5; padding-top: 2px }
+.c-when small { display: block; margin-top: 4px; font-size: 11.5px; color: var(--link) }
+.c-dot { grid-column: 2; justify-self: center; position: relative; z-index: 1; width: 16px; height: 16px; margin-top: 3px; border-radius: 50%; background: var(--paper); border: 3px solid var(--spark-2) }
+.c-lead .c-dot { margin-top: 26px; background: var(--spark-2); box-shadow: 0 0 0 5px color-mix(in srgb, var(--spark-2) 20%, transparent) }
+.c-lead .c-when { padding-top: 24px }
+.c-branch .c-dot { border-style: dashed; border-color: var(--muted) }
+.c-item > article { grid-column: 3; min-width: 0 }
+.c-body h3 { font-size: 21px }
+.c-co { color: var(--link); font-weight: 600 }
+.c-sum { margin-top: 6px; max-width: 42em }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-musafir"
-                aria-expanded="false"
-                aria-controls="we-musafir"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2015 – 2016</span>
-                  <span class="work-role">Lead Front-end Programmer, Musafir.com</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-musafir" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="https://in.musafir.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> musafir.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Implemented and reviewed production UI: semantic markup, CSS architecture, and client-side behavior at scale</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Executed agile sprints—story breakdown, estimates, implementation, peer review, and merge readiness</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Resolved high-complexity UI issues: rendering, layout, and performance under real traffic and data load</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Sustained legacy and greenfield modules: patching, refactors, and controlled dependency upgrades</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Partnered with product and clients on acceptance criteria, demos, and technical feasibility of UI-heavy features</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Supported release and ops: environment-specific defects, integration failures, and build pipeline friction on the front end</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+/* Featured card */
+.c-feat { padding: 22px 24px; border-radius: 16px; background: linear-gradient(140deg, color-mix(in srgb, var(--spark-2) 12%, var(--sheet)), color-mix(in srgb, var(--spark-1) 8%, var(--sheet))); border: 1px solid color-mix(in srgb, var(--spark-2) 25%, var(--line)) }
+.c-fh { display: flex; gap: 14px; align-items: center }
+.c-mono { display: grid; place-items: center; width: 52px; height: 52px; flex: none; border-radius: 14px; color: #fff; font: 800 17px var(--display); background: linear-gradient(135deg, var(--spark-2), var(--spark-3)) }
+.c-feat h3 { font-size: 26px }
+.c-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px }
+.c-chips li { padding: 4px 11px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--link); background: color-mix(in srgb, var(--link) 10%, var(--sheet)) }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-verdantis"
-                aria-expanded="false"
-                aria-controls="we-verdantis"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2014 – 2015</span>
-                  <span class="work-role">Senior Front-end Developer, Verdantis Pvt Ltd.</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-verdantis" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="http://www.verdantis.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> verdantis.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Built data-dense enterprise UIs: forms, tables, and workflows with strict validation and state-handling requirements</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Shipped incrementally in Scrum: backlog grooming, sprint execution, and measurable Definition of Done</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Debugged UI-layer defects across browsers and releases, including regressions tied to API or schema changes</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Extended and stabilized modules as business rules evolved—minimizing blast radius via targeted refactors</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Worked with clients and internal SMEs on specs, UAT cycles, and production defect RCA</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+/* Earlier roles table */
+.c-early { margin-top: 14px; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; overflow: hidden }
+.c-early > li + li { border-top: 1px solid var(--line) }
+.c-early summary { display: grid; grid-template-columns: 96px minmax(0, 1.35fr) minmax(0, 1fr) 124px 16px; gap: 12px; align-items: center; padding: 11px 16px; font-size: 15px }
+.c-early summary:hover, .c-early details[open] summary { background: color-mix(in srgb, var(--link) 5%, var(--sheet)) }
+.c-early summary time, .c-early em { color: var(--muted) }
+.c-early summary b { color: var(--ink); font-weight: 600 }
+.c-ec { color: var(--link); font-weight: 600 }
+.c-early em { font-size: 12px }
+.c-early summary .ic { color: var(--muted) }
+.c-ed { padding: 2px 16px 14px 124px; font-size: 14.5px }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-capgemini"
-                aria-expanded="false"
-                aria-controls="we-capgemini"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2014</span>
-                  <span class="work-role">Freelance Usability Consultant, Capgemini</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-capgemini" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> capgemini.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Delivered front-end implementation against fixed scope: HTML/CSS/JS modules integrated with existing stacks</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Met milestone-based delivery: feature completion, integration testing support, and handoff documentation</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Produced layout and interaction mockups to freeze structure before build and reduce rework</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Supported post-go-live maintenance: defect fixes, small enhancements, and compatibility updates</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+@media (max-width: 760px) {
+  .c-rail { --dcol: 0px; --rail: 30px }
+  .c-item { grid-template-columns: var(--rail) minmax(0, 1fr) }
+  .c-when { grid-column: 2; grid-row: 1; padding-top: 0 !important; margin-bottom: 6px }
+  .c-when br { display: none } .c-when small { display: inline; margin-left: 6px }
+  .c-dot { grid-column: 1; grid-row: 1; margin-top: 2px !important }
+  .c-item > article { grid-column: 2 }
+  .c-feat { padding: 18px }
+  .c-early summary { grid-template-columns: minmax(0, 1fr) 16px; gap: 2px 10px }
+  .c-early summary > * { grid-column: 1 } .c-early summary .ic { grid-column: 2; grid-row: 1 / span 3 }
+  .c-early em { display: none }
+  .c-ed { padding-left: 16px }
+}
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-efurtherance"
-                aria-expanded="false"
-                aria-controls="we-efurtherance"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2014</span>
-                  <span class="work-role">Part-time Developer, Efurtherance</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-efurtherance" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="http://www.efurtherance.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> efurtherance.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Implemented UI slices and pages from spec: templating, styling, and lightweight client-side behavior</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Aligned delivery to client checkpoints: iterative demos, feedback incorporation, and scope control</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Translated requirements into static and semi-interactive mockups for sign-off prior to coding</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Kept delivered assets maintainable: structured CSS, asset organization, and documented integration points</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+.stories { display: grid; gap: 14px }
+.stories em { font-style: normal }
+.idx { color: var(--muted) }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px }
+.chips em { padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--link); background: color-mix(in srgb, var(--link) 10%, transparent) }
+/* Illustration panel */
+.mock { position: relative; display: grid; place-items: center; padding: 28px 22px 34px; border-radius: 12px; background: linear-gradient(140deg, color-mix(in srgb, var(--spark-2) 16%, var(--sheet)), color-mix(in srgb, var(--spark-1) 12%, var(--sheet))); min-width: 0 }
+.m-card { width: 100%; max-width: 340px; padding: 14px; border-radius: 10px; background: var(--sheet); border: 1px solid var(--line); box-shadow: 0 10px 30px color-mix(in srgb, var(--spark-2) 16%, transparent); font-size: 13px; line-height: 1.35; color: var(--ink) }
+.m-head { display: flex; align-items: center; gap: 7px; font-weight: 600; font-size: 13px; color: var(--ink) }
+.m-head .ic { color: var(--link) }
+.m-head span { margin-left: auto; font-weight: 400; font-size: 12px; color: var(--muted) }
+.m-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok) }
+.m-plan { display: grid; gap: 6px; margin-top: 10px }
+.m-plan li { display: flex; align-items: center; gap: 7px; padding: 7px 8px; border-radius: 7px; background: color-mix(in srgb, var(--ink) 4%, transparent) }
+.m-plan li.ok .ic { color: var(--ok) }
+.m-plan li.wait { background: color-mix(in srgb, var(--link) 9%, transparent) }
+.m-plan li.wait .ic { color: var(--link) }
+.m-plan em { margin-left: auto; font-size: 11px; color: var(--muted) }
+.m-plan em.w { color: var(--link); font-weight: 600 }
+.m-act { display: flex; gap: 6px; margin-top: 10px; font-size: 12px }
+.m-act b { padding: 5px 11px; border-radius: 999px; color: var(--on-btn); background: linear-gradient(95deg, var(--btn-1), var(--btn-2)); font-weight: 600 }
+.m-act span { padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); color: var(--body) }
+.m-foot { margin-top: 9px; font-size: 11.5px; color: var(--muted) }
+.m-map { display: grid; gap: 6px; margin-top: 10px }
+.m-map li { display: grid; grid-template-columns: 70px 12px minmax(0, 1fr) auto; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 7px; background: color-mix(in srgb, var(--ink) 4%, transparent) }
+.m-map code { font: 11.5px var(--mono); color: var(--body); overflow-wrap: anywhere }
+.m-map i { font-style: normal; color: var(--muted) }
+.m-map b { font-weight: 500; min-width: 0 }
+.m-map em { font-size: 11px; color: var(--link); font-weight: 600 }
+.m-bars { display: grid; gap: 10px; margin-top: 12px }
+.m-bars p { display: grid; grid-template-columns: 46px minmax(0, 1fr) 40px; align-items: center; gap: 8px; font-size: 12px; color: var(--muted) }
+.m-bars i { height: 12px; border-radius: 6px }
+.m-bars .b1 { width: 100%; background: color-mix(in srgb, var(--muted) 45%, transparent) }
+.m-bars .b2 { width: 7.3%; min-width: 6px; background: linear-gradient(90deg, var(--spark-1), var(--spark-3)) }
+.m-bars b { text-align: right; font: 600 13px var(--mono); color: var(--ink) }
+.m-cap { position: absolute; right: 12px; bottom: 9px; font-size: 11px; color: var(--muted) }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-e10"
-                aria-expanded="false"
-                aria-controls="we-e10"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2013 – 2014</span>
-                  <span class="work-role">Web Developer, E10 InfoTech</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-e10" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="http://e10.in/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> e10.in</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Built and wired UI components for client projects: templates, stylesheets, and script hooks per integration contract</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Tracked tasks to client acceptance: bugfix SLAs, enhancement requests, and regression checks before sign-off</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Authored page-level and component mockups to reduce ambiguity between stakeholders and build</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Performed sustaining engineering on shipped code: incident fixes, minor refactors, and browser coverage</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+/* Story rows */
+.alt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; overflow: hidden }
+.alt .mock { border-radius: 0 }
+.alt.flip .mock { order: 2 }
+.a-body { padding: 24px; align-self: center; min-width: 0 }
+.a-body h3 { font-size: 23px; font-weight: 800; line-height: 1.15; letter-spacing: -.01em; margin-top: 6px }
+.a-body .name { font-weight: 600; color: var(--link); margin-top: 6px; font-size: 15px }
+.a-body p:not(.idx):not(.chips):not(.name) { font-size: 15px; line-height: 1.5; margin-top: 8px }
 
-          <div class="accordion-item work-accordion-item reveal-child">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#we-ambit"
-                aria-expanded="false"
-                aria-controls="we-ambit"
-              >
-                <i class="bi bi-briefcase work-accordion-lead" aria-hidden="true"></i>
-                <span class="work-accordion-meta">
-                  <span class="work-period"><i class="bi bi-calendar3" aria-hidden="true"></i>2012 – 2013</span>
-                  <span class="work-role">Trainee Developer, Aambit Softwares</span>
-                </span>
-              </button>
-            </h3>
-            <div id="we-ambit" class="accordion-collapse collapse" data-bs-parent="#workAccordion">
-              <div class="accordion-body">
-                <p class="work-company-link mb-3">
-                  <a href="http://www.ambitsoftware.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> ambitsoftware.com</a>
-                </p>
-                <p class="work-resp-label"><i class="bi bi-list-check" aria-hidden="true"></i> Responsibilities</p>
-                <ul class="work-resp-list">
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Contributed front-end code within a Scrum cadence: daily stand-ups, sprint commitments, and incremental delivery</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Participated across the SDLC: clarifying requirements, build, basic test support, and deployment awareness</span></li>
-                  <li><i class="bi bi-chevron-right work-resp-icon" aria-hidden="true"></i><span>Applied team conventions for layout, styling structure, and reusable UI patterns under senior review</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section pt-0 reveal ship-zone" id="impact" data-reveal>
-      <div class="container">
-        <p class="section-label"><i class="bi bi-globe2" aria-hidden="true"></i> Domains &amp; impact</p>
-        <h2>Featured sectors — production systems</h2>
-        <p class="section-intro">
-          Representative domains where <strong>performance, clarity, and long-running workflows</strong> matter:
-          consumer travel, product data / governance, and logistics operations — always with an eye on sustainable
-          frontend architecture.
-        </p>
-        <div class="ship-panel">
-          <div class="row g-4 stagger-row align-items-stretch">
-            <div class="col-12 col-md-6 col-lg-4">
-              <article class="ship-card ship-card--travel reveal-child">
-                <header class="ship-card__header">
-                  <span class="ship-card__icon" aria-hidden="true"
-                    ><i class="bi bi-airplane-fill"></i
-                  ></span>
-                  <span class="ship-card__eyebrow">Travel · B2C</span>
-                </header>
-                <h3 class="ship-card__title">Search, pricing &amp; booking</h3>
-                <p class="ship-card__org">
-                  <i class="bi bi-building" aria-hidden="true"></i> Musafir
-                </p>
-                <p class="ship-card__lede">
-                  High-traffic consumer flows — seasonal load, conversion paths, and resilient UI
-                  under real search and booking pressure.
-                </p>
-                <ul class="ship-card__list">
-                  <li>
-                    <i class="bi bi-check2" aria-hidden="true"></i
-                    ><span>SPA surfaces for discovery → checkout with performance discipline</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-check2" aria-hidden="true"></i
-                    ><span>Complex fare and itinerary UX with edge-case handling at scale</span>
-                  </li>
-                </ul>
-                <div class="ship-card__tags" aria-label="Context">
-                  <span class="ship-tag">High-traffic UX</span>
-                  <span class="ship-tag">Latency-sensitive UI</span>
-                </div>
-              </article>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <article class="ship-card ship-card--data reveal-child">
-                <header class="ship-card__header">
-                  <span class="ship-card__icon" aria-hidden="true"
-                    ><i class="bi bi-box-seam-fill"></i
-                  ></span>
-                  <span class="ship-card__eyebrow">Product data · B2B</span>
-                </header>
-                <h3 class="ship-card__title">Catalogs, workflows &amp; governance</h3>
-                <p class="ship-card__org">
-                  <i class="bi bi-building" aria-hidden="true"></i> Verdantis / Codifyd / Bluemeteor
-                </p>
-                <p class="ship-card__lede">
-                  Data-heavy enterprise UIs — attribute-rich catalogs, approvals, and long-running
-                  workflows with strict validation and consistency.
-                </p>
-                <ul class="ship-card__list">
-                  <li>
-                    <i class="bi bi-check2" aria-hidden="true"></i
-                    ><span>Tables, forms, and bulk actions tuned for analyst and ops users</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-check2" aria-hidden="true"></i
-                    ><span>Architecture for multi-module apps and sustained feature delivery</span>
-                  </li>
-                </ul>
-                <div class="ship-card__tags" aria-label="Context">
-                  <span class="ship-tag">Multi-module web apps</span>
-                  <span class="ship-tag">UX &amp; sustainment</span>
-                </div>
-              </article>
-            </div>
-            <div class="col-12 col-md-6 offset-md-3 offset-lg-0 col-lg-4">
-              <article class="ship-card ship-card--logistics reveal-child">
-                <header class="ship-card__header">
-                  <span class="ship-card__icon" aria-hidden="true"
-                    ><i class="bi bi-truck-front-fill"></i
-                  ></span>
-                  <span class="ship-card__eyebrow">Logistics · Ops + customer</span>
-                </header>
-                <h3 class="ship-card__title">Shipments, visibility &amp; coordination</h3>
-                <p class="ship-card__org">
-                  <i class="bi bi-building" aria-hidden="true"></i> Forto · Berlin
-                </p>
-                <p class="ship-card__lede">
-                  Operational and customer-facing logistics tech — dashboards and journeys where
-                  clarity and stateful UI reduce friction across handoffs.
-                </p>
-                <ul class="ship-card__list">
-                  <li>
-                    <i class="bi bi-check2" aria-hidden="true"></i
-                    ><span>Dashboards and workflows across roles (ops, customer, partner)</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-check2" aria-hidden="true"></i
-                    ><span>Real-time-ish surfaces: status, exceptions, and next-best actions</span>
-                  </li>
-                </ul>
-                <div class="ship-card__tags" aria-label="Context">
-                  <span class="ship-tag">Enterprise delivery</span>
-                  <span class="ship-tag">Cross-functional UI</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* Sectors: index + detail */
+.d-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 22px; align-items: start }
+.d-list { border-top: 1px solid var(--line); list-style: none; margin: 0; padding: 0 }
+.d-list li { border-bottom: 1px solid var(--line) }
+.d-tab { all: unset; cursor: pointer; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 6px; font: 700 clamp(22px, 3vw, 28px)/1.1 var(--display); color: color-mix(in srgb, var(--ink) 40%, transparent); transition: color .2s, padding .2s }
+.d-tab .mono { color: var(--muted); font-weight: 400 }
+.d-tab .ic { margin-left: auto; opacity: 0; transform: translateX(-6px); transition: .2s }
+.d-tab:hover, .d-tab[aria-selected="true"] { color: var(--ink); padding-left: 12px }
+.d-tab[aria-selected="true"] .mono { color: var(--c) }
+.d-tab[aria-selected="true"] .ic { opacity: 1; transform: none; color: var(--c) }
+.d-tab:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px }
+.d-pane { position: sticky; top: 20px; background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; padding: 26px; box-shadow: 0 16px 40px color-mix(in srgb, var(--c) 14%, transparent); border-top: 4px solid var(--c); animation: d-in .3s ease }
+@keyframes d-in { from { opacity: 0; transform: translateY(6px) } }
+.d-ic { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 13px; color: #fff; background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 60%, #1e1b4b)) }
+.d-tag { color: var(--muted); margin-top: 16px }
+.d-pane h3 { font-size: 24px; font-weight: 700; line-height: 1.25; margin-top: 4px }
+.d-co { color: var(--link); font-weight: 600; margin-top: 2px }
+.d-pane > p:not(.d-tag):not(.d-co) { margin-top: 10px; font-size: 16px }
+.d-pane ul { display: grid; gap: 8px; margin-top: 14px; font-size: 15px }
+.d-pane li { display: flex; gap: 8px; align-items: flex-start; line-height: 1.4 }
+.d-pane li .ic { color: var(--c); margin-top: 1px }
 
-    <section class="section pt-0 reveal" id="contact" data-reveal>
-      <div class="container">
-        <div class="contact-panel reveal-child">
-          <p class="section-label mb-2"><i class="bi bi-chat-heart" aria-hidden="true"></i> Contact</p>
-          <h2 class="h3 mb-2">Let’s talk — architecture, AI copilots, or delivery</h2>
-          <p class="text-muted-custom mb-3">
-            Open to conversations with <strong>recruiters</strong>, <strong>founders</strong>, and <strong>engineering
-            leaders</strong> who need senior frontend direction: Angular at scale, intelligent product UX, and AI features
-            that ship without compromising reliability.
-          </p>
-          <div class="social-row">
-            <a
-              class="social-btn"
-              href="https://in.linkedin.com/in/akkiparekh"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn</a
-            >
-            <a
-              class="social-btn"
-              href="https://github.com/AnkitParekh007"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="bi bi-github" aria-hidden="true"></i> GitHub</a
-            >
-            <a
-              class="social-btn"
-              href="#"
-              data-bs-toggle="modal"
-              data-bs-target="#resumeDownloadModal"
-              ><i class="bi bi-download" aria-hidden="true"></i> Download résumé</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
+.feat { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px }
+.repo { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 16px; color: inherit; text-decoration: none; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; transition: border-color .15s }
+.repo:hover { border-color: var(--link) }
+.repo-top { display: flex; justify-content: space-between; align-items: center; color: var(--link); margin-bottom: 4px }
+.repo-top .ic:last-child { color: var(--muted) }
+.repo b { font: 500 15px/1.3 var(--mono); color: var(--ink); overflow-wrap: anywhere }
+.repo p { font-size: 14.5px; line-height: 1.45; flex: 1 }
+.repo.big { grid-row: span 2; gap: 8px; padding: 20px; background: linear-gradient(150deg, color-mix(in srgb, var(--spark-2) 9%, var(--sheet)), var(--sheet) 60%) }
+.repo.big small { color: var(--link) }
+.repo.big b { font-size: 21px }
+.repo.big p { font-size: 16.5px; line-height: 1.5 }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px }
+.tags em { padding: 2px 8px; border-radius: 6px; font-style: normal; font-size: 12.5px; line-height: 1.5; color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent) }
 
-    <footer class="site-footer reveal" data-reveal>
-      <div class="container">
-        <p>
-          <i class="bi bi-lightning-charge-fill footer-icon" aria-hidden="true"></i> © Ankit Parekh · AI Frontend Architect ·
-          Enterprise Angular · Intelligent UI systems.
-        </p>
-      </div>
-    </footer>
+.note { font-size: 15px; margin-top: 16px }
+.note a { display: inline-flex; align-items: center; gap: 6px; color: var(--link); text-underline-offset: 3px }
 
-    <div class="modal fade" id="resumeDownloadModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title h5" id="resumeModalLabel"><i class="bi bi-file-earmark-person" aria-hidden="true"></i> Download résumé</h2>
-            <button type="button" class="btn-close btn-close-themed" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <a class="download-tile" href="AnkitParekh_Resume.pdf" download="AnkitParekh_Resume.pdf"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> PDF</a>
-              </div>
-              <div class="col-sm-6">
-                <a class="download-tile" href="AnkitParekh_Resume.docx" download="AnkitParekh_Resume.docx"><i class="bi bi-file-earmark-word" aria-hidden="true"></i> Word</a>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg" aria-hidden="true"></i> Close</button>
-          </div>
-        </div>
+.full { padding-block: 104px; border-bottom: 1px solid var(--line) }
+.head { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; margin-bottom: 24px }
+.tile { flex: none; width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; color: var(--link); background: color-mix(in srgb, var(--link) 12%, transparent) }
+.tile svg, .cert svg, .btn svg { display: block }
+.ic { flex: none; display: block }
+
+.edu-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px }
+.edu-card { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 20px }
+.edu-card .when { color: var(--link) }
+.edu-card h3 { font-size: 18px; font-weight: 700; line-height: 1.25; margin-top: 8px }
+.edu-card p { font-size: 15.5px; margin-top: 6px }
+
+.cert-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden }
+.cert { display: flex; align-items: center; gap: 14px; padding: 14px 16px; height: 100%; background: var(--sheet); color: var(--ink); text-decoration: none }
+.cert .badge { flex: none; color: var(--link) }
+.cert .go { flex: none; color: var(--muted); margin-left: auto }
+.cert b { display: block; font-weight: 500; font-size: 15.5px; line-height: 1.3 }
+.cert small { display: block; font-size: 13px; color: var(--muted); margin-top: 2px }
+.cert:hover b, .cert:hover .go { color: var(--link) }
+.cert:focus-visible { outline-offset: -2px }
+
+.skills-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 32px }
+.skills-grid h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px }
+.s-card { margin-bottom: 28px; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; overflow: hidden }
+.s-live { display: flex; align-items: center; gap: 9px; padding: 12px 14px; font-weight: 600; font-size: 15px; color: var(--ink); background: color-mix(in srgb, var(--ok) 11%, transparent) }
+.dot { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); animation: live 2.4s infinite }
+@keyframes live { 70% { box-shadow: 0 0 0 7px transparent } 100% { box-shadow: 0 0 0 0 transparent } }
+.s-rows div { display: grid; gap: 1px; padding: 10px 14px; border-top: 1px solid var(--line) }
+.s-rows dt { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted) }
+.s-rows dt .ic { color: var(--link) }
+.s-rows dd { padding-left: 22px; font-size: 15px; font-weight: 500; color: var(--ink) }
+.ways { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; overflow: hidden }
+.ways li { display: flex; align-items: center; gap: 10px; padding: 9.5px 14px; border-top: 1px solid var(--line); font-size: 15px; font-weight: 500; color: var(--ink) }
+.ways li:first-child { border-top: 0 }
+.ways .ic { color: var(--link) }
+.bento6 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px }
+.c3 { grid-column: span 3 }
+.c2 { grid-column: span 2 }
+.b-card { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0 }
+.b-card h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font: 700 15px/1.3 var(--display); color: var(--ink) }
+.b-card h4 .ic { color: var(--link) }
+.b-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px; font-size: 14.5px; color: var(--ink) }
+.b-grid li { display: flex; align-items: center; gap: 8px; min-width: 0; line-height: 1.3 }
+.b-wall { grid-column: 1 / -1; padding: 0; overflow: hidden }
+.b-wall h4 { margin: 0 0 12px; padding: 16px 16px 0 }
+.ai-wall { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line) }
+.ai-wall li { display: grid; justify-items: center; align-content: start; gap: 10px; padding: 20px 10px; text-align: center; font-size: 14px; line-height: 1.3; font-weight: 500; color: var(--ink); border-left: 1px solid var(--line); min-width: 0 }
+.ai-wall li:nth-child(4n+1) { border-left: 0 }
+.ai-wall li:nth-child(n+5) { border-top: 1px solid var(--line) }
+.b-icons { display: grid; gap: 8px; font-size: 14.5px; line-height: 1.3; color: var(--ink) }
+.b-icons li { display: flex; align-items: center; gap: 8px; min-width: 0 }
+.b-icons .ic, .b-grid .ic { color: var(--muted) }
+
+/* Contact footer: pitch + contact rows */
+.close { position: relative; padding-block: 120px 32px; background: radial-gradient(50% 60% at 50% 100%, var(--glow-1), transparent 72%) }
+.v3-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center }
+.v3-kick { color: var(--link) }
+.close h2 { font-size: clamp(44px, 6vw, 64px); font-weight: 800; letter-spacing: -.035em; line-height: 1; margin-top: 8px }
+.v3-left > p { margin-top: 16px; font-size: 16.5px }
+.v3-tags { list-style: none; padding: 0; margin-block: 0; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px }
+.v3-tags li { padding: 4px 11px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--link); background: color-mix(in srgb, var(--link) 10%, transparent) }
+.v3-rows { display: grid; border: 1px solid var(--line); border-radius: 18px; background: var(--sheet); overflow: hidden }
+.v3-row { display: flex; align-items: center; gap: 14px; padding: 16px 20px; color: var(--ink); text-decoration: none; transition: background .2s }
+.v3-row + .v3-row { border-top: 1px solid var(--line) }
+.v3-row:hover { background: color-mix(in srgb, var(--link) 6%, var(--sheet)) }
+.v3-row > .ic { margin-left: auto; color: var(--muted); transition: transform .2s, color .2s }
+.v3-row:hover > .ic { color: var(--link); transform: translate(2px, -2px) }
+.v3-ic { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--link); background: color-mix(in srgb, var(--link) 10%, transparent) }
+.v3-row:first-child .v3-ic { color: #fff; background: linear-gradient(135deg, var(--btn-1), var(--btn-2)) }
+.v3-t { display: grid } .v3-t b { font-size: 16.5px } .v3-t small { font-size: 13.5px; color: var(--muted) }
+.f-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-top: 40px; font-size: 13px; color: var(--muted) }
+.f-legal.rule { padding-top: 18px; border-top: 1px solid var(--line) }
+.f-legal a { display: inline-flex; align-items: center; gap: 5px; color: inherit; text-decoration: none }
+.f-legal a:hover { color: var(--link) }
+.close a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 8px }
+@media (max-width: 760px) {
+  .close { padding-block: 88px 24px }
+  .v3-grid { grid-template-columns: minmax(0, 1fr); gap: 26px }
+}
+
+/* Scroll-progress table of contents: a fixed left rail on wide screens, a floating button below 1536px. */
+.toc { display: none; position: fixed; z-index: 30; top: 96px; left: max(16px, calc(50% - 46rem)); width: 176px }
+.toc ul { position: relative; display: grid; gap: 4px }
+.toc-rail, .toc-fill { position: absolute; left: 5.5px; top: 15px; bottom: 15px; width: 1px; background: var(--line) }
+.toc-fill { background: linear-gradient(var(--spark-1), var(--spark-3)); transform: scaleY(0); transform-origin: top }
+.toc a { position: relative; display: flex; align-items: center; gap: 12px; padding-block: 4px; font-size: 13.5px; color: var(--body); text-decoration: none; transition: color .2s }
+.toc a::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line); background: var(--paper); transition: background .2s, border-color .2s }
+.toc a:hover { color: var(--link) }
+.toc a.done::before { border-color: var(--link) }
+.toc a[aria-current="true"] { color: var(--link); font-weight: 600 }
+.toc a[aria-current="true"]::before { border-color: var(--link); background: var(--link); box-shadow: 0 0 8px color-mix(in srgb, var(--link) 50%, transparent) }
+.toc-btn { position: fixed; z-index: 31; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; color: var(--on-btn); background: linear-gradient(135deg, var(--btn-1), var(--btn-2)); box-shadow: 0 6px 18px var(--glow-1); cursor: pointer }
+@media (min-width: 1536px) {
+  .toc { display: block }
+  .toc-btn { display: none }
+}
+@media (max-width: 1535px) {
+  .toc.open { display: block; top: auto; left: auto; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(82px + env(safe-area-inset-bottom, 0px)); width: 200px; padding: 12px 16px; max-height: calc(100vh - 120px); overflow-y: auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 30px var(--glow-1) }
+  .toc.open a::before { background: var(--sheet) }
+  .toc.open a[aria-current="true"]::before { background: var(--link) }
+}
+
+@media (max-width: 1040px) {
+  .w-feat > .lead { grid-column: 1 / -1 }
+  .w-feat > :nth-child(2), .w-feat > :nth-child(3) { grid-column: span 6 }
+}
+@media (max-width: 980px) {
+  .alt { grid-template-columns: minmax(0, 1fr) }
+  .alt.flip .mock { order: 0 }
+}
+@media (max-width: 860px) {
+  .edu-grid, .skills-grid, .a-quote { grid-template-columns: minmax(0, 1fr) }
+  .full { padding-block: 72px }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 72px }
+  .row > h2 { position: static }
+  .row > h2 .tile { margin-bottom: 10px }
+.row > h2 small { display: inline; margin-left: 8px }
+}
+@media (max-width: 760px) {
+  .d-wrap { grid-template-columns: minmax(0, 1fr) }
+  .d-tab { font-size: 20px; padding-block: 11px }
+  .d-pane { position: static }
+}
+@media (max-width: 620px) {
+  body { font-size: 16px }
+  .hero { padding-block: 40px 40px }
+  .lede, .hi { font-size: 18px }
+  .top nav > a { display: none }
+  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .proof li, .proof li + li { padding: 16px 12px 16px 0; border-left: 0; font-size: 15.5px }
+  .proof li:nth-child(even) { border-left: 1px solid var(--line); padding-left: 16px }
+  .proof li:nth-child(n+3) { border-top: 1px solid var(--line) }
+  .cert-list, .feat, .w-feat { grid-template-columns: minmax(0, 1fr) }
+  .w-feat > *, .w-feat > :nth-child(2), .w-feat > :nth-child(3), .w-feat > .lead { grid-column: auto }
+  .bento6 { grid-template-columns: minmax(0, 1fr) }
+  .bento6 > * { grid-column: auto }
+  .ai-wall { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .ai-wall li:nth-child(odd) { border-left: 0 }
+  .ai-wall li:nth-child(n+3) { border-top: 1px solid var(--line) }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto }
+  .caret, .dots i, .dot { animation: none }
+  .toc a, .toc a::before, .repo { transition: none }
+  .btn:hover { transform: none }
+}
+
+/* Card system: tinted glow with a glass edge. One shadow language for every card. */
+:root {
+  --card-radius: 16px;
+  --card-wash: linear-gradient(180deg, color-mix(in srgb, var(--sheet) 92%, var(--spark-2)), var(--sheet) 40%);
+  --card-edge: color-mix(in srgb, var(--spark-2) 16%, var(--line));
+  --card-hi: inset 0 1px 0 rgba(255, 255, 255, .7);
+  --card-shadow: var(--card-hi), 0 1px 2px color-mix(in srgb, var(--spark-2) 10%, transparent), 0 12px 32px -10px color-mix(in srgb, var(--spark-2) 26%, transparent);
+  --card-shadow-hover: var(--card-hi), 0 0 0 4px color-mix(in srgb, var(--spark-2) 10%, transparent), 0 22px 48px -12px color-mix(in srgb, var(--spark-3) 38%, transparent);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --card-wash: linear-gradient(180deg, color-mix(in srgb, var(--sheet) 82%, var(--spark-2)), var(--sheet) 55%);
+  --card-edge: color-mix(in srgb, var(--spark-2) 22%, var(--line));
+  --card-hi: inset 0 1px 0 rgba(255, 255, 255, .08);
+  --card-shadow: var(--card-hi), 0 12px 32px -10px color-mix(in srgb, var(--spark-2) 40%, transparent);
+  --card-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, .12), 0 0 0 4px color-mix(in srgb, var(--spark-2) 16%, transparent), 0 22px 52px -12px color-mix(in srgb, var(--spark-3) 55%, transparent); } }
+:root[data-theme="dark"] {
+  --card-wash: linear-gradient(180deg, color-mix(in srgb, var(--sheet) 82%, var(--spark-2)), var(--sheet) 55%);
+  --card-edge: color-mix(in srgb, var(--spark-2) 22%, var(--line));
+  --card-hi: inset 0 1px 0 rgba(255, 255, 255, .08);
+  --card-shadow: var(--card-hi), 0 12px 32px -10px color-mix(in srgb, var(--spark-2) 40%, transparent);
+  --card-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, .12), 0 0 0 4px color-mix(in srgb, var(--spark-2) 16%, transparent), 0 22px 52px -12px color-mix(in srgb, var(--spark-3) 55%, transparent); }
+.w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows {
+  background: var(--card-wash); border: 1px solid var(--card-edge); border-radius: var(--card-radius); box-shadow: var(--card-shadow);
+  transition: transform .25s cubic-bezier(.2, .7, .2, 1), box-shadow .25s, border-color .25s }
+.cert-list { border-color: var(--card-edge); border-radius: var(--card-radius); box-shadow: var(--card-shadow) }
+.c-feat { border-radius: var(--card-radius); box-shadow: var(--card-shadow) }
+.a-quote blockquote { border-radius: var(--card-radius); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 18px 40px -14px color-mix(in srgb, var(--spark-3) 55%, transparent) }
+.d-pane { box-shadow: var(--card-hi), 0 14px 36px -10px color-mix(in srgb, var(--c) 32%, transparent) }
+.w-card:hover, .repo:hover, .b-card:hover, .alt:hover, .edu-card:hover {
+  transform: translateY(-4px); box-shadow: var(--card-shadow-hover); border-color: color-mix(in srgb, var(--spark-2) 45%, var(--line)) }
+@media (prefers-reduced-motion: reduce) {
+  .w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows { transition: none }
+  .w-card:hover, .repo:hover, .b-card:hover, .alt:hover, .edu-card:hover { transform: none }
+}
+
+/* Review fixes */
+.skip { position: absolute; left: 16px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 10px; background: var(--sheet); color: var(--ink); font-weight: 600; text-decoration: none; box-shadow: var(--card-shadow) }
+.skip:focus { top: 12px }
+.edu-card { max-width: 440px }
+#courses .cert-list.clip li:nth-child(n+5) { display: none }
+.more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--card-edge); background: var(--sheet); color: var(--link); font: 600 14.5px var(--text); cursor: pointer }
+.more[aria-expanded="true"] .ic { transform: rotate(180deg) }
+.more:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
+.repo.big { grid-column: 1 / -1; grid-row: auto }
+.repo-meta { color: var(--muted); font-size: 12px }
+.note { display: flex; flex-wrap: wrap; gap: 8px 22px }
+@media (min-width: 761px) and (max-width: 1180px) {
+  .c-early summary { grid-template-columns: 96px minmax(0, 1.35fr) minmax(0, 1fr) 16px }
+  .c-early summary em { display: none }
+}
+@media print {
+  .c-early summary { grid-template-columns: 96px minmax(0, 1.35fr) minmax(0, 1fr) 16px }
+  .c-early summary em { display: none }
+  .d-wrap { display: block }
+  .d-panes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+  .d-pane { position: static; animation: none }
+  .d-pane[hidden] { margin-top: 0 }
+  .skip, header.top, .toc, .toc-btn, .cta, .more, .dots, .caret, .d-list { display: none !important }
+  body { background: #fff }
+  .row, .close { padding-block: 22px; break-inside: avoid-page }
+  .w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows, .cert-list, .c-feat, .d-pane { box-shadow: none !important; background: #fff !important }
+  .type > span:last-child { display: none } .type .sizer { visibility: visible }
+  .d-pane[hidden] { display: block !important; margin-top: 12px }
+}
+</style>
+<style>body { margin: 0 } [hidden] { display: none !important }</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol><symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></symbol><symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></symbol><symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol><symbol id="i-folder-git-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5" /><circle cx="13" cy="12" r="2" /><path d="M18 19c-2.8 0-5-2.2-5-5v8" /><circle cx="20" cy="19" r="2" /></symbol><symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></symbol><symbol id="i-layout-dashboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1" /><rect width="7" height="5" x="14" y="3" rx="1" /><rect width="7" height="9" x="14" y="12" rx="1" /><rect width="7" height="5" x="3" y="16" rx="1" /></symbol><symbol id="i-flask-conical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></symbol><symbol id="i-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" /><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" /><circle cx="12" cy="12" r="2" /><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" /><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" /></symbol><symbol id="i-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18" /><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" /></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></symbol><symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></symbol><symbol id="i-code-xml" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></symbol><symbol id="b-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol><symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol><symbol id="i-circle-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></symbol><symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></symbol><symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></symbol><symbol id="i-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" /></symbol><symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></symbol><symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-brain-circuit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M9 13a4.5 4.5 0 0 0 3-4" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M12 13h4" /><path d="M12 18h6a2 2 0 0 1 2 2v1" /><path d="M12 8h8" /><path d="M16 8V5a2 2 0 0 1 2-2" /><circle cx="16" cy="13" r=".5" /><circle cx="18" cy="3" r=".5" /><circle cx="20" cy="21" r=".5" /><circle cx="20" cy="8" r=".5" /></symbol><symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="b-angular" viewBox="0 0 24 24" fill="currentColor"><path d="M16.712 17.711H7.288l-1.204 2.916L12 24l5.916-3.373-1.204-2.916ZM14.692 0l7.832 16.855.814-12.856L14.692 0ZM9.308 0 .662 3.999l.814 12.856L9.308 0Zm-.405 13.93h6.198L12 6.396 8.903 13.93Z"/></symbol><symbol id="b-typescript" viewBox="0 0 24 24" fill="currentColor"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></symbol><symbol id="b-reactivex" viewBox="0 0 24 24" fill="currentColor"><path d="M7.402 2.343c-2.224.984-3.615 2.583-4.4 3.747-.852 1.268-1.184 2.319-1.184 2.328-.002.036.005-.017 0 .019-.246.7-.473 1.798-.473 1.807-.265 1.344-.142 2.593-.142 2.612l.029.246a9.58 9.58 0 01.132-1.012c.019-.133.37-2.016 1.694-3.511.142-.218 1.675-2.233 4.495-2.233.606 0 1.24.094 1.874.283h.019c.038.01.87.313 1.173.464.284.142.786.36.795.36h.02c2.715 1.325 5.062 1.75 5.081 1.76.672.114 1.278.17 1.817.17 1.079 0 1.855-.236 2.262-.69.237-.26.307-.559.293-.814.019-.985-.785-2.044-1.467-2.754a10.868 10.868 0 00-1.542-1.344c-2.044-1.514-4.23-2.28-6.52-2.28-2.347.009-3.937.832-3.956.842zm7.419 2.659c.284 0 .511.227.511.51a.509.509 0 01-.511.512.509.509 0 01-.511-.511c0-.284.227-.511.511-.511zm-6.605-1.94c.075 0 .123.019.142.019l3.227 1.003-.123.255-1.543-.482c-.548-.17-1.12-.351-1.656-.52-.01 0-.028-.01-.047-.01-.02 0-.048 0-.067.01-.293.075-1.097.359-1.334.785a.481.481 0 00-.038.378c0 .01.17.54.596 1.088l2.14-.104 1.428-.066-.142.293-3.549.17c-.53-.643-.738-1.286-.738-1.286C6.181 3.554 8.083 3.07 8.083 3.07c.045-.001.09-.006.133-.01zm11.223 15.747c2.177-.946 3.104-2.584 3.104-2.584 2.035-2.772 1.344-5.697 1.344-5.697-1.296 2.82-2.48 3.596-2.48 3.596 3.19-4.854.02-7.788.02-7.788C22.723 9.1 21 12.468 21 12.468c-1.448 3.048-3.502 4.136-3.502 4.136 2.29.426 3.975-1.117 3.975-1.117-3.284 3.549-6.842 3.379-6.842 3.379 1.495 1.675 3.738 1.533 3.738 1.533-2.934.69-5.688-.284-7.95-2.167-.425-.35-.832-.73-1.21-1.136-.144-.15-.28-.31-.417-.464-.047 1.751 1.779 3.379 1.779 3.379-2.29-.947-3.34-3-3.34-3s-1.543-2.631-.426-5.631c1.107-2.962 4.419-3.626 4.504-3.645-.251-.117-.644-.292-.814-.367-.293-.142-1.145-.455-1.145-.455a6.397 6.397 0 00-1.798-.274c-2.792 0-4.277 2.11-4.277 2.11-1.316 1.477-1.628 3.388-1.628 3.388-.37 1.827.028 3.748.028 3.748s.038.151.048.217c.303.72.69 1.43 1.145 2.101 2.46 3.672 6.454 4.94 6.454 4.94 5.914 2.006 9.955-.946 9.955-.946 3.72-2.555 4.467-5.508 4.467-5.508-3.01 2.338-4.306 2.12-4.306 2.12zM1.307 14.948a12.545 12.545 0 01-.36-1.78c-.01-.098-.025-.207-.037-.302 0 0-.133-1.287.151-2.697 0 0 .01-.038.02-.095.036-.203.093-.407.132-.577.085-.37.208-.814.33-1.174 0 0 1.307-4.287 5.726-6.245 0 0 1.524-.805 3.823-.862-.162-.16-.349-.329-.51-.435-1.08-.72-2.688-.956-3.663.057-.293.303-.54.634-.814.937-.312.34-.69.624-1.126.785-.378.142-.757.114-1.145.18-.397.066-.804.208-1.126.464-.35.284-.492.662-.53 1.097-.038.341-.028.691-.047 1.032-.048 1.003-.37 1.287-1.089 1.845-.303.227-.558.53-.747.852-.568 1.003.34 2.044.388 3.057.01.208-.01.416-.085.615-.076.217-.228.36-.35.54-.171.236-.285.52-.237.813.047.293.199.568.34.823.275.455.616.862.975 1.25.012.016.038.04.054.052l-.073-.232z"/></symbol><symbol id="b-react" viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></symbol><symbol id="i-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" /><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" /><path d="M12 2v2" /><path d="M12 22v-2" /><path d="m17 20.66-1-1.73" /><path d="M11 10.27 7 3.34" /><path d="m20.66 17-1.73-1" /><path d="m3.34 7 1.73 1" /><path d="M14 12h8" /><path d="M2 12h2" /><path d="m20.66 7-1.73 1" /><path d="m3.34 17 1.73-1" /><path d="m17 3.34-1 1.73" /><path d="m11 13.73-4 6.93" /></symbol><symbol id="i-languages" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></symbol><symbol id="i-list-checks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4" /><path d="m3 7 2 2 4-4" /><path d="M13 6h8" /><path d="M13 12h8" /><path d="M13 18h8" /></symbol><symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol><symbol id="i-user-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><polyline points="16 11 18 13 22 9" /></symbol><symbol id="b-openai" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></symbol><symbol id="b-anthropic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></symbol><symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></symbol><symbol id="b-nestjs" viewBox="0 0 24 24" fill="currentColor"><path d="M14.131.047c-.173 0-.334.037-.483.087.316.21.49.49.576.806.007.043.019.074.025.117a.681.681 0 0 1 .013.112c.024.545-.143.614-.26.936-.18.415-.13.861.086 1.22a.74.74 0 0 0 .074.137c-.235-1.568 1.073-1.803 1.314-2.293.019-.428-.334-.713-.613-.911a1.37 1.37 0 0 0-.732-.21zM16.102.4c-.024.143-.006.106-.012.18-.006.05-.006.112-.012.161-.013.05-.025.1-.044.149-.012.05-.03.1-.05.149l-.067.142c-.02.025-.031.05-.05.075l-.037.055a2.152 2.152 0 0 1-.093.124c-.037.038-.068.081-.112.112v.006c-.037.031-.074.068-.118.1-.13.099-.278.173-.415.266-.043.03-.087.056-.124.093a.906.906 0 0 0-.118.099c-.043.037-.074.074-.111.118-.031.037-.068.08-.093.124a1.582 1.582 0 0 0-.087.13c-.025.05-.043.093-.068.142-.019.05-.037.093-.05.143a2.007 2.007 0 0 0-.043.155c-.006.025-.006.056-.012.08-.007.025-.007.05-.013.075 0 .05-.006.105-.006.155 0 .037 0 .074.006.111 0 .05.006.1.019.155.006.05.018.1.03.15.02.049.032.098.05.148.013.03.031.062.044.087l-1.426-.552c-.241-.068-.477-.13-.719-.186l-.39-.093c-.372-.074-.75-.13-1.128-.167-.013 0-.019-.006-.031-.006A11.082 11.082 0 0 0 8.9 2.855c-.378.025-.756.074-1.134.136a12.45 12.45 0 0 0-.837.174l-.279.074c-.092.037-.18.08-.266.118l-.205.093c-.012.006-.024.006-.03.012-.063.031-.118.056-.174.087a2.738 2.738 0 0 0-.236.118c-.043.018-.086.043-.124.062a.559.559 0 0 1-.055.03c-.056.032-.112.063-.162.094a1.56 1.56 0 0 0-.148.093c-.044.03-.087.055-.124.086-.006.007-.013.007-.019.013-.037.025-.08.056-.118.087l-.012.012-.093.074c-.012.007-.025.019-.037.025-.031.025-.062.056-.093.08-.006.013-.019.02-.025.025-.037.038-.074.069-.111.106-.007 0-.007.006-.013.012a1.742 1.742 0 0 0-.111.106c-.007.006-.007.012-.013.012a1.454 1.454 0 0 0-.093.1c-.012.012-.03.024-.043.036a1.374 1.374 0 0 1-.106.112c-.006.012-.018.019-.024.03-.05.05-.093.1-.143.15l-.018.018c-.1.106-.205.211-.317.304-.111.1-.229.192-.347.273a3.777 3.777 0 0 1-.762.421c-.13.056-.267.106-.403.149-.26.056-.527.161-.756.18-.05 0-.105.012-.155.018l-.155.037-.149.056c-.05.019-.099.044-.148.068-.044.031-.093.056-.137.087a1.011 1.011 0 0 0-.124.106c-.043.03-.087.074-.124.111-.037.043-.074.08-.105.124-.031.05-.068.093-.093.143a1.092 1.092 0 0 0-.087.142c-.025.056-.05.106-.068.161-.019.05-.037.106-.056.161-.012.05-.025.1-.03.15 0 .005-.007.012-.007.018-.012.056-.012.13-.019.167C.006 7.95 0 7.986 0 8.03a.657.657 0 0 0 .074.31v.006c.019.037.044.075.069.112.024.037.05.074.08.111.031.031.068.069.106.1a.906.906 0 0 0 .117.099c.149.13.186.173.378.272.031.019.062.031.1.05.006 0 .012.006.018.006 0 .013 0 .019.006.031a1.272 1.272 0 0 0 .08.298c.02.037.032.074.05.111.007.013.013.025.02.031.024.05.049.093.073.137l.093.13c.031.037.069.08.106.118.037.037.074.068.118.105 0 0 .006.006.012.006.037.031.074.062.112.087a.986.986 0 0 0 .136.08c.043.025.093.05.142.069a.73.73 0 0 0 .124.043c.007.006.013.006.025.012.025.007.056.013.08.019-.018.335-.024.65.026.762.055.124.328-.254.6-.688-.036.428-.061.93 0 1.079.069.155.44-.329.763-.862 4.395-1.016 8.405 2.02 8.826 6.31-.08-.67-.905-1.041-1.283-.948-.186.458-.502 1.047-1.01 1.413.043-.41.025-.83-.062-1.24a4.009 4.009 0 0 1-.769 1.562c-.588.043-1.177-.242-1.487-.67-.025-.018-.031-.055-.05-.08-.018-.043-.037-.087-.05-.13a.515.515 0 0 1-.037-.13c-.006-.044-.006-.087-.006-.137v-.093a.992.992 0 0 1 .031-.13c.013-.043.025-.086.044-.13.024-.043.043-.087.074-.13.105-.298.105-.54-.087-.682a.706.706 0 0 0-.118-.062c-.024-.006-.055-.018-.08-.025l-.05-.018a.847.847 0 0 0-.13-.031.472.472 0 0 0-.13-.019 1.01 1.01 0 0 0-.136-.012c-.031 0-.062.006-.093.006a.484.484 0 0 0-.137.019c-.043.006-.086.012-.13.024a1.068 1.068 0 0 0-.13.044c-.043.018-.08.037-.124.056-.037.018-.074.043-.118.062-1.444.942-.582 3.148.403 3.787-.372.068-.75.148-.855.229l-.013.012c.267.161.546.298.837.416.397.13.818.247 1.004.297v.006a5.996 5.996 0 0 0 1.562.112c2.746-.192 4.996-2.281 5.405-5.033l.037.161c.019.112.043.23.056.347v.006c.012.056.018.112.025.162v.024c.006.056.012.112.012.162.006.068.012.136.012.204v.1c0 .03.007.067.007.098 0 .038-.007.075-.007.112v.087c0 .043-.006.08-.006.124 0 .025 0 .05-.006.08 0 .044-.006.087-.006.137-.006.018-.006.037-.006.055l-.02.143c0 .019 0 .037-.005.056-.007.062-.019.118-.025.18v.012l-.037.174v.018l-.037.167c0 .007-.007.02-.007.025a1.663 1.663 0 0 1-.043.168v.018c-.019.062-.037.118-.05.174-.006.006-.006.012-.006.012l-.056.186c-.024.062-.043.118-.068.18-.025.062-.043.124-.068.18-.025.062-.05.117-.074.18h-.007c-.024.055-.05.117-.08.173a.302.302 0 0 1-.019.043c-.006.006-.006.013-.012.019a5.867 5.867 0 0 1-1.742 2.082c-.05.031-.099.069-.149.106-.012.012-.03.018-.043.03a2.603 2.603 0 0 1-.136.094l.018.037h.007l.26-.037h.006c.161-.025.322-.056.483-.087.044-.006.093-.019.137-.031l.087-.019c.043-.006.086-.018.13-.024.037-.013.074-.02.111-.031.62-.15 1.221-.354 1.798-.595a9.926 9.926 0 0 1-3.85 3.142c.714-.05 1.426-.167 2.114-.366a9.903 9.903 0 0 0 5.857-4.68 9.893 9.893 0 0 1-1.667 3.986 9.758 9.758 0 0 0 1.655-1.376 9.824 9.824 0 0 0 2.61-5.268c.21.98.272 1.99.18 2.987 4.474-6.241.371-12.712-1.346-14.416-.006-.013-.012-.019-.012-.031-.006.006-.006.006-.006.012 0-.006 0-.006-.007-.012 0 .074-.006.148-.012.223a8.34 8.34 0 0 1-.062.415c-.03.136-.068.273-.105.41-.044.13-.093.266-.15.396a5.322 5.322 0 0 1-.185.378 4.735 4.735 0 0 1-.477.688c-.093.111-.192.21-.292.31a3.994 3.994 0 0 1-.18.155l-.142.124a3.459 3.459 0 0 1-.347.241 4.295 4.295 0 0 1-.366.211c-.13.062-.26.118-.39.174a4.364 4.364 0 0 1-.818.223c-.143.025-.285.037-.422.05a4.914 4.914 0 0 1-.297.012 4.66 4.66 0 0 1-.422-.025 3.137 3.137 0 0 1-.421-.062 3.136 3.136 0 0 1-.415-.105h-.007c.137-.013.273-.025.41-.05a4.493 4.493 0 0 0 .818-.223c.136-.05.266-.112.39-.174.13-.062.248-.13.372-.204.118-.08.235-.161.347-.248.112-.087.217-.18.316-.279.105-.093.198-.198.291-.304.093-.111.18-.223.26-.334.013-.019.026-.044.038-.062.062-.1.124-.199.18-.298a4.272 4.272 0 0 0 .334-.775c.044-.13.075-.266.106-.403.025-.142.05-.278.062-.415.012-.142.025-.285.025-.421 0-.1-.007-.199-.013-.298a6.726 6.726 0 0 0-.05-.415 4.493 4.493 0 0 0-.092-.415c-.044-.13-.087-.267-.137-.397-.05-.13-.111-.26-.173-.384-.069-.124-.137-.248-.211-.366a6.843 6.843 0 0 0-.248-.34c-.093-.106-.186-.212-.285-.317a3.878 3.878 0 0 0-.161-.155c-.28-.217-.57-.421-.862-.607a1.154 1.154 0 0 0-.124-.062 2.415 2.415 0 0 0-.589-.26Z"/></symbol><symbol id="b-nodedotjs" viewBox="0 0 24 24" fill="currentColor"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></symbol><symbol id="b-python" viewBox="0 0 24 24" fill="currentColor"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></symbol><symbol id="b-openjdk" viewBox="0 0 24 24" fill="currentColor"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.55 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"/></symbol><symbol id="b-apachespark" viewBox="0 0 24 24" fill="currentColor"><path d="M10.812 0c-.425.013-.845.215-1.196.605a3.593 3.593 0 00-.493.722c-.355.667-.425 1.415-.556 2.143a551.9 551.9 0 00-.726 4.087c-.027.16-.096.227-.244.273C5.83 8.386 4.06 8.94 2.3 9.514c-.387.125-.773.289-1.114.506-1.042.665-1.196 1.753-.415 2.71.346.422.79.715 1.284.936 1.1.49 2.202.976 3.3 1.47.019.01.036.013.053.019h-.004l1.306.535c0 .023.002.045 0 .073-.2 2.03-.39 4.063-.58 6.095-.04.419-.012.831.134 1.23.317.87 1.065 1.148 1.881.701.372-.204.666-.497.937-.818 1.372-1.623 2.746-3.244 4.113-4.872.111-.133.205-.15.363-.098.349.117.697.231 1.045.347h.001c.02.012.045.02.073.03l.142.042c1.248.416 2.68.775 3.929 1.19.4.132.622.164 1.045.098.311-.048.592-.062.828-.236.602-.33.995-.957.988-1.682-.005-.427-.154-.813-.35-1.186-.82-1.556-1.637-3.113-2.461-4.666-.078-.148-.076-.243.037-.375 1.381-1.615 2.756-3.236 4.133-4.855.272-.32.513-.658.653-1.058.308-.878-.09-1.57-1-1.741a2.783 2.783 0 00-1.235.069c-1.974.521-3.947 1.041-5.918 1.57-.175.047-.26.015-.355-.144a353.08 353.08 0 00-2.421-4.018 4.61 4.61 0 00-.652-.849c-.371-.37-.802-.549-1.227-.536zm.172 3.703a.592.592 0 01.189.211c.87 1.446 1.742 2.89 2.609 4.338.07.118.135.16.277.121 1.525-.41 3.052-.813 4.579-1.217.367-.098.735-.193 1.103-.289a.399.399 0 01-.1.2c-1.259 1.48-2.516 2.962-3.779 4.438-.11.13-.12.22-.04.37.937 1.803 1.768 3.309 2.498 4.76l-3.696-1.019c-.538-.18-1.077-.358-1.615-.539-.163-.055-.25-.03-.36.1-1.248 1.488-2.504 2.97-3.759 4.454a.398.398 0 01-.18.132c.035-.378.068-.757.104-1.136.149-1.572.297-3.144.451-4.716-.03-.318.117-.405-.322-.545-1.493-.593-3.346-1.321-4.816-1.905a.595.595 0 01.24-.134c1.797-.57 3.595-1.14 5.394-1.705.127-.04.199-.092.211-.233.013-.148.05-.294.076-.441.241-1.363.483-2.726.726-4.088.068-.386.14-.771.21-1.157z"/></symbol><symbol id="b-docker" viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></symbol><symbol id="b-kubernetes" viewBox="0 0 24 24" fill="currentColor"><path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.143 5.143 0 0 0-.73 3.255l2.514-.725.002-.009zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.144 5.144 0 0 0-3.01 1.442l2.147 1.523.004-.002zm.76 2.75l.723.349.722-.347.18-.78-.5-.623h-.804l-.5.623.179.779zm1.5-3.095a.44.44 0 0 0 .7.336l.008.003 2.134-1.513a5.188 5.188 0 0 0-2.992-1.442l.148 2.615.002.001zm10.876 5.97l-5.773 7.181a1.6 1.6 0 0 1-1.248.594l-9.261.003a1.6 1.6 0 0 1-1.247-.596l-5.776-7.18a1.583 1.583 0 0 1-.307-1.34L2.1 5.573c.108-.47.425-.864.863-1.073L11.305.513a1.606 1.606 0 0 1 1.385 0l8.345 3.985c.438.209.755.604.863 1.073l2.062 8.955c.108.47-.005.963-.308 1.34zm-3.289-2.057c-.042-.01-.103-.026-.145-.034-.174-.033-.315-.025-.479-.038-.35-.037-.638-.067-.895-.148-.105-.04-.18-.165-.216-.216l-.201-.059a6.45 6.45 0 0 0-.105-2.332 6.465 6.465 0 0 0-.936-2.163c.052-.047.15-.133.177-.159.008-.09.001-.183.094-.282.197-.185.444-.338.743-.522.142-.084.273-.137.415-.242.032-.024.076-.062.11-.089.24-.191.295-.52.123-.736-.172-.216-.506-.236-.745-.045-.034.027-.08.062-.111.088-.134.116-.217.23-.33.35-.246.25-.45.458-.673.609-.097.056-.239.037-.303.033l-.19.135a6.545 6.545 0 0 0-4.146-2.003l-.012-.223c-.065-.062-.143-.115-.163-.25-.022-.268.015-.557.057-.905.023-.163.061-.298.068-.475.001-.04-.001-.099-.001-.142 0-.306-.224-.555-.5-.555-.275 0-.499.249-.499.555l.001.014c0 .041-.002.092 0 .128.006.177.044.312.067.475.042.348.078.637.056.906a.545.545 0 0 1-.162.258l-.012.211a6.424 6.424 0 0 0-4.166 2.003 8.373 8.373 0 0 1-.18-.128c-.09.012-.18.04-.297-.029-.223-.15-.427-.358-.673-.608-.113-.12-.195-.234-.329-.349-.03-.026-.077-.062-.111-.088a.594.594 0 0 0-.348-.132.481.481 0 0 0-.398.176c-.172.216-.117.546.123.737l.007.005.104.083c.142.105.272.159.414.242.299.185.546.338.743.522.076.082.09.226.1.288l.16.143a6.462 6.462 0 0 0-1.02 4.506l-.208.06c-.055.072-.133.184-.215.217-.257.081-.546.11-.895.147-.164.014-.305.006-.48.039-.037.007-.09.02-.133.03l-.004.002-.007.002c-.295.071-.484.342-.423.608.061.267.349.429.645.365l.007-.001.01-.003.129-.029c.17-.046.294-.113.448-.172.33-.118.604-.217.87-.256.112-.009.23.069.288.101l.217-.037a6.5 6.5 0 0 0 2.88 3.596l-.09.218c.033.084.069.199.044.282-.097.252-.263.517-.452.813-.091.136-.185.242-.268.399-.02.037-.045.095-.064.134-.128.275-.034.591.213.71.248.12.556-.007.69-.282v-.002c.02-.039.046-.09.062-.127.07-.162.094-.301.144-.458.132-.332.205-.68.387-.897.05-.06.13-.082.215-.105l.113-.205a6.453 6.453 0 0 0 4.609.012l.106.192c.086.028.18.042.256.155.136.232.229.507.342.84.05.156.074.295.145.457.016.037.043.09.062.129.133.276.442.402.69.282.247-.118.341-.435.213-.71-.02-.039-.045-.096-.065-.134-.083-.156-.177-.261-.268-.398-.19-.296-.346-.541-.443-.793-.04-.13.007-.21.038-.294-.018-.022-.059-.144-.083-.202a6.499 6.499 0 0 0 2.88-3.622c.064.01.176.03.213.038.075-.05.144-.114.28-.104.266.039.54.138.87.256.154.06.277.128.448.173.036.01.088.019.13.028l.009.003.007.001c.297.064.584-.098.645-.365.06-.266-.128-.537-.423-.608zM16.4 9.701l-1.95 1.746v.005a.44.44 0 0 0 .173.757l.003.01 2.526.728a5.199 5.199 0 0 0-.108-1.674A5.208 5.208 0 0 0 16.4 9.7zm-4.013 5.325a.437.437 0 0 0-.404-.232.44.44 0 0 0-.372.233h-.002l-1.268 2.292a5.164 5.164 0 0 0 3.326.003l-1.27-2.296h-.01zm1.888-1.293a.44.44 0 0 0-.27.036.44.44 0 0 0-.214.572l-.003.004 1.01 2.438a5.15 5.15 0 0 0 2.081-2.615l-2.6-.44-.004.005z"/></symbol><symbol id="b-amazonwebservices" viewBox="0 0 24 24" fill="currentColor"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></symbol><symbol id="i-git-branch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" /></symbol><symbol id="b-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol><symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></symbol><symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></symbol><symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol><symbol id="i-drafting-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.99 6.74 1.93 3.44" /><path d="M19.136 12a10 10 0 0 1-14.271 0" /><path d="m21 21-2.16-3.84" /><path d="m3 21 8.02-14.26" /><circle cx="12" cy="5" r="2" /></symbol><symbol id="i-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></symbol><symbol id="i-building-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></symbol><symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol><symbol id="i-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></symbol><symbol id="i-graduation-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol><symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="10" y="6" rx="1"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol></svg>
+
+<a class="skip" href="#top">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">Ankit Parekh</a>
+  <nav aria-label="Sections">
+    <a href="#work">Experience</a>
+    <a href="#selected">Selected work</a>
+    <a href="#stack">Skills</a>
+    <a href="#contact">Contact</a>
+    <div class="res">
+      <button class="res-btn" id="resBtn" type="button" aria-expanded="false" aria-controls="resMenu">Resume<svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="res-menu" id="resMenu" hidden>
+        <a href="https://ankitparekh007.github.io/resume/AnkitParekh_Resume.pdf"><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-file-text"></use></svg>PDF</a>
+        <a href="https://ankitparekh007.github.io/resume/AnkitParekh_Resume.docx"><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-file-text"></use></svg>Word</a>
       </div>
     </div>
+    <button class="btn-theme" id="theme" type="button" aria-label="Switch color theme"><span id="themeSun" hidden><svg class="ic" width="17" height="17" aria-hidden="true"><use href="#i-sun"></use></svg></span><span id="themeMoon"><svg class="ic" width="17" height="17" aria-hidden="true"><use href="#i-moon"></use></svg></span></button>
+  </nav>
+</div></header>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/portfolio.js"></script>
-  </body>
+<nav class="toc" id="toc" aria-label="Table of contents">
+  <ul>
+    <li class="toc-rail" aria-hidden="true"></li>
+    <li class="toc-fill" id="tocFill" aria-hidden="true"></li>
+    <li><a href="#focus">What I do</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#work">Experience</a></li>
+    <li><a href="#selected">Selected work</a></li>
+    <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#oss">Open source</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#stack">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<button class="toc-btn" id="tocBtn" type="button" aria-label="Toggle table of contents" aria-expanded="false" aria-controls="toc">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+</button>
+
+<main id="top">
+  <section class="hero"><div class="wrap">
+    <p class="eyebrow mono">Principal Frontend &amp; AI Agent Architect<i>·</i>Enterprise Angular<i>·</i>Since 2012</p>
+    <p class="hi">Hi, I'm <b>Ankit Parekh</b>,</p>
+    <h1 aria-label="Intelligent UI for serious products.">
+      <span class="ln" aria-hidden="true">Intelligent UI for<span class="dots"><i></i><i></i><i></i></span></span>
+      <span class="ln type" aria-hidden="true">
+        <span class="sizer">enterprise Angular apps.</span>
+        <span><span class="typed" id="typed">serious products.</span><span class="caret"></span></span>
+      </span>
+    </h1>
+    <p class="lede">I design and ship enterprise frontends where copilots, agents and RAG sit inside real applications: clear UX, defensible architecture, and delivery that survives security, scale and roadmap churn. Most recently I led SOP Co-Pilot, an in-app agent that is plan-first, approval-gated and audited on every run.</p>
+    <div class="cta">
+      <a class="btn primary" href="#selected">See the work<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+      <a class="btn" href="#contact"><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-mail"></use></svg>Get in touch</a>
+      <a class="btn" href="https://ankitparekh007.github.io/resume/AnkitParekh_Resume.pdf"><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-download"></use></svg>Download resume</a>
+    </div>
+  </div></section>
+
+  <div class="wrap">
+    <ul class="proof" aria-label="What I focus on">
+      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-layout-dashboard"></use></svg>Enterprise Angular &amp; platform-scale UI</li>
+      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-bot"></use></svg>Copilots that plan, execute, and recover in-app</li>
+      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-database"></use></svg>RAG + tools wired to real workflows</li>
+      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-route"></use></svg>Prototype → production → sustainment</li>
+    </ul>
+
+    <section class="row" id="focus">
+      <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-sparkles"></use></svg></span>What I do<small>6 areas</small></h2>
+      <div class="w-feat">
+        <article class="w-card lead"><span class="w-tile big"><svg class="ic" width="26" height="26" aria-hidden="true"><use href="#i-bot"></use></svg></span><small class="mono">Main focus</small><h3>Agent architecture</h3><p>Planners, tool and policy enforcement, and approval gating.</p></article>
+        <article class="w-card"><span class="w-tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-layout-dashboard"></use></svg></span><h3>Enterprise frontend</h3><p>Large Angular apps with clear module boundaries.</p></article>
+        <article class="w-card"><span class="w-tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-flask-conical"></use></svg></span><h3>Evals and release gates</h3><p>Harnesses that check agent behavior before rollout.</p></article>
+        <article class="w-card"><span class="w-tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-radio"></use></svg></span><h3>Streaming AI UX</h3><p>Cited answers and multi-step flows users can approve.</p></article>
+        <article class="w-card"><span class="w-tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-table"></use></svg></span><h3>Data-dense screens</h3><p>AG Grid Enterprise tables that stay fast at scale.</p></article>
+        <article class="w-card"><span class="w-tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-users"></use></svg></span><h3>Technical leadership</h3><p>Integration contracts, release coordination and leading developers.</p></article>
+      </div>
+    </section>
+
+    <section class="row" id="approach">
+      <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-lightbulb"></use></svg></span>Approach<small>4 principles</small></h2>
+      <div class="a-quote">
+        <blockquote><p>The interface is part of the reasoning loop.</p><small>Agents act with guardrails, so they do more than generate text.</small></blockquote>
+        <ul class="a-mini">
+          <li><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-layers"></use></svg><span><b>AI as a system layer</b><small>Intelligence is wired into navigation, state and contracts, so the product stays coherent as models and tools change. It is never a bolt-on chat widget.</small></span></li>
+          <li><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-refresh-cw"></use></svg><span><b>Frontend in the decision loop</b><small>The UI does more than display. It feeds context, constraints and outcomes back into planning, so agents and users stay aligned.</small></span></li>
+          <li><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-zap"></use></svg><span><b>Execution, not only answers</b><small>Agents drive APIs, workflows and recovery paths, with measurable steps, retries and guardrails.</small></span></li>
+          <li><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-drafting-compass"></use></svg><span><b>Architecture-first delivery</b><small>Clear boundaries and long-term ownership keep AI features standing through cross-team change.</small></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="row" id="work">
+      <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-briefcase"></use></svg></span>Experience<small>Since 2012</small></h2>
+      <ol class="c-rail">
+<li class="c-item c-lead"><time class="c-when mono">Sep 2022 – <br>Oct 2026<small>4 yrs</small></time><span class="c-dot" aria-hidden="true"></span>
+  <article class="c-feat"><div class="c-fh"><span class="c-mono">BM</span><div><h3>Frontend Architect</h3><p class="c-co">Bluemeteor (formerly Codifyd) · Remote · US-based company</p></div></div><p class="c-sum">AI product-content platform (PIM/PXM/DAM) serving 20+ enterprise customers and ~10M SKUs. Led SOP Co-Pilot end to end, both the Angular client and the NestJS service.</p><ul class="c-chips"><li>20+ enterprise customers</li><li>~10M SKUs</li><li>Multi-provider LLM routing</li><li>Eval-gated releases</li></ul><details open><summary><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg>Key results</summary><ul class="kr"><li>Answers with citations and runs multi-step workflows only after the user approves.</li><li>Chose a plan-first design: a deterministic action catalog, separate read and write risk classes, re-planning on failure, an audit ledger per run, and hybrid retrieval.</li><li>Built the eval harness and release gates; it rolled out as an enterprise pilot behind feature flags.</li><li>Led AI-assisted mapping across the supplier and retailer apps.</li><li>Owned AG Grid Enterprise data screens and multi-environment CDN release pipelines.</li><li>Removed a multi-minute UI freeze by scoping ~551 lookup calls down to the 40 visible rows.</li></ul></details></article></li>
+<li class="c-item"><time class="c-when mono">Sep 2021 – <br>Sep 2022<small>1 yr</small></time><span class="c-dot" aria-hidden="true"></span>
+  <article class="c-body"><h3>Senior Frontend Engineer</h3><p class="c-co">Forto GmbH · Berlin, Germany</p><p class="c-sum">Digital freight forwarding. Relocated to Berlin on a permanent contract and held an EU Blue Card.</p><details><summary><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg>Key results</summary><ul class="kr"><li>Built logistics dashboards and shipment-visibility screens for a digital freight-forwarding platform.</li><li>Built exception handling and role-based workflows across ops, customer and partner users.</li></ul></details></article></li>
+<li class="c-item"><time class="c-when mono">2018 – <br>2021<small>3 yrs</small></time><span class="c-dot" aria-hidden="true"></span>
+  <article class="c-body"><h3>Team Lead</h3><p class="c-co">Codifyd · Mumbai, India</p><p class="c-sum">Product information management. Led 7 developers and owned frontend architecture across the retailer PIM, the supplier portal and BridgeWeb.</p><details><summary><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg>Key results</summary><ul class="kr"><li>Defined module boundaries for large, multi-module Angular apps.</li><li>Owned technical direction: stack fit, integration contracts and delivery trade-offs.</li><li>Drove reusable UI patterns and consistency across three products.</li><li>Ran release coordination with DevOps and platform teams on CI/CD and build tooling.</li></ul></details></article></li>
+<li class="c-item"><time class="c-when mono">2016 – <br>2018<small>2 yrs</small></time><span class="c-dot" aria-hidden="true"></span>
+  <article class="c-body"><h3>Front-end Expert</h3><p class="c-co">Zooty.in</p><p class="c-sum">Fashion. Steered the front-end technical approach for customer-facing web apps, from wireframes to live systems.</p><details><summary><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg>Key results</summary><ul class="kr"><li>Designed UI structure, component boundaries and state ownership.</li><li>Produced wireframes and low-fidelity flows to lock requirements before costly builds.</li><li>Owned UX outcomes: interaction design, edge cases and design–engineering alignment.</li><li>Kept live systems healthy through defect triage, performance fixes and incremental hardening.</li><li>Debugged toolchain and runtime issues across bundlers, browser targets and deployments.</li></ul></details></article></li>
+<li class="c-item c-branch"><time class="c-when mono">2012 – <br>2016<small>6 roles</small></time><span class="c-dot" aria-hidden="true"></span>
+  <article class="c-body"><h3>Earlier career</h3><p class="c-sum">From trainee to lead front-end programmer across travel, product data, consulting, e-learning and digital content.</p>
+  <ol class="c-early"><li><details><summary><time class="mono">2015 – 2016</time><b>Lead Front-end Programmer</b><span class="c-ec">Musafir.com</span><em class="mono">Travel</em><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary><div class="c-ed"><p>Built and reviewed production UI for high-traffic booking flows, and fixed rendering and performance issues under real load.</p><ul class="kr"><li>Implemented and reviewed production UI: semantic markup, CSS architecture and client-side behavior at scale.</li><li>Resolved complex rendering, layout and performance issues under real traffic and data load.</li></ul></div></details></li><li><details><summary><time class="mono">2014 – 2015</time><b>Senior Front-end Developer</b><span class="c-ec">Verdantis</span><em class="mono">Product data</em><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary><div class="c-ed"><p>Built data-dense enterprise forms, tables and workflows with strict validation and state handling.</p><ul class="kr"><li>Shipped incrementally in Scrum, from backlog grooming to a measurable Definition of Done.</li><li>Debugged UI defects across browsers and releases, including regressions from API or schema changes.</li></ul></div></details></li><li><details><summary><time class="mono">2014</time><b>Freelance Usability Consultant</b><span class="c-ec">Capgemini</span><em class="mono">IT consulting</em><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary><div class="c-ed"><p>Delivered HTML, CSS and JavaScript modules against fixed scope, integrated with existing stacks.</p><ul class="kr"><li>Hit milestone-based delivery: feature completion, integration testing support and handoff documentation.</li><li>Produced layout and interaction mockups to freeze structure before build and reduce rework.</li></ul></div></details></li><li><details><summary><time class="mono">2014</time><b>Part-time Developer</b><span class="c-ec">Efurtherance</span><em class="mono">E-learning</em><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary><div class="c-ed"><p>Built pages from spec and delivered them against client checkpoints.</p><ul class="kr"><li>Implemented pages with templating, styling and light client-side behavior.</li><li>Turned requirements into mockups for sign-off before coding.</li></ul></div></details></li><li><details><summary><time class="mono">2013 – 2014</time><b>Web Developer</b><span class="c-ec">E10 InfoTech</span><em class="mono">Digital content</em><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary><div class="c-ed"><p>Built UI components for client projects and carried them through sign-off and after launch.</p><ul class="kr"><li>Wired templates, stylesheets and script hooks to each integration contract.</li><li>Authored page and component mockups to align stakeholders before build.</li></ul></div></details></li><li><details><summary><time class="mono">2012 – 2013</time><b>Trainee Developer</b><span class="c-ec">Aambit Softwares</span><em class="mono"></em><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-chevron-down"></use></svg></summary><div class="c-ed"><p>Contributed front-end code in a Scrum team under senior review, from daily stand-ups to sprint commitments.</p><ul class="kr"><li>Took part across the SDLC: clarifying requirements, building, supporting tests and deployment.</li><li>Applied team conventions for layout, styling structure and reusable UI patterns.</li></ul></div></details></li></ol></article></li>
+</ol>
+    </section>
+
+    <section class="row" id="selected">
+      <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-layers"></use></svg></span>Selected work<small>Best 3</small></h2>
+      <div class="stories">
+        <article class="alt"><div class="mock" aria-hidden="true"><div class="m-card">
+  <p class="m-head"><i class="m-dot"></i>SOP Co-Pilot <span>Plan · 3 steps</span></p>
+  <ol class="m-plan">
+    <li class="ok"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-circle-check"></use></svg>Find the matching SKUs <em>Read</em></li>
+    <li class="ok"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-circle-check"></use></svg>Draft the new titles <em>Read</em></li>
+    <li class="wait"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-shield-check"></use></svg>Apply the changes <em class="w">Write · needs approval</em></li>
+  </ol>
+  <p class="m-act"><b>Approve</b><span>Edit plan</span></p>
+  <p class="m-foot">Logged to the audit ledger</p>
+</div><p class="m-cap mono">Illustration</p></div><div class="a-body"><p class="idx mono">01 · Bluemeteor · AI agent</p><h3>An in-app agent that plans first and asks before it acts</h3><p class="name">SOP Co-Pilot</p><p>Led end to end, from the Angular client to the NestJS service. It answers with citations and runs multi-step workflows only after the user approves.</p><p class="chips"><em>Every run audited</em><em>Eval-gated releases</em><em>Feature-flag pilot</em></p></div></article>
+        <article class="alt flip"><div class="mock" aria-hidden="true"><div class="m-card">
+  <p class="m-head"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-route"></use></svg>Field mapping <span>Supplier → Retailer</span></p>
+  <ul class="m-map">
+    <li><code>prod_name</code><i>→</i><b>Product title</b><em>Suggested</em></li>
+    <li><code>clr</code><i>→</i><b>Color</b><em>Suggested</em></li>
+    <li><code>wt_kg</code><i>→</i><b>Weight (kg)</b><em>Suggested</em></li>
+  </ul>
+  <p class="m-act"><b>Review and accept all</b></p>
+</div><p class="m-cap mono">Illustration</p></div><div class="a-body"><p class="idx mono">02 · Bluemeteor · AI workflow</p><h3>Suggestions replace field-by-field manual mapping</h3><p class="name">AI-assisted mapping</p><p>Led across the supplier and retailer apps. Users review the suggestions and accept them in bulk.</p><p class="chips"><em>2 apps</em><em>Review step</em><em>Bulk accept</em></p></div></article>
+        <article class="alt"><div class="mock" aria-hidden="true"><div class="m-card">
+  <p class="m-head"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-activity"></use></svg>Lookup calls per screen</p>
+  <div class="m-bars">
+    <p><span>Before</span><i class="b1"></i><b>~551</b></p>
+    <p><span>After</span><i class="b2"></i><b>40</b></p>
+  </div>
+  <p class="m-foot">Scoped to the visible rows</p>
+</div><p class="m-cap mono">Real numbers</p></div><div class="a-body"><p class="idx mono">03 · Bluemeteor · Performance</p><h3>A multi-minute freeze, removed</h3><p class="name">Removing a UI freeze</p><p>Scoped about 551 lookup calls down to the 40 rows a user can actually see.</p><p class="chips"><em>~551 → 40 lookups</em><em>AG Grid Enterprise</em></p></div></article>
+      </div>
+    </section>
+
+    <section class="row" id="sectors">
+      <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-building-2"></use></svg></span>Sectors<small>6 domains</small></h2>
+      <div class="d-wrap"><ol class="d-list" role="tablist"><li><button type="button" role="tab" class="d-tab" aria-selected="true" data-i="0" style="--c:#4f46e5"><span class="mono">01</span>Product data<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button></li><li><button type="button" role="tab" class="d-tab" aria-selected="false" data-i="1" style="--c:#0891b2"><span class="mono">02</span>Logistics<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button></li><li><button type="button" role="tab" class="d-tab" aria-selected="false" data-i="2" style="--c:#db2777"><span class="mono">03</span>Fashion<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button></li><li><button type="button" role="tab" class="d-tab" aria-selected="false" data-i="3" style="--c:#ea580c"><span class="mono">04</span>Travel<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button></li><li><button type="button" role="tab" class="d-tab" aria-selected="false" data-i="4" style="--c:#0e9f7e"><span class="mono">05</span>E-learning<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button></li><li><button type="button" role="tab" class="d-tab" aria-selected="false" data-i="5" style="--c:#7c3aed"><span class="mono">06</span>Digital content<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button></li></ol><div class="d-panes"><article class="d-pane" role="tabpanel" style="--c:#4f46e5"><span class="d-ic"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-database"></use></svg></span><p class="d-tag mono">Product data · B2B · 2014 – 2026</p><h3>Catalogs, workflows &amp; governance</h3><p class="d-co">Verdantis, Codifyd, Bluemeteor</p><p>Attribute-rich catalogs, approvals and long-running workflows with strict validation.</p><ul><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Tables, forms and bulk actions for analysts and ops users</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Architecture for multi-module apps</li></ul></article><article class="d-pane" role="tabpanel" style="--c:#0891b2" hidden><span class="d-ic"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-truck"></use></svg></span><p class="d-tag mono">Logistics · Ops + customer · 2021 – 2022</p><h3>Shipments, visibility &amp; coordination</h3><p class="d-co">Forto, Berlin</p><p>Dashboards and journeys where clear, stateful UI reduces friction across handoffs.</p><ul><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Workflows across ops, customer and partner roles</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Status, exception and next-action surfaces</li></ul></article><article class="d-pane" role="tabpanel" style="--c:#db2777" hidden><span class="d-ic"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-shirt"></use></svg></span><p class="d-tag mono">Fashion · B2C · 2016 – 2018</p><h3>Fashion web apps, from wireframe to live</h3><p class="d-co">Zooty.in</p><p>Customer-facing fashion web apps, where interaction quality and live-site stability matter most.</p><ul><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>UI structure, component boundaries and state ownership</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Interaction design and edge cases, aligned between design and engineering</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Defect triage, performance hotspots and incremental hardening in production</li></ul></article><article class="d-pane" role="tabpanel" style="--c:#ea580c" hidden><span class="d-ic"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-plane"></use></svg></span><p class="d-tag mono">Travel · B2C · 2015 – 2016</p><h3>Search, pricing &amp; booking</h3><p class="d-co">Musafir</p><p>High-traffic consumer flows that hold up under seasonal load and real booking pressure.</p><ul><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Discovery-to-checkout surfaces built for performance</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Complex fare and itinerary UX, including edge cases</li></ul></article><article class="d-pane" role="tabpanel" style="--c:#0e9f7e" hidden><span class="d-ic"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-graduation-cap"></use></svg></span><p class="d-tag mono">E-learning · 2014</p><h3>Learning pages, from spec to sign-off</h3><p class="d-co">Efurtherance</p><p>Learning pages delivered to client specs, with a sign-off checkpoint at every stage.</p><ul><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Mockups signed off before any code was written</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Iterative demos, feedback rounds and scope control</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Structured CSS and documented integration points</li></ul></article><article class="d-pane" role="tabpanel" style="--c:#7c3aed" hidden><span class="d-ic"><svg class="ic" width="24" height="24" aria-hidden="true"><use href="#i-newspaper"></use></svg></span><p class="d-tag mono">Digital content · 2013 – 2014</p><h3>Content sites for client projects</h3><p class="d-co">E10 InfoTech</p><p>Client content sites built to each integration contract and supported after launch.</p><ul><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Page and component mockups to align stakeholders before build</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Bug-fix SLAs and regression checks before client sign-off</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-circle-check"></use></svg>Incident fixes, refactors and browser coverage after launch</li></ul></article></div></div>
+    </section>
+
+    <section class="row" id="oss">
+      <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-folder-git-2"></use></svg></span>Open source<small>3 projects</small></h2>
+      <div>
+        <div class="feat">
+          <a class="repo big" href="https://github.com/AnkitParekh007/ngx-copilot-platform"><span class="repo-top"><svg class="ic" width="26" height="26" aria-hidden="true" style="color:#dd0031"><use href="#b-angular"></use></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-out"></use></svg></span><small class="mono">Flagship project</small><b>ngx-copilot-platform</b><p>Angular copilot SDK with a Next.js RAG backend on Supabase pgvector, plus streaming chat and enterprise demos.</p><span class="repo-meta mono">TypeScript · Updated Oct 2026</span><span class="tags"><em>Angular</em><em>Next.js</em><em>Supabase</em><em>RAG</em><em>Streaming chat</em></span></a>
+          <a class="repo" href="https://github.com/AnkitParekh007/org-ai-force"><span class="repo-top"><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-code-xml"></use></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-out"></use></svg></span><b>org-ai-force</b><p>Angular 21 AI agent workspace with a NestJS orchestrator, RAG, MCP tools, SSE streaming, Playwright workers and an admin console.</p><span class="repo-meta mono">TypeScript · Updated Oct 2026</span><span class="tags"><em>Angular 21</em><em>NestJS</em><em>RAG</em><em>MCP</em></span></a>
+          <a class="repo" href="https://github.com/AnkitParekh007/agent-studio"><span class="repo-top"><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-code-xml"></use></svg><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-out"></use></svg></span><b>agent-studio</b><p>Visual builder for AI agents with MCP tools, workflows and provider abstraction.</p><span class="repo-meta mono">TypeScript · Updated Oct 2026</span><span class="tags"><em>MCP</em><em>Workflows</em><em>TypeScript</em></span></a>
+        </div>
+        <p class="note"><a href="https://ankitparekh007.github.io/ngx-copilot-platform/"><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-out"></use></svg>Live demo of ngx-copilot-platform</a><a href="https://github.com/AnkitParekh007"><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#b-github"></use></svg>See all on GitHub</a></p>
+      </div>
+    </section>
+
+    <section class="row" id="education">
+      <h2><span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/></svg></span>Education<small>B.E. · 2013</small></h2>
+      <div class="edu-card">
+            <p class="when mono">2013 · Mumbai University</p>
+            <h3>B.E. Computer Science</h3>
+            <p>Atharva College of Engineering</p>
+          </div>
+    </section>
+
+    <section class="row" id="courses">
+      <h2><span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></span>Courses<small>12 · Anthropic Academy</small></h2>
+      <div>
+        <ul class="cert-list clip" id="certs"></ul>
+        <button class="more" id="certMore" type="button" aria-expanded="false" aria-controls="certs">Show all 12 courses<svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"></use></svg></button>
+      </div>
+    </section>
+
+    <section class="row" id="stack">
+      <h2><span class="tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></span>Skills<small>Stack &amp; status</small></h2>
+      <div class="skills-grid">
+        <div>
+          <h3>Work status</h3>
+          <div class="s-card">
+            <p class="s-live"><i class="dot"></i>Available now</p>
+            <dl class="s-rows">
+              <div><dt><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-map-pin"></use></svg>Base</dt><dd>Mumbai, India</dd></div>
+              <div><dt><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-plane"></use></svg>Relocation</dt><dd>Germany, Ireland, UAE</dd></div>
+              <div><dt><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-globe"></use></svg>Remote</dt><dd>Open</dd></div>
+              <div><dt><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#i-badge-check"></use></svg>EU Blue Card</dt><dd>Former holder</dd></div>
+            </dl>
+          </div>
+          <h3>How I work</h3>
+          <ul class="ways">
+            <li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-route"></use></svg>End-to-end ownership</li>
+            <li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-list-checks"></use></svg>Plan-first design</li>
+            <li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-flask-conical"></use></svg>Eval-driven delivery</li>
+            <li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-users"></use></svg>Team leadership</li>
+            <li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-git-branch"></use></svg>Release coordination</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tech Stack</h3>
+          <div class="bento6">
+      <article class="b-card b-wall"><h4><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-bot"></use></svg>AI &amp; agents</h4><ul class="ai-wall"><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--ink)"><use href="#b-openai"></use></svg><span>OpenAI</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:#d97757"><use href="#b-anthropic"></use></svg><span>Anthropic</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--spark-1)"><use href="#i-radio"></use></svg><span>MCP tools</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--spark-2)"><use href="#i-route"></use></svg><span>LLM routing</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--spark-3)"><use href="#i-database"></use></svg><span>RAG + hybrid retrieval</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--spark-4)"><use href="#i-layers"></use></svg><span>Supabase pgvector</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--spark-1)"><use href="#i-flask-conical"></use></svg><span>Eval harness</span></li><li><svg class="ic" width="30" height="30" aria-hidden="true" style="color:var(--spark-3)"><use href="#i-activity"></use></svg><span>SSE streaming</span></li></ul></article>
+      <article class="b-card c3"><h4><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-cog"></use></svg>Platform &amp; tooling</h4><ul class="b-grid"><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:var(--ink)"><use href="#i-code-xml"></use></svg>Next.js</li><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:#3ecf8e"><use href="#i-database"></use></svg>Supabase</li><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:#2ead33"><use href="#i-monitor"></use></svg>Playwright</li><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:#d24939"><use href="#i-git-branch"></use></svg>Jenkins</li></ul></article>
+      <article class="b-card c3"><h4><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-cloud"></use></svg>Infra</h4><ul class="b-grid"><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:#2496ed"><use href="#b-docker"></use></svg>Docker</li><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:#326ce5"><use href="#b-kubernetes"></use></svg>Kubernetes</li><li><svg class="ic" width="18" height="18" aria-hidden="true" style="color:#ff9900"><use href="#b-amazonwebservices"></use></svg>AWS</li><li><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-git-branch"></use></svg>CI/CD</li></ul></article>
+      <article class="b-card c2"><h4><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-monitor"></use></svg>Frontend</h4><ul class="b-icons"><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#dd0031"><use href="#b-angular"></use></svg>Angular (12 to 21)</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#3178c6"><use href="#b-typescript"></use></svg>TypeScript</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#b7178c"><use href="#b-reactivex"></use></svg>RxJS</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#149eca"><use href="#b-react"></use></svg>React</li></ul></article>
+      <article class="b-card c2"><h4><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-palette"></use></svg>UI &amp; web</h4><ul class="b-icons"><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#dd0031"><use href="#b-angular"></use></svg>Angular Material</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-table"></use></svg>AG Grid Enterprise</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-cog"></use></svg>Service workers</li><li><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-languages"></use></svg>i18n</li></ul></article>
+      <article class="b-card c2"><h4><svg class="ic" width="16" height="16" aria-hidden="true"><use href="#i-server"></use></svg>Backend</h4><ul class="b-icons"><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#e0234e"><use href="#b-nestjs"></use></svg>NestJS</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#5fa04e"><use href="#b-nodedotjs"></use></svg>Node.js</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#3776ab"><use href="#b-python"></use></svg>Python</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#ed8b00"><use href="#b-openjdk"></use></svg>Java</li><li><svg class="ic" width="16" height="16" aria-hidden="true" style="color:#e25a1c"><use href="#b-apachespark"></use></svg>PySpark</li></ul></article>
+    </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="close" id="contact"><div class="wrap">
+    <div class="v3-grid"><div class="v3-left"><p class="mono v3-kick">Contact</p><h2>Let's talk.</h2><p>Open to conversations with recruiters, founders and engineering leaders who need senior frontend direction: Angular at scale, intelligent product UX, and AI features that ship reliably.</p><ul class="v3-tags"><li>Recruiters</li><li>Founders</li><li>Engineering leaders</li></ul></div>
+<div class="v3-rows"><a class="v3-row" href="mailto:ankit77parekh@gmail.com"><span class="v3-ic"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-mail"></use></svg></span><span class="v3-t"><b>Email</b><small>Best for roles and projects</small></span><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a><a class="v3-row" href="https://in.linkedin.com/in/akkiparekh"><span class="v3-ic"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#b-linkedin"></use></svg></span><span class="v3-t"><b>LinkedIn</b><small>in/akkiparekh</small></span><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a><a class="v3-row" href="https://github.com/AnkitParekh007"><span class="v3-ic"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#b-github"></use></svg></span><span class="v3-t"><b>GitHub</b><small>AnkitParekh007</small></span><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a><a class="v3-row" href="https://ankitparekh007.github.io/resume/AnkitParekh_Resume.pdf"><span class="v3-ic"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-file-text"></use></svg></span><span class="v3-t"><b>Resume</b><small>Download the PDF</small></span><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></a></div></div><div class="f-legal rule"><span>© 2026 Ankit Parekh · Mumbai, India</span><a href="#top">Back to top<svg class="ic" width="14" height="14" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a></div>
+  </div></section>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('theme');
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function label() {
+    var dark = isDark();
+    document.getElementById('themeSun').hidden = !dark;
+    document.getElementById('themeMoon').hidden = dark;
+    themeBtn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  label();
+  themeBtn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    label();
+  });
+
+  // Typewriter: holds a finished phrase, deletes it, then types the next one. Reduced motion keeps the first phrase.
+  var phrases = ['serious products.', 'enterprise Angular apps.', 'in-app copilots.', 'multi-agent workflows.'];
+  var typed = document.getElementById('typed');
+  var p = 0, n = phrases[0].length, deleting = true;
+  function tick() {
+    var word = phrases[p];
+    if (deleting) {
+      n--;
+      typed.textContent = word.slice(0, n) || '​';
+      if (n === 0) { deleting = false; p = (p + 1) % phrases.length; return setTimeout(tick, 320); }
+      return setTimeout(tick, 26);
+    }
+    n++;
+    typed.textContent = word.slice(0, n);
+    if (n === word.length) { deleting = true; return setTimeout(tick, 1900); }
+    setTimeout(tick, 52 + Math.random() * 38);
+  }
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(tick, 2000);
+
+  var resBtn = document.getElementById('resBtn');
+  var resMenu = document.getElementById('resMenu');
+  function setRes(open) {
+    resMenu.hidden = !open;
+    resBtn.setAttribute('aria-expanded', String(open));
+  }
+  resBtn.addEventListener('click', function (e) { e.stopPropagation(); setRes(resMenu.hidden); });
+  resMenu.addEventListener('click', function () { setRes(false); });
+  document.addEventListener('click', function (e) { if (!resMenu.contains(e.target)) setRes(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setRes(false); });
+
+  var certs = [
+    ['Introduction to subagents', 'introduction-to-subagents'],
+    ['Introduction to agent skills', 'introduction-to-agent-skills'],
+    ['The AI-native SDLC playbook', 'ai-native-sdlc-playbook'],
+    ['Model Context Protocol: Advanced topics', 'model-context-protocol-advanced-topics'],
+    ['Claude Code in action', 'claude-code-in-action'],
+    ['Introduction to Model Context Protocol', 'introduction-to-model-context-protocol'],
+    ['Claude Platform 101', 'claude-platform-101'],
+    ['Claude Code 101', 'claude-code-101'],
+    ['AI Fluency for builders', 'ai-fluency-for-builders'],
+    ['AI Fluency: Framework and foundations', 'ai-fluency-framework-foundations'],
+    ['Claude 101', 'claude-101'],
+    ['AI capabilities and limitations', 'ai-capabilities-and-limitations']
+  ];
+  var badge = '<svg class="badge" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg>';
+  var go = '<svg class="go" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+  document.getElementById('certs').innerHTML = certs.map(function (c) {
+    return '<li><a class="cert" href="https://academy.claude.com/courses/' + c[1] + '">' + badge + '<span><b>' + c[0] + '</b><small>Anthropic Academy</small></span>' + go + '</a></li>';
+  }).join('');
+  var certMore = document.getElementById('certMore'), certList = document.getElementById('certs');
+  certMore.addEventListener('click', function () {
+    var open = certList.classList.toggle('clip') === false;
+    certMore.setAttribute('aria-expanded', String(open));
+    certMore.firstChild.nodeValue = open ? 'Show fewer courses' : 'Show all 12 courses';
+  });
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+    certList.classList.remove('clip');
+  });
+
+  // Table of contents: the active section is the last one whose top has passed 40% of the viewport.
+  var toc = document.getElementById('toc');
+  var tocBtn = document.getElementById('tocBtn');
+  var fill = document.getElementById('tocFill');
+  var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var queued = false;
+  function updateToc() {
+    queued = false;
+    var line = innerHeight * 0.4, active = -1;
+    targets.forEach(function (t, k) { if (t.getBoundingClientRect().top <= line) active = k; });
+    var atEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 4;
+    if (atEnd) active = targets.length - 1;
+    var progress = 0;
+    if (active >= 0) {
+      progress = active;
+      if (!atEnd && active < targets.length - 1) {
+        var from = targets[active].getBoundingClientRect().top;
+        var to = targets[active + 1].getBoundingClientRect().top;
+        progress += Math.min(1, Math.max(0, (line - from) / (to - from)));
+      }
+    }
+    fill.style.transform = 'scaleY(' + progress / (targets.length - 1) + ')';
+    links.forEach(function (a, k) {
+      a.classList.toggle('done', k < active);
+      if (k === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+  }
+  function queueToc() { if (!queued) { queued = true; requestAnimationFrame(updateToc); } }
+  addEventListener('scroll', queueToc, { passive: true });
+  addEventListener('resize', queueToc);
+  updateToc();
+
+  function setToc(open) {
+    toc.classList.toggle('open', open);
+    tocBtn.setAttribute('aria-expanded', String(open));
+  }
+  tocBtn.addEventListener('click', function (e) { e.stopPropagation(); setToc(!toc.classList.contains('open')); });
+  links.forEach(function (a) { a.addEventListener('click', function () { setToc(false); }); });
+  document.addEventListener('click', function (e) { if (!toc.contains(e.target)) setToc(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setToc(false); });
+
+})();
+document.querySelectorAll('.d-wrap').forEach(w => {
+  const tabs = [...w.querySelectorAll('.d-tab')], panes = [...w.querySelectorAll('.d-pane')];
+  const pick = i => { tabs.forEach((t, j) => t.setAttribute('aria-selected', i === j)); panes.forEach((p, j) => p.hidden = i !== j) };
+  tabs.forEach((t, i) => { t.addEventListener('click', () => pick(i)); t.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) pick(i) }) });
+});
+</script>
+
+</body>
 </html>
