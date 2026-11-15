@@ -549,6 +549,13 @@ a.o1-item:hover b { color: var(--link) }
   .type > span:last-child { display: none } .type .sizer { visibility: visible }
   .d-pane[hidden] { display: block !important; margin-top: 12px }
 }
+
+/* Recruiter-first proof: concise facts, no animated counters. */
+.hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 850px; margin: 25px 0 0; padding: 0; list-style: none }
+.hero-stats li { min-width: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet); padding: 14px 16px }
+.hero-stats strong { display: block; color: var(--ink); font: 700 clamp(17px, 2.2vw, 23px)/1.25 var(--display) }
+.hero-stats span { display: block; margin-top: 4px; color: var(--muted); font: 500 13px/1.4 var(--text) }
+@media (max-width: 640px) { .hero-stats { grid-template-columns: 1fr; gap: 8px } .hero-stats li { padding: 11px 14px } }
 </style>
 <style>body { margin: 0 } [hidden] { display: none !important }</style>
 </head>
@@ -606,6 +613,11 @@ a.o1-item:hover b { color: var(--link) }
       </span>
     </h1>
     <p class="lede">I architect enterprise web applications across Angular, React and Vue.js, combining scalable frontend engineering with practical AI systems. At Bluemeteor, I led SOP Co-Pilot across Angular and NestJS, now live with 10 client organizations. I also build open-source products including ReboundOps.</p>
+    <ul class="hero-stats" aria-label="Career and delivery highlights">
+      <li><strong>14+ years</strong><span>Frontend &amp; application engineering</span></li>
+      <li><strong>10 clients live</strong><span>SOP Co-Pilot in production</span></li>
+      <li><strong>7 engineers</strong><span>Led across 3 enterprise products</span></li>
+    </ul>
     <div class="cta">
       <a class="btn primary" href="#selected">See the work<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
       <a class="btn" href="#contact"><svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-mail"></use></svg>Get in touch</a>
