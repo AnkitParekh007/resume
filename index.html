@@ -550,12 +550,17 @@ a.o1-item:hover b { color: var(--link) }
   .d-pane[hidden] { display: block !important; margin-top: 12px }
 }
 
-/* Recruiter-first proof: concise facts, no animated counters. */
-.hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 850px; margin: 25px 0 0; padding: 0; list-style: none }
-.hero-stats li { min-width: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet); padding: 14px 16px }
-.hero-stats strong { display: block; color: var(--ink); font: 700 clamp(17px, 2.2vw, 23px)/1.25 var(--display) }
-.hero-stats span { display: block; margin-top: 4px; color: var(--muted); font: 500 13px/1.4 var(--text) }
-@media (max-width: 640px) { .hero-stats { grid-template-columns: 1fr; gap: 8px } .hero-stats li { padding: 11px 14px } }
+/* Recruiter-first expertise cards: shared theme tokens, no counters or animations. */
+.expertise-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 980px; margin: 25px 0 0; padding: 0; list-style: none }
+.expertise-cards li { min-width: 0 }
+.expertise-card { display: flex; flex-direction: column; gap: 8px; height: 100%; min-height: 178px; padding: 19px 20px; border: 1px solid var(--card-edge, var(--line)); border-radius: var(--card-radius, 16px); background: var(--card-wash, var(--sheet)); box-shadow: var(--card-shadow, none); text-decoration: none; color: var(--body) }
+.expertise-card .ic { color: var(--link); flex: none }
+.expertise-card strong { display: block; color: var(--ink); font: 700 17px/1.3 var(--display) }
+.expertise-card .tech { display: block; color: var(--link); font: 500 12px/1.45 var(--mono) }
+.expertise-card .detail { display: block; color: var(--body); font: 400 14px/1.5 var(--text) }
+.expertise-card:hover { border-color: var(--link) }
+.expertise-card:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
+@media (max-width: 760px) { .expertise-cards { grid-template-columns: 1fr; gap: 10px } .expertise-card { min-height: 0; padding: 16px 18px } }
 </style>
 <style>body { margin: 0 } [hidden] { display: none !important }</style>
 </head>
@@ -613,10 +618,10 @@ a.o1-item:hover b { color: var(--link) }
       </span>
     </h1>
     <p class="lede">I architect enterprise web applications across Angular, React and Vue.js, combining scalable frontend engineering with practical AI systems. At Bluemeteor, I led SOP Co-Pilot across Angular and NestJS, now live with 10 client organizations. I also build open-source products including ReboundOps.</p>
-    <ul class="hero-stats" aria-label="Career and delivery highlights">
-      <li><strong>14+ years</strong><span>Frontend &amp; application engineering</span></li>
-      <li><strong>10 clients live</strong><span>SOP Co-Pilot in production</span></li>
-      <li><strong>7 engineers</strong><span>Led across 3 enterprise products</span></li>
+    <ul class="expertise-cards" aria-label="Engineering expertise">
+      <li><a class="expertise-card" href="#work"><svg class="ic" width="23" height="23" aria-hidden="true"><use href="#i-layout-dashboard"></use></svg><strong>Enterprise Architecture</strong><span class="tech">Angular · React · Vue.js</span><span class="detail">Scalable frontend systems across enterprise products</span></a></li>
+      <li><a class="expertise-card" href="#selected"><svg class="ic" width="23" height="23" aria-hidden="true"><use href="#i-bot"></use></svg><strong>Production AI Systems</strong><span class="tech">RAG · MCP · AI Agents</span><span class="detail">Governed workflows, approvals and evaluations</span></a></li>
+      <li><a class="expertise-card" href="#oss"><svg class="ic" width="23" height="23" aria-hidden="true"><use href="#i-folder-git-2"></use></svg><strong>Open-Source Engineering</strong><span class="tech">SDKs · Platforms · Tooling</span><span class="detail">Reusable AI components and independently built products</span></a></li>
     </ul>
     <div class="cta">
       <a class="btn primary" href="#selected">See the work<svg class="ic" width="18" height="18" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
