@@ -108,10 +108,6 @@ h1 .ln.type { display: grid }
 .btn.primary { background: linear-gradient(95deg, var(--btn-1), var(--btn-2)); border-color: transparent; color: var(--on-btn) }
 .btn:hover { transform: translateY(-1px) }
 
-.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line) }
-.proof li { display: grid; gap: 10px; align-content: start; padding: 22px 20px 22px 0; min-width: 0; font: 600 16.5px/1.3 var(--text); color: var(--ink) }
-.proof li + li { border-left: 1px solid var(--line); padding-left: 20px }
-.proof .ic { color: var(--link) }
 
 .row { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); gap: 48px; padding-block: 104px; border-bottom: 1px solid var(--line) }
 .row > h2 { font-size: 15px; font-weight: 700; letter-spacing: 0; position: sticky; top: 84px; align-self: start }
@@ -415,10 +411,6 @@ h1 .ln.type { display: grid }
   .hero { padding-block: 40px 40px }
   .lede, .hi { font-size: 18px }
   .top nav > a { display: none }
-  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)) }
-  .proof li, .proof li + li { padding: 16px 12px 16px 0; border-left: 0; font-size: 15.5px }
-  .proof li:nth-child(even) { border-left: 1px solid var(--line); padding-left: 16px }
-  .proof li:nth-child(n+3) { border-top: 1px solid var(--line) }
   .feat, .w-feat { grid-template-columns: minmax(0, 1fr) }
   .w-feat > *, .w-feat > :nth-child(2), .w-feat > :nth-child(3), .w-feat > .lead { grid-column: auto }
   .bento6 { grid-template-columns: minmax(0, 1fr) }
@@ -561,27 +553,26 @@ a.o1-item:hover b { color: var(--link) }
 .expertise-card:hover { border-color: var(--link) }
 .expertise-card:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
 @media (max-width: 760px) { .expertise-cards { grid-template-columns: 1fr; gap: 10px } .expertise-card { min-height: 0; padding: 16px 18px } }
-/* Keep the complete recruiter hero and its actions visible on common desktop viewports.
-   Scope all layout tuning to the hero so the rest of the portfolio is unchanged. */
+/* Center the hero at the existing site-wide 1120px max-width.
+   Compact vertical rhythm to prioritize the CTAs above the three expertise cards. */
 @media (min-width: 761px) {
-  .hero { padding-block: 35px 30px }
-  .hero .wrap { max-width: 1392px }
+  .hero { padding-block: 28px 24px }
   .hero .eyebrow { margin-bottom: 8px }
-  .hero h1 { font-size: clamp(36px, 4.5vw, 62px); line-height: 1.02; margin-top: 5px }
-  .hero .lede { max-width: 82ch; font-size: 18px; line-height: 1.42; margin-top: 13px }
+  .hero h1 { font-size: clamp(36px, 4.2vw, 60px); line-height: 1.04; margin-top: 5px }
+  .hero .lede { max-width: 78ch; font-size: 17px; line-height: 1.42; margin-top: 13px }
   .hero .cta { margin-top: 16px }
-  .hero .expertise-cards { max-width: none; margin-top: 16px; gap: 14px }
+  .hero .expertise-cards { max-width: none; margin-top: 16px; gap: 12px }
   .hero .expertise-card { min-height: 0; padding: 13px 16px; gap: 5px }
   .hero .expertise-card .ic { width: 20px; height: 20px }
   .hero .expertise-card strong { font-size: 16px }
   .hero .expertise-card .detail { font-size: 13px; line-height: 1.4 }
 }
 @media (max-width: 760px) {
-  .hero { padding-block: 30px 28px }
+  .hero { padding-block: 26px 24px }
   .hero .eyebrow { margin-bottom: 10px }
-  .hero .lede { margin-top: 15px }
-  .hero .cta { margin-top: 17px }
-  .hero .expertise-cards { margin-top: 18px }
+  .hero .lede { margin-top: 14px }
+  .hero .cta { margin-top: 16px }
+  .hero .expertise-cards { margin-top: 16px }
   .hero .expertise-card { padding: 13px 15px; gap: 5px }
 }
 </style>
@@ -654,13 +645,6 @@ a.o1-item:hover b { color: var(--link) }
   </div></section>
 
   <div class="wrap">
-    <ul class="proof" aria-label="What I focus on">
-      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-layout-dashboard"></use></svg>Enterprise Angular &amp; platform-scale UI</li>
-      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-bot"></use></svg>Copilots that plan, execute, and recover in-app</li>
-      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-database"></use></svg>RAG + tools wired to real workflows</li>
-      <li><svg class="ic" width="22" height="22" aria-hidden="true"><use href="#i-route"></use></svg>Prototype → production → sustainment</li>
-    </ul>
-
     <section class="row" id="focus">
       <h2><span class="tile"><svg class="ic" width="20" height="20" aria-hidden="true"><use href="#i-sparkles"></use></svg></span>What I do<small>6 areas</small></h2>
       <div class="w-feat">
