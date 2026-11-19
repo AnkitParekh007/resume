@@ -575,6 +575,22 @@ a.o1-item:hover b { color: var(--link) }
   .hero .expertise-cards { margin-top: 24px }
   .hero .expertise-card { padding: 13px 15px; gap: 5px }
 }
+
+/* Keep the projects destination visible when section links collapse on mobile. */
+.top nav .oss-nav-short { display: none }
+@media (max-width: 620px) {
+  .top .wrap { gap: 8px }
+  .top nav { gap: 10px }
+  .top nav > a.oss-nav { display: inline-flex; font-size: 13px; font-weight: 600; color: var(--link) }
+  .top nav .oss-nav-full { display: none }
+  .top nav .oss-nav-short { display: inline }
+  .top .brand { font-size: 16px }
+  .top .res-btn { font-size: 14px }
+  .top .btn-theme { width: 32px; height: 32px }
+}
+@media (max-width: 380px) {
+  .top .wrap { flex-wrap: wrap; justify-content: center; padding-block: 8px }
+}
 </style>
 <style>body { margin: 0 } [hidden] { display: none !important }</style>
 </head>
@@ -587,6 +603,7 @@ a.o1-item:hover b { color: var(--link) }
   <nav aria-label="Sections">
     <a href="#work">Experience</a>
     <a href="#selected">Selected work</a>
+    <a href="open-source-projects.html" class="oss-nav"><span class="oss-nav-full">Open Source Projects</span><span class="oss-nav-short">Projects</span></a>
     <a href="#stack">Skills</a>
     <a href="#contact">Contact</a>
     <div class="res">
