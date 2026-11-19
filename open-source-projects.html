@@ -5,316 +5,317 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <title>Open Source Projects | Ankit Parekh</title>
-  <meta name="description" content="Explore ReboundOps and AI Job Search Assistant, two open-source projects by Ankit Parekh focused on local-first job search, thoughtful AI assistance, and human-controlled workflows.">
+  <meta name="description" content="The story behind ReboundOps and AI Job Search Assistant: two open-source approaches to a more transparent, human-controlled job search.">
   <link rel="canonical" href="https://ankitparekh007.github.io/resume/open-source-projects.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Open Source Projects | Ankit Parekh">
-  <meta property="og:description" content="A closer look at ReboundOps and AI Job Search Assistant: architecture, use cases, design choices, and source code.">
+  <meta property="og:description" content="From local-first job search to a visual AI desktop workspace. Explore the story, engineering choices, and code behind two open-source projects.">
   <meta property="og:url" content="https://ankitparekh007.github.io/resume/open-source-projects.html">
   <meta property="og:image" content="https://ankitparekh007.github.io/resume/assets/gitbanner.png">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Open Source Projects | Ankit Parekh","url":"https://ankitparekh007.github.io/resume/open-source-projects.html","author":{"@type":"Person","name":"Ankit Parekh","url":"https://ankitparekh007.github.io/resume/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://github.com/AnkitParekh007/rebound-ops","name":"ReboundOps"},{"@type":"ListItem","position":2,"url":"https://github.com/AnkitParekh007/job-search-assistant","name":"AI Job Search Assistant"}]}}</script>
-  <style>
-    :root {
-      --paper:#f6f7fd;--sheet:#fff;--ink:#0e1030;--body:#474b6b;--muted:#676b8a;--line:#dcdff0;--link:#5b34e0;
-      --spark-1:#0891b2;--spark-2:#4f46e5;--spark-3:#7c3aed;--spark-4:#c026d3;
-      --glow-1:rgba(79,70,229,.16);--glow-2:rgba(8,145,178,.14);--glow-3:rgba(192,38,211,.10);
-      --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-      --text:"Figtree","Segoe UI",system-ui,sans-serif;
-      --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-    }
-    @media (prefers-color-scheme:dark) {
-      :root:not([data-theme="light"]) {
-        --paper:#0b0c1e;--sheet:#14162f;--ink:#f1f2ff;--body:#b6b9d6;--muted:#8e91b3;--line:#272a4b;--link:#b3a1ff;
-        --spark-1:#22d3ee;--spark-2:#818cf8;--spark-3:#a78bfa;--spark-4:#e879f9;
-        --glow-1:rgba(99,102,241,.24);--glow-2:rgba(34,211,238,.13);--glow-3:rgba(232,121,249,.12);
-        color-scheme:dark;
-      }
-    }
-    :root[data-theme="dark"] {
-      --paper:#0b0c1e;--sheet:#14162f;--ink:#f1f2ff;--body:#b6b9d6;--muted:#8e91b3;--line:#272a4b;--link:#b3a1ff;
-      --spark-1:#22d3ee;--spark-2:#818cf8;--spark-3:#a78bfa;--spark-4:#e879f9;
-      --glow-1:rgba(99,102,241,.24);--glow-2:rgba(34,211,238,.13);--glow-3:rgba(232,121,249,.12);
-      color-scheme:dark;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:82px}
-    body{margin:0;background:var(--paper);color:var(--body);font:400 17px/1.6 var(--text);-webkit-font-smoothing:antialiased}
-    h1,h2,h3,p,ul{margin:0}
-    h1,h2,h3{color:var(--ink);font-family:var(--display)}
-    ul{padding:0;list-style:none}
-    a{color:inherit}
-    :focus-visible{outline:2px solid var(--link);outline-offset:4px;border-radius:4px}
-    .wrap{max-width:1120px;margin-inline:auto;padding-inline:max(24px,env(safe-area-inset-left,0px)) max(24px,env(safe-area-inset-right,0px))}
-    .mono{font:500 12px/1.5 var(--mono);letter-spacing:.07em}
-    .skip{position:absolute;left:20px;top:-65px;z-index:10;background:var(--sheet);padding:12px;color:var(--link)}
-    .skip:focus{top:12px}
-    .top{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
-    .top .wrap{min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{text-decoration:none;color:var(--ink);font:700 18px var(--display);white-space:nowrap}
-    .top nav{display:flex;gap:22px;align-items:center;font-size:15px}
-    .top nav a{text-decoration:none;white-space:nowrap}
-    .top nav .nav-short{display:none}
-    .top nav a:hover,.top nav a[aria-current="page"]{color:var(--link)}
-    .top nav a[aria-current="page"]{font-weight:600}
-    .theme{display:grid;place-items:center;width:36px;height:36px;flex:none;color:var(--ink);background:none;border:1px solid var(--line);border-radius:50%;cursor:pointer}
-    .theme:hover{border-color:var(--ink)}
-    .theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    .theme span{display:grid}
-    [hidden]{display:none!important}
-    .hero{position:relative;overflow:hidden;background:radial-gradient(55% 85% at 89% 4%,var(--glow-1),transparent 75%),radial-gradient(38% 65% at 30% 100%,var(--glow-2),transparent 75%),radial-gradient(35% 55% at 3% 0%,var(--glow-3),transparent 70%)}
-    .hero .wrap{padding-block:76px 68px}
-    .eyebrow{color:var(--link);text-transform:uppercase;margin-bottom:18px}
-    .hero h1{max-width:850px;font-size:clamp(42px,6.5vw,79px);line-height:1.05;letter-spacing:-.035em;font-weight:800}
-    .gradient{background:linear-gradient(95deg,var(--spark-1),var(--spark-2) 40%,var(--spark-3) 75%,var(--spark-4));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .intro{max-width:750px;font-size:20px;line-height:1.55;margin-top:23px}
-    .hero-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:10px 20px;border-radius:999px;border:1px solid var(--ink);text-decoration:none;font-size:15px;font-weight:600;color:var(--ink);transition:transform .18s,border-color .18s}
-    .btn.primary{border-color:transparent;background:linear-gradient(100deg,#4f46e5,#7c3aed);color:white}
-    .btn:hover{transform:translateY(-2px)}
-    .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    .jump{border-bottom:1px solid var(--line)}
-    .jump .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-block:22px}
-    .jump .label{color:var(--muted);text-transform:uppercase}
-    .jump a{display:inline-flex;align-items:center;gap:9px;color:var(--ink);font-size:14px;font-weight:600;text-decoration:none}
-    .jump a:hover{color:var(--link)}
-    .number{color:var(--link);font:500 12px var(--mono)}
-    .projects{padding-block:58px 88px}
-    .project{display:grid;grid-template-columns:minmax(0,1fr);overflow:hidden;background:var(--sheet);border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 44px -34px var(--glow-1)}
-    .project+.project{margin-top:32px}
-    .project-media{background:linear-gradient(135deg,color-mix(in srgb,var(--spark-2) 13%,var(--sheet)),color-mix(in srgb,var(--spark-1) 9%,var(--sheet)));border-bottom:1px solid var(--line);padding:28px}
-    .project-media img{display:block;width:100%;max-width:920px;height:auto;margin:auto;border-radius:13px;box-shadow:0 22px 50px -34px rgba(0,0,0,.45)}
-    .project-media img.rebound{max-width:840px}
-    .media-caption{display:block;max-width:920px;margin:11px auto 0;text-align:right;color:var(--muted);font:400 11px var(--mono)}
-    .project-body{padding:38px 44px 42px}
-    .project-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px 25px}
-    .project-id{color:var(--link);text-transform:uppercase}
-    .status{display:inline-flex;align-items:center;gap:9px;font:500 12px var(--mono);color:var(--muted)}
-    .status::before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:var(--spark-1)}
-    .project h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.03em;line-height:1.15;margin-top:12px}
-    .project .subtitle{font-size:20px;line-height:1.5;max-width:760px;margin-top:10px;color:var(--ink)}
-    .project .summary{max-width:850px;margin-top:19px}
-    .project-columns{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
-    .project h3{font-size:16px;margin-bottom:12px}
-    .bullets{display:grid;gap:9px;font-size:15px}
-    .bullets li{position:relative;padding-left:17px}
-    .bullets li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--spark-2)}
-    .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
-    .stack li{color:var(--link);font:500 12px var(--mono);padding:7px 11px;border-radius:999px;background:color-mix(in srgb,var(--link) 10%,transparent)}
-    .actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
-    .footnote{color:var(--muted);font-size:13px;margin-top:16px;max-width:800px}
-    .end{padding:56px 0 68px;border-top:1px solid var(--line);background:radial-gradient(50% 100% at 82% 0,var(--glow-1),transparent 70%)}
-    .end h2{font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-.025em}
-    .end p{margin-top:13px;max-width:680px}
-    .end .btn{margin-top:22px}
-    .footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-    .footer .wrap{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:18px}
-    .footer a{color:var(--link);text-decoration:none}
-    .footer a:hover{text-decoration:underline}
-    @media(max-width:760px){
-      .hero .wrap{padding-block:48px 45px}
-      .intro{font-size:17px}
-      .projects{padding-block:30px 56px}
-      .project-media{padding:18px}
-      .project-body{padding:26px 23px 30px}
-      .project-columns{grid-template-columns:1fr;gap:21px}
-      .project .subtitle{font-size:18px}
-      .top nav{gap:13px;font-size:14px}
-    }
-    @media(max-width:520px){
-      .top nav a.external{display:none}
-      .top nav .nav-full{display:none}
-      .top nav .nav-short{display:inline}
-      .brand{font-size:16px}
-      .top nav{gap:12px}
-      .hero h1{font-size:clamp(39px,10.5vw,58px)}
-      .jump .wrap{gap:12px 18px}
-      .jump .label{width:100%}
-    }
-    @media(max-width:360px){
-      .top .wrap{flex-wrap:wrap;justify-content:center;padding-block:9px}
-    }
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .btn{transition:none}
-      .btn:hover{transform:none}
-    }
-  </style>
+  <link rel="stylesheet" href="css/open-source-story.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Open Source Projects | Ankit Parekh","url":"https://ankitparekh007.github.io/resume/open-source-projects.html","author":{"@type":"Person","name":"Ankit Parekh","url":"https://ankitparekh007.github.io/resume/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"ReboundOps","url":"https://github.com/AnkitParekh007/rebound-ops"},{"@type":"ListItem","position":2,"name":"AI Job Search Assistant","url":"https://github.com/AnkitParekh007/job-search-assistant"}]}}</script>
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
-  <header class="top">
-    <div class="wrap">
-      <a class="brand" href="./" aria-label="Ankit Parekh — return to portfolio">Ankit Parekh</a>
-      <nav aria-label="Main navigation">
+  <!-- Shared, decorative icon symbols keep the static page lightweight. -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-7-7 7 7 7-7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-tabs" viewBox="0 0 24 24"><path d="M4 7h15a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0-4h11M4 7V3m8 4V3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm8 0v6h5M8 13h8M8 17h6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V6l8-4Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="2" y="3" width="7" height="6" rx="1"/><rect x="15" y="3" width="7" height="6" rx="1"/><rect x="9" y="15" width="7" height="6" rx="1"/><path d="M9 6h6m-3 3v6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M8 22h8m-4-4v4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+  </svg>
+
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="./" aria-label="Ankit Parekh — go to resume home">Ankit Parekh</a>
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="./">Resume</a>
         <a href="open-source-projects.html" aria-current="page"><span class="nav-full">Open Source Projects</span><span class="nav-short">Projects</span></a>
-        <a class="external" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="optional" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">GitHub</a>
         <button class="theme" id="theme" type="button" aria-label="Switch color theme">
-          <span id="themeSun" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></span>
-          <span id="themeMoon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13a9 9 0 1 1-9.9-9.9A7 7 0 0 0 20.9 13Z"></path></svg></span>
+          <span id="themeSun" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          </span>
+          <span id="themeMoon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13a9 9 0 1 1-9.9-9.9A7 7 0 0 0 20.9 13Z"/></svg>
+          </span>
         </button>
       </nav>
     </div>
   </header>
 
-  <main id="content">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="wrap">
-        <p class="eyebrow mono">Independent builds / Open source / Built in public</p>
-        <h1 id="page-title">Ideas deserve <span class="gradient">working software.</span></h1>
-        <p class="intro">I build practical, open-source tools at the intersection of product engineering and AI. These two projects take different approaches to the job-search problem, with a shared focus on clear decisions, user control, and software you can inspect.</p>
-        <div class="hero-links">
-          <a class="btn primary" href="#projects">Explore the projects <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"></path></svg></a>
-          <a class="btn" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">Explore my GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
+  <main id="main">
+    <!-- ACT 00: The question that launched the projects. -->
+    <section class="opening" id="top" aria-labelledby="opening-title">
+      <div class="shell opening-grid">
+        <div class="opening-copy">
+          <p class="kicker mono">Open source / Built in public</p>
+          <h1 id="opening-title">
+            <span>Too many tabs.</span>
+            <span class="paint">Not enough control.</span>
+          </h1>
+          <p class="lead">Job hunting already asks a lot of people. <strong>The software shouldn't make it harder.</strong> I started building tools to make every decision clearer, every workflow more visible, and every next step yours.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#problem">Explore the story <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn ghost" href="#reboundops">See the projects <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></a>
+          </div>
+          <p class="hero-note mono"><span class="dash" aria-hidden="true"></span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg> A story in two builds</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-halo"></div>
+          <svg class="constellation" viewBox="0 0 500 480" role="presentation">
+            <circle class="orbit" cx="250" cy="240" r="190"/>
+            <circle class="orbit" cx="250" cy="240" r="150" style="animation-direction:reverse;animation-duration:48s"/>
+            <path class="trail" d="M35 360C105 290 136 139 230 140S379 262 482 114"/>
+            <path class="trail" d="M22 190C117 100 252 384 452 334"/>
+            <circle class="node" cx="118" cy="118" r="4"/>
+            <circle class="node" cx="443" cy="325" r="4"/>
+            <circle class="node" cx="76" cy="347" r="3"/>
+            <circle class="node" cx="404" cy="91" r="3"/>
+            <circle class="node" cx="301" cy="430" r="3"/>
+          </svg>
+          <div class="art-window art-card">
+            <div class="window-top"><span class="window-dots"><i></i><i></i><i></i></span><span class="mono" style="font-size:10px">A better workflow</span></div>
+            <p class="window-headline">From chaos to clarity.</p>
+            <div class="window-flow">
+              <div><svg viewBox="0 0 24 24"><use href="#i-tabs"/></svg><b>Collect</b></div>
+              <div><svg viewBox="0 0 24 24"><use href="#i-eye"/></svg><b>Review</b></div>
+              <div><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg><b>Decide</b></div>
+            </div>
+            <p class="window-status"><i></i> Nothing sent without your say-so</p>
+          </div>
+          <div class="floating-tag tag-one"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg> Local-first</div>
+          <div class="floating-tag tag-two"><svg viewBox="0 0 24 24"><use href="#i-eye"/></svg> Visible AI workflows</div>
+          <div class="floating-tag tag-three"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg> Human in control</div>
+          <span class="art-caption mono">Original conceptual illustration</span>
         </div>
       </div>
     </section>
 
-    <nav class="jump" aria-label="Projects on this page">
-      <div class="wrap">
-        <span class="label mono">Project index</span>
-        <a href="#reboundops"><span class="number">01</span>ReboundOps</a>
-        <a href="#job-search-assistant"><span class="number">02</span>AI Job Search Assistant</a>
+    <!-- ACT 01: Show the problem before presenting a solution. -->
+    <section class="problem section-pad" id="problem" aria-labelledby="problem-title">
+      <div class="shell">
+        <div class="reveal">
+          <div class="chapter-eyebrow mono"><span class="chapter-index">00</span>The starting point</div>
+          <h2 class="display-heading" id="problem-title">Every job search starts with possibility. <em>Then comes the admin.</em></h2>
+          <p class="narration">A role saved in one tab. An older resume in another folder. A promising AI-generated answer you can't quite verify. I kept coming back to the same question: why does a job search feel harder to manage than the work we're applying to do?</p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span class="index">01 /</span>
+            <span class="mini-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tabs"/></svg></span>
+            <h3>Scattered context</h3>
+            <p>Postings, drafts, notes, and follow-ups living in separate places.</p>
+          </article>
+          <article class="problem-card reveal" data-delay="1">
+            <span class="index">02 /</span>
+            <span class="mini-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-file"/></svg></span>
+            <h3>Uncertain answers</h3>
+            <p>AI-assisted writing without a clear link back to verified experience.</p>
+          </article>
+          <article class="problem-card reveal" data-delay="2">
+            <span class="index">03 /</span>
+            <span class="mini-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-eye"/></svg></span>
+            <h3>Invisible actions</h3>
+            <p>Automation that's difficult to inspect before it changes something.</p>
+          </article>
+        </div>
+        <div class="thesis reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <div>
+            <blockquote>The answer wasn't a faster auto-apply button. It was a more transparent way to work.</blockquote>
+            <p>That's where the first project began.</p>
+          </div>
+        </div>
       </div>
-    </nav>
-
-    <section class="projects wrap" id="projects" aria-label="Open-source project case studies">
-      <article class="project" id="reboundops" aria-labelledby="reboundops-title">
-        <div class="project-media">
-          <img class="rebound" src="https://raw.githubusercontent.com/AnkitParekh007/rebound-ops/main/docs/assets/brand/readme-banner-light.svg" width="840" height="220" alt="ReboundOps brand banner: local-first job search with optional AI assistance" loading="eager">
-          <span class="media-caption">Project brand artwork · not a screenshot</span>
-        </div>
-        <div class="project-body">
-          <div class="project-header">
-            <span class="project-id mono">01 / Local-first career toolkit</span>
-            <span class="status">v0.2.0 pre-release</span>
-          </div>
-          <h2 id="reboundops-title">ReboundOps</h2>
-          <p class="subtitle">A privacy-conscious job search workspace that works without an account — or AI.</p>
-          <p class="summary">ReboundOps brings job intake, explainable fit assessment, evidence-based resume tailoring, application tracking, and follow-ups into a workspace that runs on your own computer. AI is optional, and consequential actions stay with the user.</p>
-          <div class="project-columns">
-            <div>
-              <h3>What it helps you do</h3>
-              <ul class="bullets">
-                <li>Collect postings and assess role fit with an explainable rubric and separate eligibility checks.</li>
-                <li>Draft tailored resumes and cover letters from user-verified facts, with PDF and DOCX export.</li>
-                <li>Track applications, follow-ups, and interview notes without auto-submitting or sending messages.</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Engineering approach</h3>
-              <ul class="bullets">
-                <li>Angular frontend, Fastify API, and local SQLite storage built around explicit data contracts.</li>
-                <li>Optional local Ollama or consent-based cloud AI providers; the core workflow does not require AI.</li>
-                <li>Designed for evidence, privacy, reversible decisions, and user approval rather than opaque automation.</li>
-              </ul>
-            </div>
-          </div>
-          <ul class="stack" aria-label="ReboundOps technologies">
-            <li>Angular</li><li>TypeScript</li><li>Fastify</li><li>SQLite</li><li>Ollama optional</li>
-          </ul>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/AnkitParekh007/rebound-ops" target="_blank" rel="noopener noreferrer">View source on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
-            <a class="btn" href="https://github.com/AnkitParekh007/rebound-ops/releases" target="_blank" rel="noopener noreferrer">View releases</a>
-          </div>
-          <p class="footnote">Early pre-release software. See the repository for installation instructions, limitations, and release status.</p>
-        </div>
-      </article>
-
-      <article class="project" id="job-search-assistant" aria-labelledby="assistant-title">
-        <div class="project-media">
-          <img src="https://raw.githubusercontent.com/AnkitParekh007/job-search-assistant/main/docs/assets/brand/scout-hero.svg" width="1440" height="680" alt="Concept illustration for AI Job Search Assistant showing a desktop command center and its Scout mascot" loading="lazy">
-          <span class="media-caption">Concept illustration · not an application screenshot</span>
-        </div>
-        <div class="project-body">
-          <div class="project-header">
-            <span class="project-id mono">02 / AI-assisted desktop workspace</span>
-            <span class="status">Source build available</span>
-          </div>
-          <h2 id="assistant-title">AI Job Search Assistant</h2>
-          <p class="subtitle">A visual macOS command center for guided, reviewable job-search workflows.</p>
-          <p class="summary">A desktop interface built around the open-source <a href="https://github.com/ai-job-search-dev/ai-job-search" target="_blank" rel="noopener noreferrer">ai-job-search</a> workflow. It makes discovery, ranking, application preparation, and tracking easier to see and manage, with tool activity and approval steps visible before sensitive actions.</p>
-          <div class="project-columns">
-            <div>
-              <h3>What it helps you do</h3>
-              <ul class="bullets">
-                <li>Follow discovery, ranking, drafting, review, and tracking through a dedicated desktop UI.</li>
-                <li>Inspect resumes, cover letters, and agent activity instead of relying on hidden automation.</li>
-                <li>Keep the human in control of file and command approvals; applications are not auto-submitted.</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Engineering approach</h3>
-              <ul class="bullets">
-                <li>React 19 interface with a Tauri 2 and Rust host for an Apple Silicon macOS experience.</li>
-                <li>Local workspace integration with SQLite used for application settings and run history.</li>
-                <li>Claude Code and OpenAI Codex integrations described in the repository; check docs for provider status.</li>
-              </ul>
-            </div>
-          </div>
-          <ul class="stack" aria-label="AI Job Search Assistant technologies">
-            <li>React</li><li>TypeScript</li><li>Tauri 2</li><li>Rust</li><li>SQLite</li><li>Claude Code / Codex</li>
-          </ul>
-          <div class="actions">
-            <a class="btn primary" href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">View source on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
-            <a class="btn" href="https://ankitparekh007.github.io/job-search-assistant/" target="_blank" rel="noopener noreferrer">Explore project website</a>
-          </div>
-          <p class="footnote">The desktop app is a separate interface for upstream workflows, not a claim of ownership over the upstream framework. Current installation instructions describe a source build, not a verified packaged installer.</p>
-        </div>
-      </article>
     </section>
 
-    <section class="end" aria-labelledby="end-title">
-      <div class="wrap">
-        <p class="eyebrow mono">More than screenshots</p>
-        <h2 id="end-title">Explore the code. Question the trade-offs.</h2>
-        <p>Architecture, documentation, limitations, and implementation details are part of the story. Both repositories are public, so you can inspect what's actually shipped and follow their progress.</p>
-        <a class="btn primary" href="https://github.com/AnkitParekh007?tab=repositories" target="_blank" rel="noopener noreferrer">See all repositories <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"></path></svg></a>
+    <!-- ACT 02: ReboundOps — the foundation. -->
+    <section class="feature rebound-section section-pad" id="reboundops" aria-labelledby="rebound-title">
+      <div class="shell">
+        <span class="feature-number" aria-hidden="true">01</span>
+        <div class="feature-grid">
+          <div class="feature-copy reveal">
+            <div class="chapter-eyebrow mono"><span class="chapter-index">01</span>The foundation / ReboundOps</div>
+            <h2 id="rebound-title">First, make the process <span class="highlight">trustworthy.</span></h2>
+            <p class="feature-lead">A job search workspace that runs on your computer, with AI as a choice—not a requirement.</p>
+            <p>I wanted one place where I could capture a role, understand why it was a fit, prepare honest documents, and track what happened next. Without handing over the whole process to a black box.</p>
+            <p>That became <strong>ReboundOps</strong>: an open-source, local-first application designed around evidence, privacy, and human decisions.</p>
+            <ul class="detail-list">
+              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Grounded documents.</strong> Resume and cover-letter drafts use user-verified facts.</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Explainable assessments.</strong> Role fit and eligibility are considered separately.</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Control by default.</strong> No account required; no automatic job submissions or emails.</span></li>
+            </ul>
+            <ul class="stack" aria-label="ReboundOps technology stack">
+              <li>Angular</li><li>TypeScript</li><li>Fastify</li><li>SQLite</li><li>Optional Ollama / cloud AI</li>
+            </ul>
+            <div class="feature-actions">
+              <a class="btn primary" href="https://github.com/AnkitParekh007/rebound-ops" target="_blank" rel="noopener noreferrer">Explore ReboundOps <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="btn" href="https://github.com/AnkitParekh007/rebound-ops/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+            </div>
+            <p class="small-print">Published as an early v0.2.0 pre-release. Installation, limitations, and tested platforms are documented in the repository.</p>
+          </div>
+
+          <figure class="mock-wrap reveal" data-delay="1">
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="mock-terminal" role="img" aria-label="Concept illustration of a ReboundOps local dashboard, showing three reviewable stages: job posting with source, fit assessment with evidence, and a resume draft awaiting review">
+              <div class="mock-top"><span class="window-dots"><i></i><i></i><i></i></span><span class="mono">Local workspace · illustrative flow</span></div>
+              <div class="mock-main">
+                <div class="mock-sidebar">
+                  <div class="mock-mark"><i>R</i><b>ReboundOps</b></div>
+                  <ul aria-hidden="true"><li>Overview</li><li class="active">Assessment</li><li>Documents</li><li>Tracker</li></ul>
+                </div>
+                <div class="mock-content">
+                  <p class="mock-overline">A MORE REVIEWABLE JOURNEY</p>
+                  <h3>From posting to preparation</h3>
+                  <p class="mock-subline">See what each step depends on before acting.</p>
+                  <div class="workflow">
+                    <div class="work-row"><b>Job posting</b><span>Source attached</span></div>
+                    <div class="work-row"><b>Fit assessment</b><span>Evidence visible</span></div>
+                    <div class="work-row"><b>Document draft</b><span>Needs your review</span></div>
+                  </div>
+                  <div class="mock-approval"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg> Your decision comes last</div>
+                </div>
+              </div>
+            </div>
+            <div class="mock-bubble" aria-hidden="true"><span></span>AI optional · local by default</div>
+            <figcaption class="figure-caption">Original concept illustration — not an application screenshot</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- The pivot is a real design question rather than a claim that one product replaced the other. -->
+    <section class="bridge" aria-labelledby="bridge-title">
+      <div class="shell">
+        <div class="bridge-symbol reveal" aria-hidden="true">
+          <svg viewBox="0 0 88 88">
+            <rect x="13" y="16" width="40" height="40" rx="7"/>
+            <rect x="35" y="33" width="40" height="40" rx="7"/>
+            <path class="moving-arrow" d="M23 66c7 8 18 12 29 7"/>
+            <path d="m47 70 8 3-5 8"/>
+          </svg>
+        </div>
+        <div class="reveal" data-delay="1">
+          <p class="kicker mono" style="margin-bottom:18px">Then another question emerged</p>
+          <h2 id="bridge-title">What if the tools didn't just do the work—<em>what if you could see the work happening?</em></h2>
+          <p>ReboundOps focuses on the integrity of the workflow. A separate experiment asked how that workflow could feel in a visual desktop environment, with each agent action and approval in plain sight.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACT 03: AI Job Search Assistant — visual orchestration of upstream workflows. -->
+    <section class="feature assistant-section section-pad" id="job-search-assistant" aria-labelledby="assistant-title">
+      <div class="shell">
+        <span class="feature-number" aria-hidden="true">02</span>
+        <div class="feature-grid">
+          <figure class="assistant-scene reveal">
+            <div class="assistant-art">
+              <img src="https://raw.githubusercontent.com/AnkitParekh007/job-search-assistant/main/docs/assets/brand/scout-hero.svg" width="1440" height="680" loading="lazy" decoding="async" alt="AI Job Search Assistant's original Scout concept illustration with a dark desktop workspace and job search workflow panels">
+            </div>
+            <figcaption>Original project artwork — conceptual, not a screenshot</figcaption>
+            <ol class="agent-flow" aria-label="Illustrative AI Job Search Assistant workflow">
+              <li><span>Discover</span></li>
+              <li><span>Rank</span></li>
+              <li><span>Prepare</span></li>
+              <li class="review"><span>Review</span></li>
+              <li><span>Track</span></li>
+            </ol>
+          </figure>
+          <div class="feature-copy reveal" data-delay="1">
+            <div class="chapter-eyebrow mono"><span class="chapter-index">02</span>The experience / AI Job Search Assistant</div>
+            <h2 id="assistant-title">Then, make the automation <span class="highlight">visible.</span></h2>
+            <p class="feature-lead">A macOS command center where workflows, agents, documents, and approvals share one screen.</p>
+            <p>AI Job Search Assistant takes a different route. It's a visual desktop companion for the open-source <a href="https://github.com/ai-job-search-dev/ai-job-search" target="_blank" rel="noopener noreferrer">ai-job-search</a> workflow, turning its command-driven journey into a guided interface.</p>
+            <p>Instead of treating the agent as a mystery, the app emphasizes visible progress, inspectable documents, and a pause for human approval before sensitive actions.</p>
+            <ul class="detail-list">
+              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Visual pipeline.</strong> Discover, rank, prepare, review, and track in one desktop experience.</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Agent visibility.</strong> See workflow progress and tool activity rather than guessing what's running.</span></li>
+              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Explicit approval.</strong> Applications are not auto-submitted, and emails aren't silently sent.</span></li>
+            </ul>
+            <ul class="stack" aria-label="AI Job Search Assistant technology stack">
+              <li>React 19</li><li>TypeScript</li><li>Tauri 2</li><li>Rust</li><li>SQLite</li><li>Claude Code / Codex</li>
+            </ul>
+            <div class="feature-actions">
+              <a class="btn primary" href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">Explore source code <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="btn" href="https://job-search-assistant.rebound-ops.org/" target="_blank" rel="noopener noreferrer">Project website <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+            <p class="small-print">Apple Silicon source build; no verified packaged installer yet. This app is a separate interface for the upstream project's workflow, not a claim of ownership of the upstream framework. Provider support and prerequisites are documented in the <a href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">README</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACT 04: Shared values and an invitation to inspect the engineering. -->
+    <section class="principles section-pad" id="principles" aria-labelledby="principles-title">
+      <div class="shell">
+        <div class="principles-header reveal">
+          <div>
+            <div class="chapter-eyebrow mono"><span class="chapter-index">03</span>The thread connecting both projects</div>
+            <h2 class="display-heading" id="principles-title">Two projects. <em>One philosophy.</em></h2>
+          </div>
+          <p>Different technologies and different interfaces. The same design instincts keep showing up.</p>
+        </div>
+        <div class="principles-grid">
+          <article class="principle reveal">
+            <div class="principle-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg></div>
+            <h3>Own your workspace</h3>
+            <p>Keep your job-search records in a workspace you control. Any external provider interaction should be deliberate.</p>
+          </article>
+          <article class="principle reveal" data-delay="1">
+            <div class="principle-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-eye"/></svg></div>
+            <h3>See the reasoning</h3>
+            <p>A recommendation or draft is more useful when its inputs, evidence, and limitations are visible.</p>
+          </article>
+          <article class="principle reveal" data-delay="2">
+            <div class="principle-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <h3>Keep the final say</h3>
+            <p>Automation can prepare and assist. A person still decides what to save, send, and submit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="close" aria-labelledby="close-title">
+      <div class="shell">
+        <div class="reveal">
+          <p class="kicker mono" style="margin-bottom:22px">Built openly · Always evolving</p>
+          <h2 id="close-title">The best part of open source? <em>You can look under the hood.</em></h2>
+          <p>Don't take a polished page as proof. Explore the repositories, inspect the implementations, check what's shipped, and see what's still being built.</p>
+        </div>
+        <div class="close-cta reveal" data-delay="1">
+          <a class="btn primary" href="https://github.com/AnkitParekh007/rebound-ops" target="_blank" rel="noopener noreferrer">ReboundOps <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
+          <a class="btn secondary" href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">AI Job Search Assistant <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
+          <a class="btn secondary" href="./">Back to the resume <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
     </section>
   </main>
+
   <footer class="footer">
-    <div class="wrap">
+    <div class="shell">
       <span>© 2026 Ankit Parekh · Mumbai, India</span>
-      <a href="./">Return to resume</a>
+      <a href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">More open-source work <svg style="width:13px;height:13px;display:inline;stroke:currentColor;stroke-width:2;fill:none" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
     </div>
   </footer>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var button = document.getElementById('theme');
-      var light = document.getElementById('themeSun');
-      var dark = document.getElementById('themeMoon');
-      function isDark() {
-        var chosen = root.getAttribute('data-theme');
-        return chosen ? chosen === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-      }
-      function sync() {
-        var active = isDark();
-        light.hidden = !active;
-        dark.hidden = active;
-        button.setAttribute('aria-label', active ? 'Switch to light theme' : 'Switch to dark theme');
-      }
-      try {
-        var stored = localStorage.getItem('theme');
-        if (stored === 'light' || stored === 'dark') root.setAttribute('data-theme', stored);
-      } catch (error) { /* Storage may be unavailable. */ }
-      sync();
-      button.addEventListener('click', function () {
-        var next = isDark() ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        try { localStorage.setItem('theme', next); } catch (error) { /* Theme still works in this tab. */ }
-        sync();
-      });
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
-    }());
-  </script>
+  <script src="js/open-source-story.js" defer></script>
 </body>
 </html>
