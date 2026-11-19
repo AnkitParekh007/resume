@@ -75,7 +75,7 @@ a:hover{color:var(--link)}
 .btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .hero-note{display:flex;align-items:center;gap:10px;margin-top:37px;color:#aaaed0;font-size:12px;letter-spacing:.04em}
 .hero-note .dash{width:31px;height:1px;background:rgba(200,205,255,.55)}
-.hero-note svg{width:18px;height:18px;animation:arrow-dip 2s infinite}
+.hero-note svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;animation:arrow-dip 2s infinite}
 .hero-art{position:relative;height:490px;min-width:0;perspective:1200px}
 .constellation{position:absolute;inset:-14% -18%;overflow:visible;width:135%;height:130%;opacity:.85}
 .constellation .orbit{stroke:#666cbd;stroke-width:.9;stroke-dasharray:5 8;fill:none;transform-origin:250px 240px;animation:orbit 65s linear infinite}
