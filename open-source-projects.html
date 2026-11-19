@@ -11,7 +11,7 @@
   <meta property="og:title" content="Open Source Projects | Ankit Parekh">
   <meta property="og:description" content="A closer look at ReboundOps and AI Job Search Assistant: architecture, use cases, design choices, and source code.">
   <meta property="og:url" content="https://ankitparekh007.github.io/resume/open-source-projects.html">
-  <meta property="og:image" content="https://raw.githubusercontent.com/AnkitParekh007/job-search-assistant/main/docs/assets/brand/scout-hero.svg">
+  <meta property="og:image" content="https://ankitparekh007.github.io/resume/assets/gitbanner.png">
   <meta name="twitter:card" content="summary">
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -60,6 +60,7 @@
     .brand{text-decoration:none;color:var(--ink);font:700 18px var(--display);white-space:nowrap}
     .top nav{display:flex;gap:22px;align-items:center;font-size:15px}
     .top nav a{text-decoration:none;white-space:nowrap}
+    .top nav .nav-short{display:none}
     .top nav a:hover,.top nav a[aria-current="page"]{color:var(--link)}
     .top nav a[aria-current="page"]{font-weight:600}
     .theme{display:grid;place-items:center;width:36px;height:36px;flex:none;color:var(--ink);background:none;border:1px solid var(--line);border-radius:50%;cursor:pointer}
@@ -128,6 +129,8 @@
     }
     @media(max-width:520px){
       .top nav a.external{display:none}
+      .top nav .nav-full{display:none}
+      .top nav .nav-short{display:inline}
       .brand{font-size:16px}
       .top nav{gap:12px}
       .hero h1{font-size:clamp(39px,10.5vw,58px)}
@@ -151,7 +154,7 @@
       <a class="brand" href="./" aria-label="Ankit Parekh — return to portfolio">Ankit Parekh</a>
       <nav aria-label="Main navigation">
         <a href="./">Resume</a>
-        <a href="open-source-projects.html" aria-current="page">Open Source Projects</a>
+        <a href="open-source-projects.html" aria-current="page"><span class="nav-full">Open Source Projects</span><span class="nav-short">Projects</span></a>
         <a class="external" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">GitHub</a>
         <button class="theme" id="theme" type="button" aria-label="Switch color theme">
           <span id="themeSun" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></span>
