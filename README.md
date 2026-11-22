@@ -6,7 +6,7 @@
 
 Portfolio and resume surface focused on enterprise frontend architecture, AI-native product UX, RAG, MCP/tool execution, agent orchestration, human-in-the-loop governance, and production-minded application boundaries.
 
-**Live portfolio:** [ankitparekh007.github.io/resume](https://ankitparekh007.github.io/resume/)  
+**Live portfolio:** [ankit-parekh.org](https://ankit-parekh.org/)  
 **GitHub:** [github.com/AnkitParekh007](https://github.com/AnkitParekh007)  
 **LinkedIn:** [linkedin.com/in/akkiparekh](https://www.linkedin.com/in/akkiparekh)
 
@@ -100,7 +100,7 @@ The portfolio is intentionally organized around one specialization:
 
 ## Contact
 
-- Portfolio: [ankitparekh007.github.io/resume](https://ankitparekh007.github.io/resume/)
+- Portfolio: [ankit-parekh.org](https://ankit-parekh.org/)
 - GitHub: [github.com/AnkitParekh007](https://github.com/AnkitParekh007)
 - LinkedIn: [linkedin.com/in/akkiparekh](https://www.linkedin.com/in/akkiparekh)
 
