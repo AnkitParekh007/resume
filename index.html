@@ -1429,8 +1429,7 @@ document.querySelectorAll('.d-wrap').forEach(w => {
     var hash = decodeURIComponent(window.location.hash.slice(1));
     var projectView = hash === 'open-source-projects' || projectIds.has(hash);
     var nextView = projectView ? 'projects' : 'resume';
-    var changed = nextView !== lastView;
-    lastView = nextView;
+      lastView = nextView;
 
     resume.hidden = projectView;
     projects.hidden = !projectView;
@@ -1441,12 +1440,12 @@ document.querySelectorAll('.d-wrap').forEach(w => {
     else projectNav.removeAttribute('aria-current');
 
     window.requestAnimationFrame(function () {
-      if (hash === 'open-source-projects' || !hash) {
-        if (changed) window.scrollTo(0, 0);
+      if (hash === 'open-source-projects' || hash === 'top' || !hash) {
+        window.scrollTo(0, 0);
       } else {
         var container = projectView ? projects : resume;
-        var target = container.querySelector('[id="' + hash.replace(/["\\]/g, '') + '"]');
-        if (target) target.scrollIntoView({ block: 'start' });
+        var target = document.getElementById(hash);
+        if (target && container.contains(target)) target.scrollIntoView({ block: 'start' });
       }
       window.dispatchEvent(new Event('resize'));
     });
