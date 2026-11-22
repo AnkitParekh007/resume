@@ -1,3 +1,5 @@
+/* Scoped story styling for the unified portfolio. The homepage owns the global theme and header. */
+@scope (#open-source-projects) {
 
 /* Open Source Projects — a narrative companion to the resume portfolio.
    No framework, no animation dependency, no external scripts. */
@@ -371,4 +373,6 @@ a:hover{color:var(--link)}
   .section-pad{padding-block:35px}
   .problem-card,.principle,.mock-terminal,.assistant-art{break-inside:avoid}
   .js .reveal{opacity:1!important;translate:0 0!important}
+}
+
 }
