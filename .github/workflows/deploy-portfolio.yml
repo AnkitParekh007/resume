@@ -1,0 +1,58 @@
+# GitHub Pages deployment for the static portfolio at https://ankit-parekh.org/.
+# Uses the same official Pages artifact/deploy actions as ReboundOps.
+# GitHub Pages must be set to "GitHub Actions" and repository Actions must be enabled.
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the portfolio
+        uses: actions/checkout@v7.0.1
+
+      - name: Stage static portfolio files
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp index.html open-source-projects.html AnkitParekh_Resume.pdf AnkitParekh_Resume.docx _site/
+          cp -R assets css favicons img js _site/
+          cp .nojekyll _site/.nojekyll
+          test -s _site/index.html
+          test -s _site/open-source-projects.html
+          test -s _site/AnkitParekh_Resume.pdf
+          test -s _site/AnkitParekh_Resume.docx
+          echo "Verified portfolio files:"
+          find _site -maxdepth 2 -type f | sort
+
+      - name: Upload portfolio for GitHub Pages
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
