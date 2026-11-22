@@ -4,318 +4,230 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <title>Open Source Projects | Ankit Parekh</title>
-  <meta name="description" content="The story behind ReboundOps and AI Job Search Assistant: two open-source approaches to a more transparent, human-controlled job search.">
+  <meta name="theme-color" content="#0c1022">
+  <title>Open Source Projects | Ankit Parekh — AI Systems &amp; Engineering</title>
+  <meta name="description" content="Explore eight open-source engineering projects by Ankit Parekh: enterprise AI systems, Angular and React architecture, developer tools, and practical AI engineering education.">
   <link rel="canonical" href="https://ankitparekh007.github.io/resume/open-source-projects.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Open Source Projects | Ankit Parekh">
-  <meta property="og:description" content="From local-first job search to a visual AI desktop workspace. Explore the story, engineering choices, and code behind two open-source projects.">
+  <meta property="og:title" content="Engineering in the Open | Ankit Parekh">
+  <meta property="og:description" content="Enterprise AI, frontend architecture, developer tools, and project-based engineering education — with inspectable technical proof.">
   <meta property="og:url" content="https://ankitparekh007.github.io/resume/open-source-projects.html">
   <meta property="og:image" content="https://ankitparekh007.github.io/resume/assets/gitbanner.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="favicons/favicon-32x32.png">
+  <link rel="icon" sizes="16x16" type="image/png" href="favicons/favicon-16x16.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/open-source-story.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Open Source Projects | Ankit Parekh","url":"https://ankitparekh007.github.io/resume/open-source-projects.html","author":{"@type":"Person","name":"Ankit Parekh","url":"https://ankitparekh007.github.io/resume/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"ReboundOps","url":"https://github.com/AnkitParekh007/rebound-ops"},{"@type":"ListItem","position":2,"name":"AI Job Search Assistant","url":"https://github.com/AnkitParekh007/job-search-assistant"}]}}</script>
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/open-source-showcase.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Open-Source Engineering Projects | Ankit Parekh","url":"https://ankitparekh007.github.io/resume/open-source-projects.html","author":{"@type":"Person","name":"Ankit Parekh","url":"https://ankitparekh007.github.io/resume/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Org AI Force","url":"https://github.com/AnkitParekh007/org-ai-force"},{"@type":"ListItem","position":2,"name":"ngx-copilot-platform","url":"https://github.com/AnkitParekh007/ngx-copilot-platform"},{"@type":"ListItem","position":3,"name":"ContextOps AI","url":"https://github.com/AnkitParekh007/contextOps"},{"@type":"ListItem","position":4,"name":"ContributorOps","url":"https://github.com/AnkitParekh007/contributorOps"},{"@type":"ListItem","position":5,"name":"ReboundOps","url":"https://github.com/AnkitParekh007/rebound-ops/releases/tag/v0.2.0"},{"@type":"ListItem","position":6,"name":"Job Search Assistant","url":"https://github.com/AnkitParekh007/job-search-assistant"},{"@type":"ListItem","position":7,"name":"Agentic Engineering Playbook","url":"https://github.com/AnkitParekh007/Agentic-Engineering-Playbook"},{"@type":"ListItem","position":8,"name":"Zero to FDE","url":"https://github.com/AnkitParekh007/forward-deployed-engineering-from-scratch"}]}}</script>
+  <script src="js/open-source-showcase.js" defer></script>
 </head>
 <body>
-  <!-- Shared, decorative icon symbols keep the static page lightweight. -->
-  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
-    <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
-    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-7-7 7 7 7-7"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
-    <symbol id="i-tabs" viewBox="0 0 24 24"><path d="M4 7h15a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0-4h11M4 7V3m8 4V3"/></symbol>
-    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm8 0v6h5M8 13h8M8 17h6"/></symbol>
-    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V6l8-4Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
-    <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="2" y="3" width="7" height="6" rx="1"/><rect x="15" y="3" width="7" height="6" rx="1"/><rect x="9" y="15" width="7" height="6" rx="1"/><path d="M9 6h6m-3 3v6"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
-    <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M8 22h8m-4-4v4"/></symbol>
-    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
-  </svg>
-
-  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
-
   <header class="site-header">
-    <div class="shell">
-      <a class="brand" href="./" aria-label="Ankit Parekh — go to resume home">Ankit Parekh</a>
+    <div class="shell nav-shell">
+      <a class="brand" href="./" aria-label="Ankit Parekh — resume homepage">Ankit Parekh</a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="./">Resume</a>
-        <a href="open-source-projects.html" aria-current="page"><span class="nav-full">Open Source Projects</span><span class="nav-short">Projects</span></a>
+        <a href="open-source-projects.html" aria-current="page">Open Source Projects</a>
         <a class="optional" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <button class="theme" id="theme" type="button" aria-label="Switch color theme">
-          <span id="themeSun" hidden>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
-          </span>
-          <span id="themeMoon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13a9 9 0 1 1-9.9-9.9A7 7 0 0 0 20.9 13Z"/></svg>
-          </span>
-        </button>
+        <button class="theme" id="theme" type="button" aria-label="Switch color theme" title="Toggle light and dark theme"><span id="theme-icon" aria-hidden="true">☾</span></button>
       </nav>
     </div>
   </header>
-
   <main id="main">
-    <!-- ACT 00: The question that launched the projects. -->
-    <section class="opening" id="top" aria-labelledby="opening-title">
-      <div class="shell opening-grid">
-        <div class="opening-copy">
-          <p class="kicker mono">Open source / Built in public</p>
-          <h1 id="opening-title">
-            <span>Too many tabs.</span>
-            <span class="paint">Not enough control.</span>
-          </h1>
-          <p class="lead">Job hunting already asks a lot of people. <strong>The software shouldn't make it harder.</strong> I started building tools to make every decision clearer, every workflow more visible, and every next step yours.</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Open source / Engineering in public</p>
+          <h1 id="hero-title">Useful AI systems. <em>Thoughtful software.</em> Open source.</h1>
+          <p class="lead">I design and build enterprise AI platforms, frontend architecture, developer tools, and hands-on engineering resources. Each project links to the real code, design decisions, and the limits of what has been built.</p>
           <div class="cta-row">
-            <a class="btn primary" href="#problem">Explore the story <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn ghost" href="#reboundops">See the projects <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <a class="button primary" href="#featured">Explore projects <span aria-hidden="true">↘</span></a>
+            <a class="button secondary" href="https://github.com/AnkitParekh007?tab=repositories" target="_blank" rel="noopener noreferrer">Browse GitHub <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="hero-note mono"><span class="dash" aria-hidden="true"></span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg> A story in two builds</p>
+          <p class="hero-note">Working demos and prototypes clearly distinguished. No invented adoption metrics.</p>
         </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <div class="art-halo"></div>
-          <svg class="constellation" viewBox="0 0 500 480" role="presentation">
-            <circle class="orbit" cx="250" cy="240" r="190"/>
-            <circle class="orbit" cx="250" cy="240" r="150" style="animation-direction:reverse;animation-duration:48s"/>
-            <path class="trail" d="M35 360C105 290 136 139 230 140S379 262 482 114"/>
-            <path class="trail" d="M22 190C117 100 252 384 452 334"/>
-            <circle class="node" cx="118" cy="118" r="4"/>
-            <circle class="node" cx="443" cy="325" r="4"/>
-            <circle class="node" cx="76" cy="347" r="3"/>
-            <circle class="node" cx="404" cy="91" r="3"/>
-            <circle class="node" cx="301" cy="430" r="3"/>
-          </svg>
-          <div class="art-window art-card">
-            <div class="window-top"><span class="window-dots"><i></i><i></i><i></i></span><span class="mono" style="font-size:10px">A better workflow</span></div>
-            <p class="window-headline">From chaos to clarity.</p>
-            <div class="window-flow">
-              <div><svg viewBox="0 0 24 24"><use href="#i-tabs"/></svg><b>Collect</b></div>
-              <div><svg viewBox="0 0 24 24"><use href="#i-eye"/></svg><b>Review</b></div>
-              <div><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg><b>Decide</b></div>
+        <div class="hero-art" aria-label="Conceptual illustration of three engineering focus areas" role="img">
+          <div class="hero-panel" aria-hidden="true">
+            <div class="panel-top"><span>Engineering portfolio / focus</span><span class="panel-dots"><i></i><i></i><i></i></span></div>
+            <div class="panel-heading">Beyond the happy path.</div>
+            <div class="panel-rail">
+              <div class="rail-item"><span class="rail-num">01</span><span class="rail-title">Enterprise AI systems</span><span class="rail-chip">Governed</span></div>
+              <div class="rail-item"><span class="rail-num">02</span><span class="rail-title">Frontend architecture</span><span class="rail-chip">Reusable</span></div>
+              <div class="rail-item"><span class="rail-num">03</span><span class="rail-title">Developer products</span><span class="rail-chip">Inspectable</span></div>
             </div>
-            <p class="window-status"><i></i> Nothing sent without your say-so</p>
+            <div class="panel-bottom">Build → test → review → improve</div>
           </div>
-          <div class="floating-tag tag-one"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg> Local-first</div>
-          <div class="floating-tag tag-two"><svg viewBox="0 0 24 24"><use href="#i-eye"/></svg> Visible AI workflows</div>
-          <div class="floating-tag tag-three"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg> Human in control</div>
-          <span class="art-caption mono">Original conceptual illustration</span>
+          <span class="orbit-chip one" aria-hidden="true">Agentic AI + RAG</span>
+          <span class="orbit-chip two" aria-hidden="true">Human-controlled workflows</span>
         </div>
       </div>
     </section>
-
-    <!-- ACT 01: Show the problem before presenting a solution. -->
-    <section class="problem section-pad" id="problem" aria-labelledby="problem-title">
+    <section class="section" id="featured" aria-labelledby="featured-title">
       <div class="shell">
-        <div class="reveal">
-          <div class="chapter-eyebrow mono"><span class="chapter-index">00</span>The starting point</div>
-          <h2 class="display-heading" id="problem-title">Every job search starts with possibility. <em>Then comes the admin.</em></h2>
-          <p class="narration">A role saved in one tab. An older resume in another folder. A promising AI-generated answer you can't quite verify. I kept coming back to the same question: why does a job search feel harder to manage than the work we're applying to do?</p>
+        <div class="section-head">
+          <div><p class="eyebrow">Selected projects</p><h2 id="featured-title">Work you can inspect.</h2></div>
+          <p>Start with a live demo, trace a design decision, or inspect the code. These projects range from published tools to clearly scoped architecture prototypes.</p>
         </div>
-        <div class="problem-grid">
-          <article class="problem-card reveal">
-            <span class="index">01 /</span>
-            <span class="mini-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tabs"/></svg></span>
-            <h3>Scattered context</h3>
-            <p>Postings, drafts, notes, and follow-ups living in separate places.</p>
-          </article>
-          <article class="problem-card reveal" data-delay="1">
-            <span class="index">02 /</span>
-            <span class="mini-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-file"/></svg></span>
-            <h3>Uncertain answers</h3>
-            <p>AI-assisted writing without a clear link back to verified experience.</p>
-          </article>
-          <article class="problem-card reveal" data-delay="2">
-            <span class="index">03 /</span>
-            <span class="mini-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-eye"/></svg></span>
-            <h3>Invisible actions</h3>
-            <p>Automation that's difficult to inspect before it changes something.</p>
-          </article>
-        </div>
-        <div class="thesis reveal">
-          <span class="rule" aria-hidden="true"></span>
-          <div>
-            <blockquote>The answer wasn't a faster auto-apply button. It was a more transparent way to work.</blockquote>
-            <p>That's where the first project began.</p>
+        <div class="filter-wrap" aria-label="Filter the project list">
+          <span class="filter-label">Find your focus</span>
+          <div class="filters" role="group" aria-label="Project categories">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true" aria-controls="project-grids">All work</button>
+            <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false" aria-controls="project-grids">Enterprise &amp; applied AI</button>
+            <button class="filter-btn" type="button" data-filter="frontend" aria-pressed="false" aria-controls="project-grids">Frontend architecture</button>
+            <button class="filter-btn" type="button" data-filter="tools" aria-pressed="false" aria-controls="project-grids">Developer tools</button>
+            <button class="filter-btn" type="button" data-filter="learning" aria-pressed="false" aria-controls="project-grids">Learning &amp; labs</button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ACT 02: ReboundOps — the foundation. -->
-    <section class="feature rebound-section section-pad" id="reboundops" aria-labelledby="rebound-title">
-      <div class="shell">
-        <span class="feature-number" aria-hidden="true">01</span>
-        <div class="feature-grid">
-          <div class="feature-copy reveal">
-            <div class="chapter-eyebrow mono"><span class="chapter-index">01</span>The foundation / ReboundOps</div>
-            <h2 id="rebound-title">First, make the process <span class="highlight">trustworthy.</span></h2>
-            <p class="feature-lead">A job search workspace that runs on your computer, with AI as a choice—not a requirement.</p>
-            <p>I wanted one place where I could capture a role, understand why it was a fit, prepare honest documents, and track what happened next. Without handing over the whole process to a black box.</p>
-            <p>That became <strong>ReboundOps</strong>: an open-source, local-first application designed around evidence, privacy, and human decisions.</p>
-            <ul class="detail-list">
-              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Grounded documents.</strong> Resume and cover-letter drafts use user-verified facts.</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Explainable assessments.</strong> Role fit and eligibility are considered separately.</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Control by default.</strong> No account required; no automatic job submissions or emails.</span></li>
-            </ul>
-            <ul class="stack" aria-label="ReboundOps technology stack">
-              <li>Angular</li><li>TypeScript</li><li>Fastify</li><li>SQLite</li><li>Optional Ollama / cloud AI</li>
-            </ul>
-            <div class="feature-actions">
-              <a class="btn primary" href="https://github.com/AnkitParekh007/rebound-ops" target="_blank" rel="noopener noreferrer">Explore ReboundOps <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
-              <a class="btn" href="https://github.com/AnkitParekh007/rebound-ops/releases" target="_blank" rel="noopener noreferrer">Releases</a>
-            </div>
-            <p class="small-print">Published as an early v0.2.0 pre-release. Installation, limitations, and tested platforms are documented in the repository.</p>
-          </div>
-
-          <figure class="mock-wrap reveal" data-delay="1">
-            <div class="visual-glow" aria-hidden="true"></div>
-            <div class="mock-terminal" role="img" aria-label="Concept illustration of a ReboundOps local dashboard, showing three reviewable stages: job posting with source, fit assessment with evidence, and a resume draft awaiting review">
-              <div class="mock-top"><span class="window-dots"><i></i><i></i><i></i></span><span class="mono">Local workspace · illustrative flow</span></div>
-              <div class="mock-main">
-                <div class="mock-sidebar">
-                  <div class="mock-mark"><i>R</i><b>ReboundOps</b></div>
-                  <ul aria-hidden="true"><li>Overview</li><li class="active">Assessment</li><li>Documents</li><li>Tracker</li></ul>
-                </div>
-                <div class="mock-content">
-                  <p class="mock-overline">A MORE REVIEWABLE JOURNEY</p>
-                  <h3>From posting to preparation</h3>
-                  <p class="mock-subline">See what each step depends on before acting.</p>
-                  <div class="workflow">
-                    <div class="work-row"><b>Job posting</b><span>Source attached</span></div>
-                    <div class="work-row"><b>Fit assessment</b><span>Evidence visible</span></div>
-                    <div class="work-row"><b>Document draft</b><span>Needs your review</span></div>
-                  </div>
-                  <div class="mock-approval"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg> Your decision comes last</div>
-                </div>
-              </div>
-            </div>
-            <div class="mock-bubble" aria-hidden="true"><span></span>AI optional · local by default</div>
-            <figcaption class="figure-caption">Original concept illustration — not an application screenshot</figcaption>
-          </figure>
+        <div class="filter-status" id="filter-status" role="status" aria-live="polite">8 projects shown</div>
+        <div id="project-grids">
+          <section data-project-group aria-labelledby="flagship-title">
+            <div class="group-title"><h3 id="flagship-title">Flagship engineering work</h3><span class="line" aria-hidden="true"></span><p>Six practical systems and products</p></div>
+            <div class="grid"><article class="project" id="org-ai-force" data-categories="ai frontend">
+  <div class="project-media"><img src="https://raw.githubusercontent.com/AnkitParekh007/org-ai-force/main/docs/assets/screenshots/workspace.png" alt="Org AI Force workspace screenshot from the project repository" loading="lazy" decoding="async"><span class="media-caption">Real repository screenshot</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Enterprise AI</span><span class="status">Architecture prototype</span></div>
+   <h3>Org AI Force</h3><p class="project-summary">An enterprise agent workspace exploring how Angular, policy-governed tools, and operator visibility fit into a coherent AI platform.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>Angular 21</span><span>NestJS</span><span>RBAC</span><span>RAG</span><span>Playwright</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> Angular workspace and NestJS orchestration surfaces, role guards, explicit approvals, and deterministic resilience scenarios.</p>
+   <div class="project-links"><a href="https://github.com/AnkitParekh007/org-ai-force/blob/main/docs/system-architecture.md" target="_blank" rel="noopener noreferrer">Review architecture <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/org-ai-force" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Keep tool authorization and audit logic behind the frontend boundary. Treat degraded provider, approval, and worker states as first-class product states.</p>
+    <p><strong>Scope and maturity:</strong> An architecture proof with mock-safe workflows, not an enterprise production deployment.</p>
+   </details>
+  </div>
+ </article>
+<article class="project" id="ngx-copilot-platform" data-categories="ai frontend">
+  <div class="project-media"><img src="https://raw.githubusercontent.com/AnkitParekh007/ngx-copilot-platform/main/docs/assets/public-proof/platform-failure-lab.gif" alt="Animated capture of ngx-copilot-platform's deterministic failure lab" loading="lazy" decoding="async"><span class="media-caption">Repository demo capture</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Frontend architecture</span><span class="status">SDK + platform integration</span></div>
+   <h3>ngx-copilot-platform</h3><p class="project-summary">An embeddable Angular copilot platform with typed UI contracts, streaming interfaces, retrieval evidence, and backend-owned approvals.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>Angular SDK</span><span>TypeScript</span><span>SSE</span><span>RAG</span><span>Next.js</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> Published npm SDK, SSE contracts, retrieval architecture, and an inspectable deterministic Failure Lab.</p>
+   <div class="project-links"><a href="https://ankitparekh007.github.io/ngx-copilot-platform/" target="_blank" rel="noopener noreferrer">Open demo <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/ngx-copilot-platform" target="_blank" rel="noopener noreferrer">Inspect source <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Separate the Angular SDK from backend adapters; keep model credentials, auth, approvals, and retrieval policies on the server.</p>
+    <p><strong>Scope and maturity:</strong> The public Pages site demonstrates the platform; it is not a hosted production copilot.</p>
+   </details>
+  </div>
+ </article>
+<article class="project" id="contextops" data-categories="ai">
+  <div class="project-media project-diagram"><div class="diagram-title">ContextOps AI / workflow</div><div class="diagram-flow" aria-label="Import traces, Evaluate quality, Review policies, Shadow simulate"><span>Import traces</span><span>Evaluate quality</span><span>Review policies</span><span>Shadow simulate</span></div><span class="media-caption">Capability diagram · not a live application screenshot</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Applied AI</span><span class="status">Controlled pilot</span></div>
+   <h3>ContextOps AI</h3><p class="project-summary">A B2B evaluation workspace for finding which repeatable AI tasks might use lower-cost models without sacrificing measured quality.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>Next.js</span><span>PostgreSQL</span><span>Redis</span><span>Model evals</span><span>Policy gates</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> Trace ingestion, labeled evaluations, review queues, cost assumptions, approved simulation policies, and offline shadow projections.</p>
+   <div class="project-links"><a href="https://ankitparekh007.github.io/contextOps/" target="_blank" rel="noopener noreferrer">Explore site <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/contextOps" target="_blank" rel="noopener noreferrer">Inspect pilot <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Measure against a labeled baseline and route only in simulation when quality and risk thresholds are met.</p>
+    <p><strong>Scope and maturity:</strong> There is no live production traffic routing, custom fine-tuning, or verified customer cost saving.</p>
+   </details>
+  </div>
+ </article>
+<article class="project" id="contributorops" data-categories="tools">
+  <div class="project-media"><img src="https://raw.githubusercontent.com/AnkitParekh007/contributorOps/main/docs/assets/contributorops-demo.png" alt="ContributorOps interactive browser demo screenshot from the project repository" loading="lazy" decoding="async"><span class="media-caption">Real browser-demo screenshot</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Developer tools</span><span class="status">Runnable project + demo</span></div>
+   <h3>ContributorOps</h3><p class="project-summary">A contribution workflow that helps developers find worthwhile issues, prepare reviewable pull requests, and document what they actually shipped.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>React</span><span>TypeScript</span><span>GitHub</span><span>Express</span><span>Policy checks</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> A confirmed merged Floating UI pull request, plus a demo of scoped planning, validation, authorization, and proof packaging.</p>
+   <div class="project-links"><a href="https://ankitparekh007.github.io/contributorOps/#/demo" target="_blank" rel="noopener noreferrer">Try demo <span aria-hidden="true">↗</span></a><a href="https://github.com/floating-ui/floating-ui/pull/3494" target="_blank" rel="noopener noreferrer">See merged PR <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Require approval scoped to actual GitHub writes; validate repository policy and exact-patch safety before execution.</p>
+    <p><strong>Scope and maturity:</strong> The browser demo uses fictional scenarios. One verified merged contribution is not evidence of a broad success rate.</p>
+   </details>
+  </div>
+ </article>
+<article class="project" id="rebound-ops" data-categories="tools">
+  <div class="project-media project-diagram"><div class="diagram-title">ReboundOps / workflow</div><div class="diagram-flow" aria-label="Discover, Assess fit, Prepare, Track"><span>Discover</span><span>Assess fit</span><span>Prepare</span><span>Track</span></div><span class="media-caption">Workflow diagram · no product screenshot claimed</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Developer products</span><span class="status">Published pre-release</span></div>
+   <h3>ReboundOps</h3><p class="project-summary">A privacy-first job-search workspace that keeps applicant data local and produces application drafts from facts the user has verified.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>Angular</span><span>Fastify</span><span>SQLite</span><span>Local-first</span><span>TypeScript</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> v0.2.0 pre-release, source-visible job intake, fit assessment, resume preparation, follow-ups, and local data export.</p>
+   <div class="project-links"><a href="https://rebound-ops.org/" target="_blank" rel="noopener noreferrer">Explore product <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/rebound-ops/releases/tag/v0.2.0" target="_blank" rel="noopener noreferrer">View release <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Favor local ownership, provenance, and human-reviewed applications over opaque automation and invented resume claims.</p>
+    <p><strong>Scope and maturity:</strong> Early pre-release software with documented limitations. A product screenshot is not yet published in this repository.</p>
+   </details>
+  </div>
+ </article>
+<article class="project" id="job-search-assistant" data-categories="frontend tools">
+  <div class="project-media"><img src="https://raw.githubusercontent.com/AnkitParekh007/job-search-assistant/main/docs/assets/screenshots/01-today.png" alt="Job Search Assistant Today desktop dashboard with sample records" loading="lazy" decoding="async"><span class="media-caption">Real app screenshot · fictional demo records</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Desktop engineering</span><span class="status">Desktop application</span></div>
+   <h3>Job Search Assistant</h3><p class="project-summary">A macOS workspace for seeing AI-assisted job discovery, ranking, application preparation, approvals, and pipeline tracking in one UI.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>React 19</span><span>Tauri 2</span><span>Rust</span><span>SQLite</span><span>macOS</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> Real desktop interface captures, Tauri host integration, provider capability documentation, and a review-before-action workflow.</p>
+   <div class="project-links"><a href="https://job-search-assistant.rebound-ops.org/" target="_blank" rel="noopener noreferrer">See product <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">Review source <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Use a React frontend and Tauri/Rust host while keeping privileged operations behind explicit approval and local workspace boundaries.</p>
+    <p><strong>Scope and maturity:</strong> It does not automatically submit applications or send emails; its published website is a product site.</p>
+   </details>
+  </div>
+ </article></div>
+          </section>
+          <section data-project-group aria-labelledby="learning-title">
+            <div class="group-title"><h3 id="learning-title">Engineering education &amp; community</h3><span class="line" aria-hidden="true"></span><p>Share the methods, not just the results</p></div>
+            <div class="grid"><article class="project" id="agentic-engineering-playbook" data-categories="learning ai">
+  <div class="project-media"><img src="https://raw.githubusercontent.com/AnkitParekh007/Agentic-Engineering-Playbook/main/static/img/screenshots/angular-copilot-demo.png" alt="Angular Copilot example in Agentic Engineering Playbook" loading="lazy" decoding="async"><span class="media-caption">Project screenshot</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Learning &amp; labs</span><span class="status">Six runnable projects</span></div>
+   <h3>Agentic Engineering Playbook</h3><p class="project-summary">A project-first engineering academy for model gateways, RAG, workflow orchestration, MCP, agentic UI, and browser automation.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>AI agents</span><span>RAG</span><span>MCP</span><span>Evaluation</span><span>TypeScript</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> Six implemented tutorial systems, architecture-oriented documentation, runnable exercises, and public learning paths.</p>
+   <div class="project-links"><a href="https://ankitparekh007.github.io/Agentic-Engineering-Playbook/" target="_blank" rel="noopener noreferrer">Browse academy <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/Agentic-Engineering-Playbook" target="_blank" rel="noopener noreferrer">Review source <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Teach production-minded engineering through inspectable code, boundaries, tests, and tradeoffs rather than prompt-only examples.</p>
+    <p><strong>Scope and maturity:</strong> These are educational implementations; tutorial readiness does not imply deployment in production.</p>
+   </details>
+  </div>
+ </article>
+<article class="project" id="zero-to-fde" data-categories="learning">
+  <div class="project-media"><img src="https://raw.githubusercontent.com/AnkitParekh007/forward-deployed-engineering-from-scratch/main/website/public/brand.png" alt="Zero to FDE official brand artwork from the project repository" loading="lazy" decoding="async"><span class="media-caption">Project brand artwork</span></div>
+  <div class="project-body">
+   <div class="project-top"><span class="category">Learning &amp; labs</span><span class="status">Open curriculum</span></div>
+   <h3>Zero to FDE</h3><p class="project-summary">A hands-on path into Forward Deployed Engineering with lessons, field drills, capstones, and customer-facing engineering scenarios.</p>
+   <div class="tech" aria-label="Technologies and topics"><span>React</span><span>TypeScript</span><span>FDE</span><span>Field drills</span><span>Capstones</span></div>
+   <p class="project-proof"><strong>Inspect the proof:</strong> A 21-day core with 60 short lessons, structured exercises, phase projects, and portfolio-oriented practice.</p>
+   <div class="project-links"><a href="https://ankitparekh007.github.io/forward-deployed-engineering-from-scratch/" target="_blank" rel="noopener noreferrer">Start learning <span aria-hidden="true">↗</span></a><a href="https://github.com/AnkitParekh007/forward-deployed-engineering-from-scratch" target="_blank" rel="noopener noreferrer">View curriculum <span aria-hidden="true">↗</span></a></div>
+   <details class="project-details"><summary>Engineering decisions &amp; limitations</summary>
+    <p><strong>Design decision:</strong> Connect practical engineering execution to customer understanding and field delivery in a guided learning path.</p>
+    <p><strong>Scope and maturity:</strong> A free learning resource, not a credential, employment guarantee, or production deployment.</p>
+   </details>
+  </div>
+ </article></div>
+          </section>
         </div>
       </div>
     </section>
-
-    <!-- The pivot is a real design question rather than a claim that one product replaced the other. -->
-    <section class="bridge" aria-labelledby="bridge-title">
+    <section class="section principles" id="approach" aria-labelledby="principles-title">
       <div class="shell">
-        <div class="bridge-symbol reveal" aria-hidden="true">
-          <svg viewBox="0 0 88 88">
-            <rect x="13" y="16" width="40" height="40" rx="7"/>
-            <rect x="35" y="33" width="40" height="40" rx="7"/>
-            <path class="moving-arrow" d="M23 66c7 8 18 12 29 7"/>
-            <path d="m47 70 8 3-5 8"/>
-          </svg>
+        <div class="section-head"><div><p class="eyebrow">The thread across the projects</p><h2 id="principles-title">Designed for reality.</h2></div><p>From a private job-search workflow to enterprise AI exploration, the same engineering constraints keep showing up.</p></div>
+        <div class="principle-grid">
+          <article class="principle"><span class="number">01 / CONTROL</span><h3>Authorization is explicit.</h3><p>Agents can plan and explain. Consequential actions need clear policy boundaries and human-controlled approval where required.</p></article>
+          <article class="principle"><span class="number">02 / TRUST</span><h3>Evidence is inspectable.</h3><p>Grounded outputs, source citations, logs, test artifacts, and stated limitations are part of the user experience.</p></article>
+          <article class="principle"><span class="number">03 / RESILIENCE</span><h3>Failure states matter.</h3><p>Timeouts, denied actions, missing evidence, interrupted streams, and recovery paths deserve deliberate product design.</p></article>
         </div>
-        <div class="reveal" data-delay="1">
-          <p class="kicker mono" style="margin-bottom:18px">Then another question emerged</p>
-          <h2 id="bridge-title">What if the tools didn't just do the work—<em>what if you could see the work happening?</em></h2>
-          <p>ReboundOps focuses on the integrity of the workflow. A separate experiment asked how that workflow could feel in a visual desktop environment, with each agent action and approval in plain sight.</p>
-        </div>
+        <div class="note-panel"><strong>How to review the work:</strong> Open a project card, follow its demo or source, and expand its engineering decisions and limitations. For reusable patterns, see <a href="https://github.com/AnkitParekh007/frontend-ai-patterns" target="_blank" rel="noopener noreferrer">Frontend AI Patterns</a> and <a href="https://github.com/AnkitParekh007/angular-ai-copilot-starter" target="_blank" rel="noopener noreferrer">Angular AI Copilot Starter</a>. For an experimental QA prototype, see <a href="https://github.com/AnkitParekh007/QA-Buddy" target="_blank" rel="noopener noreferrer">QA-Buddy</a>.</div>
       </div>
     </section>
-
-    <!-- ACT 03: AI Job Search Assistant — visual orchestration of upstream workflows. -->
-    <section class="feature assistant-section section-pad" id="job-search-assistant" aria-labelledby="assistant-title">
+    <section class="closing" aria-labelledby="closing-title">
       <div class="shell">
-        <span class="feature-number" aria-hidden="true">02</span>
-        <div class="feature-grid">
-          <figure class="assistant-scene reveal">
-            <div class="assistant-art">
-              <img src="https://raw.githubusercontent.com/AnkitParekh007/job-search-assistant/main/docs/assets/brand/scout-hero.svg" width="1440" height="680" loading="lazy" decoding="async" alt="AI Job Search Assistant's original Scout concept illustration with a dark desktop workspace and job search workflow panels">
-            </div>
-            <figcaption>Original project artwork — conceptual, not a screenshot</figcaption>
-            <ol class="agent-flow" aria-label="Illustrative AI Job Search Assistant workflow">
-              <li><span>Discover</span></li>
-              <li><span>Rank</span></li>
-              <li><span>Prepare</span></li>
-              <li class="review"><span>Review</span></li>
-              <li><span>Track</span></li>
-            </ol>
-          </figure>
-          <div class="feature-copy reveal" data-delay="1">
-            <div class="chapter-eyebrow mono"><span class="chapter-index">02</span>The experience / AI Job Search Assistant</div>
-            <h2 id="assistant-title">Then, make the automation <span class="highlight">visible.</span></h2>
-            <p class="feature-lead">A macOS command center where workflows, agents, documents, and approvals share one screen.</p>
-            <p>AI Job Search Assistant takes a different route. It's a visual desktop companion for the open-source <a href="https://github.com/ai-job-search-dev/ai-job-search" target="_blank" rel="noopener noreferrer">ai-job-search</a> workflow, turning its command-driven journey into a guided interface.</p>
-            <p>Instead of treating the agent as a mystery, the app emphasizes visible progress, inspectable documents, and a pause for human approval before sensitive actions.</p>
-            <ul class="detail-list">
-              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Visual pipeline.</strong> Discover, rank, prepare, review, and track in one desktop experience.</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Agent visibility.</strong> See workflow progress and tool activity rather than guessing what's running.</span></li>
-              <li><span class="check"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span><span><strong>Explicit approval.</strong> Applications are not auto-submitted, and emails aren't silently sent.</span></li>
-            </ul>
-            <ul class="stack" aria-label="AI Job Search Assistant technology stack">
-              <li>React 19</li><li>TypeScript</li><li>Tauri 2</li><li>Rust</li><li>SQLite</li><li>Claude Code / Codex</li>
-            </ul>
-            <div class="feature-actions">
-              <a class="btn primary" href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">Explore source code <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
-              <a class="btn" href="https://job-search-assistant.rebound-ops.org/" target="_blank" rel="noopener noreferrer">Project website <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
-            </div>
-            <p class="small-print">Apple Silicon source build; no verified packaged installer yet. This app is a separate interface for the upstream project's workflow, not a claim of ownership of the upstream framework. Provider support and prerequisites are documented in the <a href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">README</a>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACT 04: Shared values and an invitation to inspect the engineering. -->
-    <section class="principles section-pad" id="principles" aria-labelledby="principles-title">
-      <div class="shell">
-        <div class="principles-header reveal">
-          <div>
-            <div class="chapter-eyebrow mono"><span class="chapter-index">03</span>The thread connecting both projects</div>
-            <h2 class="display-heading" id="principles-title">Two projects. <em>One philosophy.</em></h2>
-          </div>
-          <p>Different technologies and different interfaces. The same design instincts keep showing up.</p>
-        </div>
-        <div class="principles-grid">
-          <article class="principle reveal">
-            <div class="principle-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg></div>
-            <h3>Own your workspace</h3>
-            <p>Keep your job-search records in a workspace you control. Any external provider interaction should be deliberate.</p>
-          </article>
-          <article class="principle reveal" data-delay="1">
-            <div class="principle-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-eye"/></svg></div>
-            <h3>See the reasoning</h3>
-            <p>A recommendation or draft is more useful when its inputs, evidence, and limitations are visible.</p>
-          </article>
-          <article class="principle reveal" data-delay="2">
-            <div class="principle-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg></div>
-            <h3>Keep the final say</h3>
-            <p>Automation can prepare and assist. A person still decides what to save, send, and submit.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="close" aria-labelledby="close-title">
-      <div class="shell">
-        <div class="reveal">
-          <p class="kicker mono" style="margin-bottom:22px">Built openly · Always evolving</p>
-          <h2 id="close-title">The best part of open source? <em>You can look under the hood.</em></h2>
-          <p>Don't take a polished page as proof. Explore the repositories, inspect the implementations, check what's shipped, and see what's still being built.</p>
-        </div>
-        <div class="close-cta reveal" data-delay="1">
-          <a class="btn primary" href="https://github.com/AnkitParekh007/rebound-ops" target="_blank" rel="noopener noreferrer">ReboundOps <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
-          <a class="btn secondary" href="https://github.com/AnkitParekh007/job-search-assistant" target="_blank" rel="noopener noreferrer">AI Job Search Assistant <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
-          <a class="btn secondary" href="./">Back to the resume <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </div>
+        <p class="eyebrow">Explore / Contribute / Discuss</p>
+        <h2 id="closing-title">The best part of open source? You can look under the hood.</h2>
+        <p>If an idea, architecture, or workflow interests you, the repositories are open for discussion and inspection. Contributions are welcome under each project's own guidelines.</p>
+        <div class="cta-row"><a class="button primary" href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">Explore all repositories <span aria-hidden="true">↗</span></a><a class="button secondary" href="./">Return to resume</a></div>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="shell">
-      <span>© 2026 Ankit Parekh · Mumbai, India</span>
-      <a href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">More open-source work <svg style="width:13px;height:13px;display:inline;stroke:currentColor;stroke-width:2;fill:none" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-out"/></svg></a>
-    </div>
+  <footer class="site-footer">
+    <div class="shell"><span>© 2026 Ankit Parekh · Engineering in public</span><div><a href="./">Resume</a><a href="https://github.com/AnkitParekh007" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
   </footer>
-  <script src="js/open-source-story.js" defer></script>
 </body>
 </html>
