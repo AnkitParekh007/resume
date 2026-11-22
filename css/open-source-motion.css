@@ -1,0 +1,329 @@
+/* Purposeful motion layer for the Open Source Projects route.
+   Pure progressive enhancement: content is legible without JS, and reduced-motion wins. */
+
+#open-source-projects {
+  --oss-ease: cubic-bezier(.22, 1, .36, 1);
+  --oss-soft-glow: color-mix(in srgb, var(--spark-2) 16%, transparent);
+}
+
+/* The hero should feel alive without moving the actual content out of reach. */
+#open-source-projects .opening::before {
+  background-size: 130% 130%;
+  animation: oss-aurora-shift 20s ease-in-out infinite alternate;
+}
+#open-source-projects .opening::after {
+  animation: oss-grid-drift 26s linear infinite alternate;
+}
+#open-source-projects .opening .kicker::before {
+  animation: oss-beacon 3.6s ease-in-out infinite;
+}
+#open-source-projects .hero-art .art-halo {
+  translate: var(--oss-parallax-x, 0px) var(--oss-parallax-y, 0px);
+  animation: oss-halo-breathe 7s ease-in-out infinite;
+  transition: translate .7s var(--oss-ease);
+}
+#open-source-projects .hero-art .constellation {
+  translate: var(--oss-parallax-x, 0px) var(--oss-parallax-y, 0px);
+  transition: translate .85s var(--oss-ease);
+}
+#open-source-projects .hero-art .floating-tag {
+  translate: var(--oss-tag-x, 0px) var(--oss-tag-y, 0px);
+  transition: translate .65s var(--oss-ease);
+}
+
+/* The entrance sequence only starts when hash routing actually reveals the page. */
+#open-source-projects.motion-ready.motion-active .opening-copy .kicker {
+  animation: oss-enter-up .75s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready.motion-active .opening h1 span:first-child {
+  animation: oss-enter-up 1s .1s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready.motion-active .opening h1 span.paint {
+  animation: oss-enter-up 1s .22s var(--oss-ease) both, shine 10s ease-in-out 1.3s infinite alternate;
+}
+#open-source-projects.motion-ready.motion-active .opening .lead {
+  animation: oss-enter-up .9s .39s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready.motion-active .opening .cta-row > *:nth-child(1) {
+  animation: oss-enter-up .8s .53s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready.motion-active .opening .cta-row > *:nth-child(2) {
+  animation: oss-enter-up .8s .63s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready.motion-active .hero-note {
+  animation: oss-enter-up .8s .78s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready.motion-active .hero-art {
+  animation: oss-art-arrive 1.35s .24s var(--oss-ease) both;
+}
+
+/* Buttons respond with a small, tactile movement; they never change target. */
+#open-source-projects .btn {
+  translate: var(--oss-magnet-x, 0px) var(--oss-magnet-y, 0px);
+  transition: translate .25s var(--oss-ease), transform .22s ease,
+    border-color .22s ease, box-shadow .22s ease;
+}
+#open-source-projects .btn svg {
+  transition: transform .28s var(--oss-ease);
+}
+#open-source-projects .btn:hover svg,
+#open-source-projects .btn:focus-visible svg {
+  transform: translateX(3px);
+}
+
+/* The story unfolds through detail, not through large distracting page movement. */
+#open-source-projects.motion-ready .feature-copy.in-view .detail-list li {
+  animation: oss-enter-up .67s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready .feature-copy.in-view .detail-list li:nth-child(1) { animation-delay: .16s; }
+#open-source-projects.motion-ready .feature-copy.in-view .detail-list li:nth-child(2) { animation-delay: .25s; }
+#open-source-projects.motion-ready .feature-copy.in-view .detail-list li:nth-child(3) { animation-delay: .34s; }
+#open-source-projects.motion-ready .feature-copy.in-view .stack li {
+  animation: oss-scale-in .52s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready .feature-copy.in-view .stack li:nth-child(1) { animation-delay: .28s; }
+#open-source-projects.motion-ready .feature-copy.in-view .stack li:nth-child(2) { animation-delay: .34s; }
+#open-source-projects.motion-ready .feature-copy.in-view .stack li:nth-child(3) { animation-delay: .40s; }
+#open-source-projects.motion-ready .feature-copy.in-view .stack li:nth-child(4) { animation-delay: .46s; }
+#open-source-projects.motion-ready .feature-copy.in-view .stack li:nth-child(5) { animation-delay: .52s; }
+#open-source-projects.motion-ready .feature-copy.in-view .stack li:nth-child(n+6) { animation-delay: .58s; }
+#open-source-projects.motion-ready .mock-wrap.in-view .work-row {
+  animation: oss-step-appear .65s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready .mock-wrap.in-view .work-row:nth-child(1) { animation-delay: .3s; }
+#open-source-projects.motion-ready .mock-wrap.in-view .work-row:nth-child(2) { animation-delay: .55s; }
+#open-source-projects.motion-ready .mock-wrap.in-view .work-row:nth-child(3) { animation-delay: .8s; }
+#open-source-projects.motion-ready .assistant-scene.in-view .agent-flow li {
+  animation: oss-scale-in .6s var(--oss-ease) both;
+}
+#open-source-projects.motion-ready .assistant-scene.in-view .agent-flow li:nth-child(1) { animation-delay: .20s; }
+#open-source-projects.motion-ready .assistant-scene.in-view .agent-flow li:nth-child(2) { animation-delay: .32s; }
+#open-source-projects.motion-ready .assistant-scene.in-view .agent-flow li:nth-child(3) { animation-delay: .44s; }
+#open-source-projects.motion-ready .assistant-scene.in-view .agent-flow li:nth-child(4) { animation-delay: .56s; }
+#open-source-projects.motion-ready .assistant-scene.in-view .agent-flow li:nth-child(5) { animation-delay: .68s; }
+#open-source-projects .chapter-index {
+  transition: background-color .35s ease, border-color .35s ease, color .35s ease;
+}
+#open-source-projects .in-view .chapter-index {
+  background: var(--tint);
+  border-color: var(--spark-2);
+  color: var(--link);
+}
+
+/* A responsive engineering gallery: staggered arrivals + pointer-following light. */
+#open-source-projects.motion-ready .oss-showcase .project:not(.motion-entered):not([hidden]) {
+  opacity: 0;
+  translate: 0 26px;
+}
+#open-source-projects.motion-ready .oss-showcase .project.motion-entered:not([hidden]) {
+  animation: oss-card-arrive .76s var(--oss-ease) both;
+  animation-delay: var(--oss-delay, 0ms);
+}
+#open-source-projects .oss-showcase .project {
+  position: relative;
+  isolation: isolate;
+}
+#open-source-projects .oss-showcase .project::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(380px circle at var(--oss-spot-x, 50%) var(--oss-spot-y, 25%),
+    color-mix(in srgb, var(--spark-2) 11%, transparent), transparent 73%);
+  transition: opacity .28s ease;
+}
+#open-source-projects .oss-showcase .project:hover::before,
+#open-source-projects .oss-showcase .project:focus-within::before { opacity: 1; }
+#open-source-projects .oss-showcase .project-media img {
+  translate: var(--oss-media-x, 0px) var(--oss-media-y, 0px);
+  transition: translate .45s var(--oss-ease), transform .45s ease;
+}
+#open-source-projects .oss-showcase .project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(108deg, transparent 18%, rgba(255,255,255,.12) 42%, transparent 64%);
+  transform: translateX(-95%);
+  transition: opacity .3s ease;
+}
+#open-source-projects .oss-showcase .project:hover .project-media::after {
+  opacity: 1;
+  animation: oss-media-sheen 1.1s var(--oss-ease) both;
+}
+#open-source-projects .oss-showcase .project .tech span {
+  transition: background-color .2s ease, border-color .2s ease, translate .2s ease;
+}
+#open-source-projects .oss-showcase .project:hover .tech span {
+  border-color: var(--fade-border);
+  background: var(--tint);
+}
+#open-source-projects .oss-showcase .diagram-flow span {
+  transition: transform .3s var(--oss-ease), border-color .3s ease, box-shadow .3s ease;
+}
+#open-source-projects .oss-showcase .project:hover .diagram-flow span {
+  border-color: rgba(180,197,255,.7);
+  box-shadow: 0 0 22px rgba(114,116,235,.11);
+}
+#open-source-projects .oss-showcase .project:hover .diagram-flow span:last-child {
+  transform: translateY(-3px);
+}
+#open-source-projects .oss-showcase .filter-btn {
+  transition: background .22s ease, border-color .22s ease, transform .22s var(--oss-ease),
+    color .22s ease, box-shadow .22s ease;
+}
+#open-source-projects .oss-showcase .filter-btn[aria-pressed="true"] {
+  box-shadow: 0 6px 20px var(--oss-soft-glow);
+}
+#open-source-projects .oss-showcase .filter-btn:active { transform: scale(.97); }
+
+/* An unobtrusive chapter rail, only on wide screens. */
+#open-source-projects .oss-journey-rail {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  z-index: 15;
+  transform: translateY(-50%);
+  padding: 14px 10px;
+  border: 1px solid var(--fade-border);
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--sheet) 88%, transparent);
+  box-shadow: 0 12px 40px rgba(23,20,67,.09);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+#open-source-projects .oss-journey-rail ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+#open-source-projects .oss-journey-rail li { position: relative; }
+#open-source-projects .oss-journey-rail a {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--muted);
+}
+#open-source-projects .oss-journey-rail .rail-dot {
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  border-radius: 50%;
+  transition: width .3s var(--oss-ease), height .3s var(--oss-ease),
+    background-color .3s ease, box-shadow .3s ease;
+}
+#open-source-projects .oss-journey-rail a[aria-current="location"] { color: var(--spark-2); }
+#open-source-projects .oss-journey-rail a[aria-current="location"] .rail-dot {
+  width: 11px;
+  height: 11px;
+  box-shadow: 0 0 0 5px var(--tint), 0 0 15px var(--oss-soft-glow);
+}
+#open-source-projects .oss-journey-rail .rail-label {
+  position: absolute;
+  top: 50%;
+  right: 38px;
+  padding: 7px 11px;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--sheet);
+  color: var(--ink);
+  font: 600 12px/1.2 var(--text);
+  box-shadow: 0 5px 22px rgba(26,28,71,.08);
+  opacity: 0;
+  transform: translate(7px,-50%);
+  pointer-events: none;
+  transition: opacity .2s, transform .2s var(--oss-ease);
+}
+#open-source-projects .oss-journey-rail a:hover .rail-label,
+#open-source-projects .oss-journey-rail a:focus-visible .rail-label {
+  opacity: 1;
+  transform: translate(0,-50%);
+}
+#open-source-projects .oss-journey-rail a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+@media(max-width:1439px) {
+  #open-source-projects .oss-journey-rail { display: none; }
+}
+@media(max-width:700px) {
+  #open-source-projects .opening::after { animation: none; }
+  #open-source-projects .hero-art .constellation,
+  #open-source-projects .hero-art .art-halo,
+  #open-source-projects .hero-art .floating-tag { translate: 0 0; }
+  #open-source-projects .oss-showcase .project-media img { translate: 0 0; }
+}
+@keyframes oss-aurora-shift {
+  0% { background-position: 0% 35%; }
+  100% { background-position: 100% 65%; }
+}
+@keyframes oss-grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 44px 26px; }
+}
+@keyframes oss-beacon {
+  0%,100% { box-shadow: 0 0 0 0 rgba(110,228,220,.28), 0 0 14px #6ee4dc; }
+  50% { box-shadow: 0 0 0 8px rgba(110,228,220,0), 0 0 22px #6ee4dc; }
+}
+@keyframes oss-halo-breathe {
+  0%,100% { opacity: .7; scale: .96; }
+  50% { opacity: 1; scale: 1.08; }
+}
+@keyframes oss-enter-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes oss-art-arrive {
+  from { opacity: 0; transform: translate(28px,18px) scale(.96); }
+  to { opacity: 1; transform: translate(0,0) scale(1); }
+}
+@keyframes oss-scale-in {
+  from { opacity: 0; transform: translateY(10px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes oss-step-appear {
+  from { opacity: 0; transform: translateX(-15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes oss-card-arrive {
+  from { opacity: 0; translate: 0 26px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes oss-media-sheen {
+  from { transform: translateX(-95%); }
+  to { transform: translateX(95%); }
+}
+/* One system-wide escape hatch for accessibility and power-conscious browsing. */
+@media(prefers-reduced-motion: reduce) {
+  #open-source-projects .opening::before,
+  #open-source-projects .opening::after,
+  #open-source-projects .opening .kicker::before,
+  #open-source-projects .hero-art .art-halo,
+  #open-source-projects .hero-art .floating-tag,
+  #open-source-projects .oss-showcase .project-media::after {
+    animation: none !important;
+  }
+  #open-source-projects .oss-showcase .project,
+  #open-source-projects .oss-showcase .project * {
+    animation: none !important;
+    transition: none !important;
+    translate: 0 0 !important;
+  }
+  #open-source-projects .oss-showcase .project:not([hidden]) { opacity: 1 !important; }
+  #open-source-projects .btn { translate: 0 0 !important; }
+}
+@media print {
+  #open-source-projects .oss-journey-rail { display: none !important; }
+  #open-source-projects .oss-showcase .project { animation: none !important; opacity: 1 !important; translate: 0 0 !important; }
+}
