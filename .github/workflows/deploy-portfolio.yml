@@ -7,6 +7,8 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+  pull_request:
+    branches: [master]
 
 permissions:
   contents: read
@@ -16,7 +18,17 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Validate portfolio SEO and crawlability
+        run: node scripts/check-seo.mjs
+
   build:
+    needs: verify
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -27,10 +39,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site
-          cp index.html open-source-projects.html AnkitParekh_Resume.pdf AnkitParekh_Resume.docx _site/
+          cp index.html open-source-projects.html robots.txt sitemap.xml CNAME AnkitParekh_Resume.pdf AnkitParekh_Resume.docx _site/
           cp -R assets css favicons img js _site/
           cp .nojekyll _site/.nojekyll
           test -s _site/index.html
+          test -s _site/robots.txt
+          test -s _site/sitemap.xml
+          test -s _site/CNAME
           test -s _site/open-source-projects.html
           test -s _site/AnkitParekh_Resume.pdf
           test -s _site/AnkitParekh_Resume.docx
