@@ -8,6 +8,8 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether, PageBreak
@@ -108,14 +110,18 @@ def word_resume():
     doc.save(ROOT/'AnkitParekh_Resume.docx')
 
 def pdf_resume():
+    font_dir = Path('/usr/share/fonts/truetype/dejavu')
+    pdfmetrics.registerFont(TTFont('FDE-Regular', str(font_dir / 'DejaVuSans.ttf')))
+    pdfmetrics.registerFont(TTFont('FDE-Bold', str(font_dir / 'DejaVuSans-Bold.ttf')))
+    pdfmetrics.registerFont(TTFont('FDE-Oblique', str(font_dir / 'DejaVuSans-Oblique.ttf')))
     st=getSampleStyleSheet()
-    st.add(ParagraphStyle(name='FName',fontName='Helvetica-Bold',fontSize=17,leading=20,textColor=colors.HexColor('#12182f'),alignment=TA_CENTER,spaceAfter=3))
-    st.add(ParagraphStyle(name='FHead',fontName='Helvetica-Bold',fontSize=9,leading=12,textColor=colors.HexColor('#253e72'),alignment=TA_CENTER,spaceAfter=4))
-    st.add(ParagraphStyle(name='FContact',fontName='Helvetica',fontSize=8,leading=10,alignment=TA_CENTER,spaceAfter=1))
-    st.add(ParagraphStyle(name='FSection',fontName='Helvetica-Bold',fontSize=10,leading=13,textColor=colors.HexColor('#253e72'),spaceBefore=10,spaceAfter=4,keepWithNext=True))
-    st.add(ParagraphStyle(name='FRole',fontName='Helvetica-Bold',fontSize=9.1,leading=12,spaceBefore=5,spaceAfter=2,keepWithNext=True))
-    st.add(ParagraphStyle(name='FMeta',fontName='Helvetica-Oblique',fontSize=8,leading=11,textColor=colors.HexColor('#46546c'),spaceAfter=2,keepWithNext=True))
-    st.add(ParagraphStyle(name='FBody',fontName='Helvetica',fontSize=8.6,leading=11.5,spaceAfter=3))
+    st.add(ParagraphStyle(name='FName',fontName='FDE-Bold',fontSize=17,leading=20,textColor=colors.HexColor('#12182f'),alignment=TA_CENTER,spaceAfter=3))
+    st.add(ParagraphStyle(name='FHead',fontName='FDE-Bold',fontSize=9,leading=12,textColor=colors.HexColor('#253e72'),alignment=TA_CENTER,spaceAfter=4))
+    st.add(ParagraphStyle(name='FContact',fontName='FDE-Regular',fontSize=8,leading=10,alignment=TA_CENTER,spaceAfter=1))
+    st.add(ParagraphStyle(name='FSection',fontName='FDE-Bold',fontSize=10,leading=13,textColor=colors.HexColor('#253e72'),spaceBefore=10,spaceAfter=4,keepWithNext=True))
+    st.add(ParagraphStyle(name='FRole',fontName='FDE-Bold',fontSize=9.1,leading=12,spaceBefore=5,spaceAfter=2,keepWithNext=True))
+    st.add(ParagraphStyle(name='FMeta',fontName='FDE-Oblique',fontSize=8,leading=11,textColor=colors.HexColor('#46546c'),spaceAfter=2,keepWithNext=True))
+    st.add(ParagraphStyle(name='FBody',fontName='FDE-Regular',fontSize=8.6,leading=11.5,spaceAfter=3))
     st.add(ParagraphStyle(name='FBullet',parent=st['FBody'],leftIndent=12,firstLineIndent=-8,spaceAfter=2))
     flow=[Paragraph(NAME,st['FName']),Paragraph(HEADLINE,st['FHead'])]
     flow.extend(Paragraph(escape(line),st['FContact']) for line in CONTACT)
