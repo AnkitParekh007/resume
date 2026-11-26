@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Courses by academy · Ankit Parekh</title>
+<link rel="icon" href="../favicons/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="shell.css">
+<style>
+  .stack { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; align-items: start }
+  @media (max-width: 760px) { .stack { grid-template-columns: 1fr } }
+  .panel { padding: 28px 28px 22px; background: var(--sheet); border: 1px solid var(--line); border-radius: 16px }
+  .head { display: flex; gap: 16px; align-items: flex-start }
+  .head h2 { font-size: 22px; letter-spacing: -.02em }
+  .summary { margin-top: 6px; color: var(--body); font-size: 15px }
+  .preview { margin: 0; padding: 0; list-style: none; color: var(--ink); font-size: 15px }
+  .preview li { padding: 6px 0 6px 14px; border-left: 2px solid var(--line) }
+  .more-note { margin-top: 8px; color: var(--muted); font-size: 14px }
+  .toggle { margin-top: 18px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font: 600 15px var(--text); cursor: pointer }
+  .toggle:hover { border-color: var(--link) }
+  .morph { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .55s cubic-bezier(.22, 1, .36, 1) }
+  .morph.shut { grid-template-rows: 0fr }
+  .clip { overflow: hidden; min-height: 0 }
+  .clip-inner { transform-origin: top center; transition: opacity .4s ease, transform .55s cubic-bezier(.22, 1, .36, 1) }
+  .compact .clip-inner { padding-top: 18px }
+  .reveal .clip-inner { padding-top: 8px }
+  .morph.shut .clip-inner { opacity: 0; transform: translateY(-8px) scaleY(.96) }
+  .panel { transition: border-color .45s ease }
+  .panel.is-open { border-color: color-mix(in srgb, var(--link) 45%, var(--line)) }
+  @media (prefers-reduced-motion: reduce) {
+    .morph, .clip-inner, .panel { transition: none }
+    .morph.shut .clip-inner { transform: none }
+  }
+  .next { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--body); font-size: 15px }
+  .next strong { color: var(--ink); font-weight: 600 }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="bar">
+  <a class="brand" href="../index.html">Ankit Parekh</a>
+  <nav aria-label="Course variants">
+    <a href="grouped.html" aria-current="page">By academy</a>
+    <a href="search.html">Search</a>
+    <a href="counts.html">Counts</a>
+    <a class="quiet" href="../index.html#courses">Live section</a>
+    <button class="theme" id="theme" type="button">Dark</button>
+  </nav>
+</div></header>
+<main class="page" id="main">
+  <p class="kicker">Variant · grouped summaries</p>
+  <h1>Courses &amp; certificates</h1>
+  <p class="lede">Four academies in two rows. Each card is a short summary. Open one when you want its courses.</p>
+  <div class="stack" id="stack"></div>
+  <p class="next" id="next"></p>
+</main>
+<script src="data.js"></script>
+<script src="shell.js"></script>
+<script>
+(function () {
+  var C = window.Courses;
+  var stack = document.getElementById('stack');
+  C.data.academies.forEach(function (a) {
+    var list = C.items(a.id).slice().sort(function (x, y) {
+      function rank(k) { return k === 'completed' ? 1 : 0; }
+      var dx = x.completedOn || '';
+      var dy = y.completedOn || '';
+      if (dx !== dy) return dx ? (dy ? (dx < dy ? 1 : -1) : -1) : 1;
+      return rank(x.kind) - rank(y.kind);
+    });
+    var s = C.stats(list);
+    var verified = C.verifiedCount(a, s);
+    var preview = list.slice(0, 3);
+    var panel = document.createElement('article');
+    panel.className = 'panel';
+    panel.innerHTML =
+      '<header class="head">' + C.mark(a.id) +
+      '<div><h2>' + C.esc(a.name) + '</h2>' +
+      '<p class="summary">' + s.courses + ' courses · ' + verified + ' ' + a.verified + '</p></div></header>' +
+      '<div class="morph compact"><div class="clip"><div class="clip-inner">' +
+      '<ul class="preview">' + preview.map(function (i) { return '<li>' + C.esc(i.title) + '</li>'; }).join('') + '</ul>' +
+      '<p class="more-note">' + (list.length - preview.length) + ' more in this academy</p></div></div></div>' +
+      '<button class="toggle" type="button" aria-expanded="false" aria-controls="list-' + a.id + '">Show all ' + s.courses + ' courses</button>' +
+      '<div class="morph reveal shut" id="list-' + a.id + '"><div class="clip"><div class="clip-inner" inert>' + list.map(C.row).join('') + '</div></div></div>';
+    var btn = panel.querySelector('button');
+    var compact = panel.querySelector('.compact');
+    var full = panel.querySelector('.reveal');
+    var inner = full.querySelector('.clip-inner');
+    var showLabel = 'Show all ' + s.courses + ' courses';
+    btn.addEventListener('click', function () {
+      var open = full.classList.contains('shut');
+      full.classList.toggle('shut', !open);
+      compact.classList.toggle('shut', open);
+      panel.classList.toggle('is-open', open);
+      inner.inert = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Hide courses' : showLabel;
+    });
+    stack.appendChild(panel);
+  });
+  var next = C.data.upNext;
+  document.getElementById('next').innerHTML = 'Up next · <strong>' + C.esc(next.title) + '</strong>';
+})();
+</script>
+</body>
+</html>
