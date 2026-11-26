@@ -1,5 +1,5 @@
 window.COURSE_DATA = {
-  "total": 66,
+  "total": 69,
   "upNext": {
     "academy": "cl",
     "title": "Claude with Amazon Bedrock"
@@ -28,9 +28,42 @@ window.COURSE_DATA = {
       "name": "Hugging Face",
       "short": "Hugging Face",
       "verified": "certificates"
+    },
+    {
+      "id": "gg",
+      "name": "Google Skills",
+      "short": "Google",
+      "verified": "badges"
     }
   ],
   "items": [
+    {
+      "id": 67,
+      "academy": "gg",
+      "title": "Introduction to Large Language Models",
+      "href": "https://www.skills.google/course_templates/539/badge",
+      "kind": "completed",
+      "label": "Completed",
+      "completedOn": "2026-11-27"
+    },
+    {
+      "id": 68,
+      "academy": "gg",
+      "title": "Responsible AI: Applying AI Principles with Google Cloud",
+      "href": "https://www.skills.google/course_templates/388/badge",
+      "kind": "completed",
+      "label": "Completed",
+      "completedOn": "2026-11-27"
+    },
+    {
+      "id": 69,
+      "academy": "gg",
+      "title": "Introduction to Agents and Google’s Agent Ecosystem",
+      "href": "https://www.skills.google/paths/3546",
+      "kind": "completed",
+      "label": "Completed",
+      "completedOn": "2026-11-27"
+    },
     {
       "id": 1,
       "academy": "oa",

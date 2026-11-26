@@ -5,7 +5,7 @@
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --text: "Figtree", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-  --lc: #0f766e; --hf: #9a4d00; --cl: #b4532a;
+  --lc: #0f766e; --hf: #9a4d00; --cl: #b4532a; --gg: #1a73e8;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -46,6 +46,7 @@ p { margin: 0 }
 .mark.lc { color: var(--lc); background: color-mix(in srgb, var(--lc) 16%, transparent) }
 .mark.oa { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent) }
 .mark.hf { color: var(--hf); background: color-mix(in srgb, var(--hf) 16%, transparent) }
+.mark.gg { color: var(--gg); background: color-mix(in srgb, var(--gg) 16%, transparent) }
 .mark svg { display: block }
 .pill { flex: none; font: 500 12px/1 var(--mono); letter-spacing: .02em; padding: 6px 9px; border-radius: 999px; white-space: nowrap }
 .pill.badge { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent) }

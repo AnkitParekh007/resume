@@ -59,7 +59,7 @@
   var all = C.stats(C.items());
   var verifiedTotal = all.badges + all.certificates;
   var figures = [
-    [String(all.courses), 'Courses across 4 academies'],
+    [String(all.courses), 'Courses across ' + C.data.academies.length + ' academies'],
     [String(verifiedTotal), 'Badges and certificates'],
     [String(all.completed), 'Completed, no separate credential'],
     ['1', 'Course up next']
