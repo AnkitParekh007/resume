@@ -512,7 +512,12 @@ h1 .ln.type { display: grid }
 .o1-tabs button[aria-pressed="true"] { background: var(--card-wash); border-color: color-mix(in srgb, var(--spark-2) 45%, var(--line)); box-shadow: var(--card-shadow) }
 .o1-tabs b { display: block; color: var(--ink); font-size: 14.5px; line-height: 1.25 }
 .o1-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0 }
-.o1-stats span { display: inline-flex; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--sheet); color: var(--ink); font: 500 13px/1 var(--mono); box-shadow: 0 1px 1px color-mix(in srgb, var(--ink) 5%, transparent), 0 8px 18px -10px color-mix(in srgb, var(--spark-2) 55%, transparent) }
+.o1-stats span { display: inline-flex; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--sheet); color: var(--ink); font: 500 13px/1 var(--mono); box-shadow: 0 1px 1px color-mix(in srgb, var(--ink) 5%, transparent), 0 8px 18px -10px color-mix(in srgb, var(--spark-2) 55%, transparent); transition: background .2s, border-color .2s }
+.o1-stats[data-f="all"] span { background: color-mix(in srgb, var(--btn-1) 14%, var(--sheet)); border-color: color-mix(in srgb, var(--btn-1) 35%, var(--line)) }
+.o1-stats[data-f="cl"] span { background: color-mix(in srgb, #d97757 22%, var(--sheet)); border-color: color-mix(in srgb, #d97757 48%, var(--line)) }
+.o1-stats[data-f="lc"] span { background: color-mix(in srgb, var(--lc) 20%, var(--sheet)); border-color: color-mix(in srgb, var(--lc) 45%, var(--line)) }
+.o1-stats[data-f="oa"] span { background: color-mix(in srgb, var(--ink) 10%, var(--sheet)); border-color: color-mix(in srgb, var(--ink) 28%, var(--line)) }
+.o1-stats[data-f="hf"] span { background: color-mix(in srgb, #ffb000 28%, var(--sheet)); border-color: color-mix(in srgb, #e07a00 45%, var(--line)) }
 .o1-all { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; flex: none; color: #fff; background: linear-gradient(135deg, var(--btn-1), var(--btn-2)) }
 .o1-list { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--card-edge); border: 1px solid var(--card-edge); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); list-style: none; padding: 0 }
 .o1-list li { background: var(--sheet) }
@@ -782,7 +787,7 @@ a.o1-item:hover b { color: var(--link) }
     <button aria-pressed="false" data-f="oa"><span class="cr-mark oa" style="--m:30px" aria-hidden="true"><svg class="ic" width="17" height="17" aria-hidden="true"><use href="#b-openai"></use></svg></span><b>OpenAI Academy</b></button>
     <button aria-pressed="false" data-f="hf"><span class="cr-mark hf" style="--m:30px" aria-hidden="true"><span>HF</span></span><b>Hugging Face</b></button>
   </div>
-  <p class="o1-stats" id="crStats" aria-live="polite"><span>66 courses</span><span>24 badges</span><span>19 certificates</span></p>
+  <p class="o1-stats" id="crStats" data-f="all" aria-live="polite"><span>66 courses</span><span>24 badges</span><span>19 certificates</span></p>
   <ul class="o1-list clip" id="crList">
     <li data-p="oa"><a class="o1-item" href="https://academy.openai.com/"><span class="cr-mark oa" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-openai"></use></svg></span><span class="o1-t"><b>Optimize AI Application Performance</b><small>OpenAI Academy</small></span><em class="type done">Completed</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
     <li data-p="oa"><a class="o1-item" href="https://academy.openai.com/"><span class="cr-mark oa" style="--m:28px" aria-hidden="true"><svg class="ic" width="15" height="15" aria-hidden="true"><use href="#b-openai"></use></svg></span><span class="o1-t"><b>Get Started with Codex</b><small>OpenAI Academy</small></span><em class="type done">Completed</em><svg class="ic" width="14" height="14" aria-hidden="true" style="color:var(--muted)"><use href="#i-out"></use></svg></a></li>
@@ -972,6 +977,7 @@ a.o1-item:hover b { color: var(--link) }
   function crFilter(f) {
     crTabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.f === f)); });
     var bits = crStatText[f] || crStatText.all;
+    crStats.setAttribute('data-f', f);
     crStats.innerHTML = bits.map(function (s) { return '<span>' + s + '</span>'; }).join('');
     crList.querySelectorAll('li').forEach(function (li) { li.hidden = f !== 'all' && li.dataset.p !== f; });
     crList.classList.toggle('clip', f === 'all');
