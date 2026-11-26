@@ -67,6 +67,9 @@
   C.data.academies.forEach(function (a) {
     var list = C.items(a.id).slice().sort(function (x, y) {
       function rank(k) { return k === 'completed' ? 1 : 0; }
+      var dx = x.completedOn || '';
+      var dy = y.completedOn || '';
+      if (dx !== dy) return dx ? (dy ? (dx < dy ? 1 : -1) : -1) : 1;
       return rank(x.kind) - rank(y.kind);
     });
     var s = C.stats(list);

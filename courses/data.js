@@ -141,7 +141,8 @@ window.COURSE_DATA = {
       "title": "LangChain Essentials (Python)",
       "href": "https://academy.langchain.com/certificates/zbdsfdj2yp",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-26"
     },
     {
       "id": 15,
@@ -149,7 +150,8 @@ window.COURSE_DATA = {
       "title": "LangGraph Essentials (Python)",
       "href": "https://academy.langchain.com/certificates/ysfptmpoc9",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-26"
     },
     {
       "id": 16,
@@ -181,7 +183,8 @@ window.COURSE_DATA = {
       "title": "MCP Course",
       "href": "https://huggingface.co/datasets/mcp-course/certificates/resolve/main/certificates/AnkitParekh786/2026-11-26.png",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-26"
     },
     {
       "id": 20,
@@ -261,7 +264,8 @@ window.COURSE_DATA = {
       "title": "Evaluate AI Applications",
       "href": "https://oaiacademy.credential.net/453e314c-77dc-4252-aaf5-5dde7f630845?key=2d010755d75f7d98374322dab4252d63176692ea442de03c74cda43e9e539350",
       "kind": "badge",
-      "label": "Badge"
+      "label": "Badge",
+      "completedOn": "2026-11-04"
     },
     {
       "id": 30,
@@ -277,7 +281,8 @@ window.COURSE_DATA = {
       "title": "Build with Retrieval-Augmented Generation",
       "href": "https://oaiacademy.credential.net/6c471ecb-159a-4b84-841e-801a21efd016?key=1fcfde155a8ad01df043fd89dc6da8589094f17f3b47ed207cf7bad4ef1b4a10",
       "kind": "badge",
-      "label": "Badge"
+      "label": "Badge",
+      "completedOn": "2026-11-04"
     },
     {
       "id": 32,
@@ -285,7 +290,8 @@ window.COURSE_DATA = {
       "title": "Design and Build Agentic Systems",
       "href": "https://oaiacademy.credential.net/d950467d-5e54-4f11-ad29-403162d60e40?key=3fec1e06cb5f38c12fc61b0f92b5d25404a674cf14b4844743823ec4186b0028",
       "kind": "badge",
-      "label": "Badge"
+      "label": "Badge",
+      "completedOn": "2026-11-04"
     },
     {
       "id": 33,
@@ -293,7 +299,8 @@ window.COURSE_DATA = {
       "title": "AI Foundations",
       "href": "https://oaiacademy.credential.net/edf4f664-f4ae-4229-bbb1-80e1b5716118?key=c56a6a7b5375a2a8b0c9a6e0ac1a4659ec0a651d3f7237876ea1e48ff8eb5603",
       "kind": "badge",
-      "label": "Badge"
+      "label": "Badge",
+      "completedOn": "2026-11-04"
     },
     {
       "id": 34,
@@ -301,7 +308,8 @@ window.COURSE_DATA = {
       "title": "Project: Deep Research with LangGraph",
       "href": "https://academy.langchain.com/certificates/12llmppsyw",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 35,
@@ -317,7 +325,8 @@ window.COURSE_DATA = {
       "title": "Project: Ambient Agents with LangGraph",
       "href": "https://academy.langchain.com/certificates/hyuzn4vgjo",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 37,
@@ -333,7 +342,8 @@ window.COURSE_DATA = {
       "title": "LangSmith Fleet",
       "href": "https://academy.langchain.com/certificates/pxeabs3k0z",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 39,
@@ -341,7 +351,8 @@ window.COURSE_DATA = {
       "title": "dcode Essentials",
       "href": "https://academy.langchain.com/certificates/zfxrzypwon",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 40,
@@ -349,7 +360,8 @@ window.COURSE_DATA = {
       "title": "Building Reliable Agents with LangSmith",
       "href": "https://academy.langchain.com/certificates/9ngndzgl7g",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 41,
@@ -365,7 +377,8 @@ window.COURSE_DATA = {
       "title": "Scope AI Solutions",
       "href": "https://oaiacademy.credential.net/f0538e64-47ad-4f1b-bf1a-c98e6bd98c3a?key=beea4ce4305ff3e9dc6d2aceed6c35b75ed205c730956f729779d06316412507",
       "kind": "badge",
-      "label": "Badge"
+      "label": "Badge",
+      "completedOn": "2026-11-02"
     },
     {
       "id": 43,
@@ -381,7 +394,8 @@ window.COURSE_DATA = {
       "title": "Monitoring Production Agents",
       "href": "https://academy.langchain.com/certificates/7aln847oud",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 45,
@@ -397,7 +411,8 @@ window.COURSE_DATA = {
       "title": "Introduction to Deep Agents",
       "href": "https://academy.langchain.com/certificates/m7j8n1e6sa",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 47,
@@ -413,7 +428,8 @@ window.COURSE_DATA = {
       "title": "Autonomous Agent Improvement with LangSmith Engine",
       "href": "https://academy.langchain.com/certificates/g2rh3fl4sq",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 49,
@@ -421,7 +437,8 @@ window.COURSE_DATA = {
       "title": "Agent Observability & Evaluations (LangSmith)",
       "href": "https://academy.langchain.com/certificates/u97ooqzxoy",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 50,
@@ -453,7 +470,8 @@ window.COURSE_DATA = {
       "title": "Introduction to LangSmith Deployment",
       "href": "https://academy.langchain.com/certificates/wxp9mimocs",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 54,
@@ -477,7 +495,8 @@ window.COURSE_DATA = {
       "title": "LangGraph Essentials (TypeScript)",
       "href": "https://academy.langchain.com/certificates/vofrkyixjx",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 57,
@@ -485,7 +504,8 @@ window.COURSE_DATA = {
       "title": "LangChain Essentials (TypeScript)",
       "href": "https://academy.langchain.com/certificates/mbhsacjray",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 58,
@@ -493,7 +513,8 @@ window.COURSE_DATA = {
       "title": "Introduction to LangGraph (Python)",
       "href": "https://academy.langchain.com/certificates/ybz8a2gox0",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 59,
@@ -501,7 +522,8 @@ window.COURSE_DATA = {
       "title": "Introduction to LangChain (Python)",
       "href": "https://academy.langchain.com/certificates/eqsrrwtlls",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 60,
@@ -509,7 +531,8 @@ window.COURSE_DATA = {
       "title": "LangSmith Essentials",
       "href": "https://academy.langchain.com/certificates/dvhqf0meez",
       "kind": "certificate",
-      "label": "Certificate"
+      "label": "Certificate",
+      "completedOn": "2026-11-03"
     },
     {
       "id": 61,

@@ -45,8 +45,15 @@
     if (id === 'lc') return '<span class="mark lc" aria-hidden="true">LC</span>';
     return '<span class="mark hf" aria-hidden="true">HF</span>';
   }
+  function when(iso) {
+    if (!iso) return '';
+    var p = iso.split('-');
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return Number(p[2]) + ' ' + months[Number(p[1]) - 1] + ' ' + p[0];
+  }
   function row(item) {
-    return '<a class="course" href="' + esc(item.href) + '" target="_blank" rel="noopener noreferrer"><span class="course-title">' + esc(item.title) + '</span><span class="pill ' + item.kind + '">' + esc(item.label) + '</span><svg class="ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>';
+    var date = item.completedOn ? '<time class="when" datetime="' + esc(item.completedOn) + '">' + esc(when(item.completedOn)) + '</time>' : '';
+    return '<a class="course" href="' + esc(item.href) + '" target="_blank" rel="noopener noreferrer"><span class="course-title">' + esc(item.title) + '</span>' + date + '<span class="pill ' + item.kind + '">' + esc(item.label) + '</span><svg class="ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>';
   }
   window.Courses = { data: D, esc: esc, academy: academy, items: items, stats: stats, verifiedCount: verifiedCount, mark: mark, row: row };
 })();
