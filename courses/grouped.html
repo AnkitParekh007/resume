@@ -54,7 +54,10 @@
   var C = window.Courses;
   var stack = document.getElementById('stack');
   C.data.academies.forEach(function (a) {
-    var list = C.items(a.id);
+    var list = C.items(a.id).slice().sort(function (x, y) {
+      function rank(k) { return k === 'completed' ? 1 : 0; }
+      return rank(x.kind) - rank(y.kind);
+    });
     var s = C.stats(list);
     var verified = C.verifiedCount(a, s);
     var preview = list.slice(0, 3);
