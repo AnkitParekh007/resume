@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Course section variants · Ankit Parekh</title>
+<link rel="icon" href="../favicons/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="shell.css">
+<style>
+  .cards { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; max-width: 720px }
+  .cards a { display: block; padding: 22px 24px; background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; text-decoration: none }
+  .cards a:hover { border-color: var(--link) }
+  .cards strong { display: block; color: var(--ink); font: 700 20px/1.3 var(--display) }
+  .cards span { display: block; margin-top: 6px; color: var(--body); font-size: 16px }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="bar">
+  <a class="brand" href="../index.html">Ankit Parekh</a>
+  <nav aria-label="Course variants">
+    <a href="grouped.html">By academy</a>
+    <a href="search.html">Search</a>
+    <a href="counts.html">Counts</a>
+    <button class="theme" id="theme" type="button">Dark</button>
+  </nav>
+</div></header>
+<main class="page" id="main">
+  <p class="kicker">Local only · not published</p>
+  <h1>Courses &amp; certificates</h1>
+  <p class="lede">Three layouts for the same 66 credentials. The homepage section is unchanged.</p>
+  <div class="cards">
+    <a href="grouped.html"><strong>Grouped by academy</strong><span>Four compact summaries. Open an academy to see its courses in one column.</span></a>
+    <a href="search.html"><strong>Search after you choose</strong><span>No course list until an academy is selected. Search and type filter that list.</span></a>
+    <a href="counts.html"><strong>Counts, then detail</strong><span>Totals first. Each academy is closed until you open it.</span></a>
+  </div>
+</main>
+<script src="shell.js"></script>
+</body>
+</html>

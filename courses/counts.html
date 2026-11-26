@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Course counts · Ankit Parekh</title>
+<link rel="icon" href="../favicons/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="shell.css">
+<style>
+  .stats { margin-top: 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px }
+  .stat { padding: 22px 20px 20px; background: var(--sheet); border: 1px solid var(--line); border-radius: 16px }
+  .stat b { display: block; color: var(--ink); font: 700 40px/1 var(--display); letter-spacing: -.03em }
+  .stat span { display: block; margin-top: 10px; color: var(--body); font-size: 14px; line-height: 1.4 }
+  .toolbar { margin: 36px 0 8px; display: flex; justify-content: flex-end }
+  .toolbar button { padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--sheet); color: var(--ink); font: 600 14px var(--text); cursor: pointer }
+  .groups { max-width: 760px }
+  details { border-bottom: 1px solid var(--line) }
+  summary { list-style: none; display: flex; align-items: center; gap: 16px; padding: 22px 4px; cursor: pointer }
+  summary::-webkit-details-marker { display: none }
+  summary h2 { font-size: 18px }
+  summary .meta { margin-top: 3px; color: var(--body); font: 500 13px/1.4 var(--mono) }
+  summary .grow { flex: 1; min-width: 0 }
+  .chev { width: 10px; height: 10px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); margin-right: 6px }
+  details[open] .chev { transform: rotate(225deg); margin-top: 6px }
+  .inside { padding: 0 8px 16px 52px }
+  @media (max-width: 800px) { .stats { grid-template-columns: 1fr 1fr } }
+  @media (max-width: 520px) { .inside { padding-left: 0 } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="bar">
+  <a class="brand" href="../index.html">Ankit Parekh</a>
+  <nav aria-label="Course variants">
+    <a href="grouped.html">By academy</a>
+    <a href="search.html">Search</a>
+    <a href="counts.html" aria-current="page">Counts</a>
+    <a class="quiet" href="../index.html#courses">Live section</a>
+    <button class="theme" id="theme" type="button">Dark</button>
+  </nav>
+</div></header>
+<main class="page" id="main">
+  <p class="kicker">Variant · counts first</p>
+  <h1>Courses &amp; certificates</h1>
+  <p class="lede">The totals come first. Each academy stays closed until you open it.</p>
+  <div class="stats" id="stats"></div>
+  <div class="toolbar"><button type="button" id="verified">Show badges and certificates only</button></div>
+  <div class="groups" id="groups"></div>
+</main>
+<script src="data.js"></script>
+<script src="shell.js"></script>
+<script>
+(function () {
+  var C = window.Courses;
+  var all = C.stats(C.items());
+  var verifiedTotal = all.badges + all.certificates;
+  var figures = [
+    [String(all.courses), 'Courses across 4 academies'],
+    [String(verifiedTotal), 'Badges and certificates'],
+    [String(all.completed), 'Completed, no separate credential'],
+    ['1', 'Course up next']
+  ];
+  document.getElementById('stats').innerHTML = figures.map(function (f) {
+    return '<div class="stat"><b>' + f[0] + '</b><span>' + f[1] + '</span></div>';
+  }).join('');
+  var verifiedOnly = false;
+  var groups = document.getElementById('groups');
+  function paint() {
+    var open = {};
+    groups.querySelectorAll('details').forEach(function (d) { open[d.dataset.id] = d.open; });
+    groups.innerHTML = '';
+    C.data.academies.forEach(function (a) {
+      var list = C.items(a.id);
+      var shown = verifiedOnly ? list.filter(function (i) { return i.kind !== 'completed'; }) : list;
+      var s = C.stats(list);
+      var d = document.createElement('details');
+      d.dataset.id = a.id;
+      if (open[a.id]) d.open = true;
+      d.innerHTML = '<summary>' + C.mark(a.id) +
+        '<span class="grow"><h2>' + C.esc(a.name) + '</h2><p class="meta">' + s.courses + ' courses · ' + C.verifiedCount(a, s) + ' ' + a.verified + '</p></span>' +
+        '<span class="chev" aria-hidden="true"></span></summary>' +
+        '<div class="inside">' + (shown.length ? shown.map(C.row).join('') : '<p class="empty">No badges or certificates in this academy.</p>') + '</div>';
+      groups.appendChild(d);
+    });
+    var next = document.createElement('details');
+    next.dataset.id = 'next';
+    if (open.next) next.open = true;
+    next.innerHTML = '<summary><span class="mark cl" aria-hidden="true">+</span><span class="grow"><h2>Up next</h2><p class="meta">1 course · not started</p></span><span class="chev" aria-hidden="true"></span></summary>' +
+      '<div class="inside"><p class="course" style="cursor:default"><span class="course-title">' + C.esc(C.data.upNext.title) + '</span><span class="pill completed">Planned</span></p></div>';
+    groups.appendChild(next);
+  }
+  paint();
+  document.getElementById('verified').addEventListener('click', function () {
+    verifiedOnly = !verifiedOnly;
+    this.setAttribute('aria-pressed', String(verifiedOnly));
+    this.textContent = verifiedOnly ? 'Show every course' : 'Show badges and certificates only';
+    paint();
+  });
+})();
+</script>
+</body>
+</html>

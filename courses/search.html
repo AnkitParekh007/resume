@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Find a course · Ankit Parekh</title>
+<link rel="icon" href="../favicons/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="shell.css">
+<style>
+  .finder { margin-top: 32px; max-width: 720px; display: flex; flex-direction: column; gap: 28px }
+  label.field { display: flex; flex-direction: column; gap: 8px; font-weight: 600; color: var(--ink); font-size: 14px }
+  input[type="search"], select {
+    width: 100%; height: 52px; padding: 0 16px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--sheet); color: var(--ink);
+    font: 400 17px var(--text);
+  }
+  input[type="search"]:disabled, select:disabled { opacity: .55 }
+  fieldset { margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px }
+  legend { font-weight: 600; color: var(--ink); font-size: 14px; margin-bottom: 10px }
+  .choice { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet); cursor: pointer }
+  .choice:has(input:checked) { border-color: var(--link); box-shadow: inset 0 0 0 1px var(--link) }
+  .choice input { width: 18px; height: 18px; accent-color: var(--link) }
+  .choice b { display: block; color: var(--ink); font-size: 16px }
+  .choice small { display: block; margin-top: 2px; color: var(--body); font-weight: 400; font-size: 14px }
+  .choice span.grow { flex: 1; min-width: 0 }
+  .prompt { padding: 28px; border: 1px dashed var(--line); border-radius: 16px; color: var(--body); font-size: 16px }
+  .results[hidden], .filters[hidden] { display: none }
+  .status { margin-bottom: 8px; color: var(--body); font-size: 15px }
+  .empty { padding: 20px 0; color: var(--body) }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="bar">
+  <a class="brand" href="../index.html">Ankit Parekh</a>
+  <nav aria-label="Course variants">
+    <a href="grouped.html">By academy</a>
+    <a href="search.html" aria-current="page">Search</a>
+    <a href="counts.html">Counts</a>
+    <a class="quiet" href="../index.html#courses">Live section</a>
+    <button class="theme" id="theme" type="button">Dark</button>
+  </nav>
+</div></header>
+<main class="page" id="main">
+  <p class="kicker">Variant · search after a choice</p>
+  <h1>Find a course</h1>
+  <p class="lede">The course list stays hidden until you choose an academy. Search and type then narrow that academy only.</p>
+  <form class="finder" id="finder">
+    <fieldset>
+      <legend>Academy</legend>
+      <div id="choices"></div>
+    </fieldset>
+    <div class="filters" id="filters" hidden>
+      <label class="field">Search this academy
+        <input id="q" type="search" name="q" placeholder="Course name" autocomplete="off" disabled>
+      </label>
+      <label class="field">Credential type
+        <select id="kind" name="kind" disabled>
+          <option value="all">All types</option>
+          <option value="badge">Badges</option>
+          <option value="certificate">Certificates</option>
+          <option value="completed">Completed</option>
+        </select>
+      </label>
+    </div>
+    <p class="prompt" id="prompt">Choose an academy. Its courses appear here, and nowhere before that.</p>
+    <div class="results" id="results" hidden>
+      <p class="status" id="status" role="status"></p>
+      <div id="list"></div>
+    </div>
+  </form>
+</main>
+<script src="data.js"></script>
+<script src="shell.js"></script>
+<script>
+(function () {
+  var C = window.Courses;
+  var chosen = '';
+  var choices = document.getElementById('choices');
+  C.data.academies.forEach(function (a) {
+    var s = C.stats(C.items(a.id));
+    var label = document.createElement('label');
+    label.className = 'choice';
+    label.innerHTML = '<input type="radio" name="academy" value="' + a.id + '">' + C.mark(a.id) +
+      '<span class="grow"><b>' + C.esc(a.name) + '</b><small>' + s.courses + ' courses · ' + C.verifiedCount(a, s) + ' ' + a.verified + '</small></span>';
+    choices.appendChild(label);
+  });
+  var q = document.getElementById('q');
+  var kind = document.getElementById('kind');
+  var prompt = document.getElementById('prompt');
+  var results = document.getElementById('results');
+  var filters = document.getElementById('filters');
+  var status = document.getElementById('status');
+  var list = document.getElementById('list');
+  function render() {
+    if (!chosen) {
+      prompt.hidden = false;
+      results.hidden = true;
+      filters.hidden = true;
+      q.disabled = true;
+      kind.disabled = true;
+      return;
+    }
+    prompt.hidden = true;
+    filters.hidden = false;
+    results.hidden = false;
+    q.disabled = false;
+    kind.disabled = false;
+    var query = q.value.trim().toLowerCase();
+    var rows = C.items(chosen).filter(function (i) {
+      if (kind.value !== 'all' && i.kind !== kind.value) return false;
+      if (query && i.title.toLowerCase().indexOf(query) === -1) return false;
+      return true;
+    });
+    var a = C.academy(chosen);
+    status.textContent = rows.length + ' of ' + C.items(chosen).length + ' in ' + a.name;
+    list.innerHTML = rows.length ? rows.map(C.row).join('') : '<p class="empty">No courses match that search.</p>';
+  }
+  choices.addEventListener('change', function (e) {
+    if (e.target.name === 'academy') { chosen = e.target.value; render(); }
+  });
+  q.addEventListener('input', render);
+  kind.addEventListener('change', render);
+})();
+</script>
+</body>
+</html>

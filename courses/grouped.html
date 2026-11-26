@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Courses by academy · Ankit Parekh</title>
+<link rel="icon" href="../favicons/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="shell.css">
+<style>
+  .stack { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; max-width: 760px }
+  .panel { padding: 28px 28px 22px; background: var(--sheet); border: 1px solid var(--line); border-radius: 16px }
+  .head { display: flex; gap: 16px; align-items: flex-start }
+  .head h2 { font-size: 22px; letter-spacing: -.02em }
+  .summary { margin-top: 6px; color: var(--body); font-size: 15px }
+  .preview { margin: 18px 0 0; padding: 0; list-style: none; color: var(--ink); font-size: 15px }
+  .preview li { padding: 6px 0 6px 14px; border-left: 2px solid var(--line) }
+  .more-note { margin-top: 8px; color: var(--muted); font-size: 14px }
+  .toggle { margin-top: 18px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font: 600 15px var(--text); cursor: pointer }
+  .toggle:hover { border-color: var(--link) }
+  .full { margin-top: 8px }
+  .full[hidden] { display: none }
+  .next { margin-top: 36px; max-width: 760px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--body); font-size: 15px }
+  .next strong { color: var(--ink); font-weight: 600 }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="bar">
+  <a class="brand" href="../index.html">Ankit Parekh</a>
+  <nav aria-label="Course variants">
+    <a href="grouped.html" aria-current="page">By academy</a>
+    <a href="search.html">Search</a>
+    <a href="counts.html">Counts</a>
+    <a class="quiet" href="../index.html#courses">Live section</a>
+    <button class="theme" id="theme" type="button">Dark</button>
+  </nav>
+</div></header>
+<main class="page" id="main">
+  <p class="kicker">Variant · grouped summaries</p>
+  <h1>Courses &amp; certificates</h1>
+  <p class="lede">Four academies, each as a short summary. Open one when you want the full list. Nothing is shown as a dense grid.</p>
+  <div class="stack" id="stack"></div>
+  <p class="next" id="next"></p>
+</main>
+<script src="data.js"></script>
+<script src="shell.js"></script>
+<script>
+(function () {
+  var C = window.Courses;
+  var stack = document.getElementById('stack');
+  C.data.academies.forEach(function (a) {
+    var list = C.items(a.id);
+    var s = C.stats(list);
+    var verified = C.verifiedCount(a, s);
+    var preview = list.slice(0, 3);
+    var panel = document.createElement('article');
+    panel.className = 'panel';
+    panel.innerHTML =
+      '<header class="head">' + C.mark(a.id) +
+      '<div><h2>' + C.esc(a.name) + '</h2>' +
+      '<p class="summary">' + s.courses + ' courses · ' + verified + ' ' + a.verified + '</p></div></header>' +
+      '<ul class="preview">' + preview.map(function (i) { return '<li>' + C.esc(i.title) + '</li>'; }).join('') + '</ul>' +
+      '<p class="more-note">' + (list.length - preview.length) + ' more in this academy</p>' +
+      '<button class="toggle" type="button" aria-expanded="false">Show all ' + s.courses + ' courses</button>' +
+      '<div class="full" hidden>' + list.map(C.row).join('') + '</div>';
+    var btn = panel.querySelector('button');
+    var full = panel.querySelector('.full');
+    btn.addEventListener('click', function () {
+      var open = full.hidden;
+      full.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Hide courses' : 'Show all ' + s.courses + ' courses';
+    });
+    stack.appendChild(panel);
+  });
+  var next = C.data.upNext;
+  document.getElementById('next').innerHTML = 'Up next · <strong>' + C.esc(next.title) + '</strong>';
+})();
+</script>
+</body>
+</html>
