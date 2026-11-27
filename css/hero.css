@@ -1,0 +1,134 @@
+/* Hero redesign: visuals and layout only. Copy and markup are unchanged.
+   Loaded after the inline styles in index.html, so it overrides them by order. */
+
+.hero {
+  --grid: color-mix(in srgb, var(--ink) 7%, transparent);
+  position: relative; isolation: isolate; overflow: clip;
+  padding-block: 56px 64px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(55% 80% at 88% 0%, var(--glow-1), transparent 70%),
+    radial-gradient(45% 70% at 4% 100%, var(--glow-2), transparent 70%),
+    radial-gradient(30% 50% at 0% 0%, var(--glow-3), transparent 70%);
+}
+/* Faint engineering-grid texture that fades out away from the headline */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(75% 90% at 62% 18%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(75% 90% at 62% 18%, #000 0%, transparent 78%);
+}
+
+/* Role pills: quiet glass chips instead of filled lavender capsules */
+.hero .role-pills { gap: 8px; margin: 0 0 26px }
+.hero .role-pills .role-pill {
+  gap: 9px; padding: 8px 14px 8px 12px;
+  font-size: 11.5px; letter-spacing: .15em;
+  color: var(--link);
+  background: color-mix(in srgb, var(--sheet) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--link) 32%, var(--line));
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.hero .role-pills .role-dot { width: 7px; height: 7px; background: linear-gradient(135deg, var(--spark-1), var(--spark-3)); box-shadow: 0 0 0 3px color-mix(in srgb, var(--spark-3) 20%, transparent) }
+
+/* Greeting and headline */
+.hero .hi { font: 500 21px/1.2 var(--display); letter-spacing: -.01em; color: var(--body) }
+.hero .hi b { font-weight: 800 }
+.hero h1.statement {
+  max-width: none; margin-top: 10px;
+  font-size: clamp(26px, 2.5vw, 34px); font-weight: 800; line-height: 1.18; letter-spacing: -.026em;
+}
+.hero .caret { width: .08em; height: .84em; background: linear-gradient(180deg, var(--spark-1), var(--spark-4)); border-radius: 2px }
+
+/* Paragraph with an accent rail */
+.hero .lede {
+  position: relative; max-width: none; margin-top: 0;
+  padding-left: 22px; font-size: 17.5px; line-height: 1.65;
+}
+.hero .lede::before {
+  content: ""; position: absolute; left: 0; top: 5px; bottom: 5px; width: 3px; border-radius: 3px;
+  background: linear-gradient(180deg, var(--spark-1), var(--spark-3) 60%, var(--spark-4));
+}
+
+/* Buttons */
+.hero .cta { margin-top: 28px; gap: 10px }
+.hero .btn { padding: 12px 22px; font-size: 15.5px; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease }
+.hero .btn.primary { box-shadow: 0 12px 26px -12px var(--btn-1), 0 1px 0 rgba(255, 255, 255, .25) inset }
+.hero .btn.primary:hover { box-shadow: 0 16px 30px -12px var(--btn-1), 0 1px 0 rgba(255, 255, 255, .25) inset }
+.hero .btn:not(.primary) {
+  border-color: color-mix(in srgb, var(--ink) 30%, transparent);
+  background: color-mix(in srgb, var(--sheet) 70%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.hero .btn:not(.primary):hover { border-color: var(--link) }
+
+/* Expertise: a stacked panel of rows, each with a gradient icon tile */
+.hero .expertise-cards { grid-template-columns: 1fr; gap: 10px; max-width: none; margin: 26px 0 0 }
+.hero .expertise-card {
+  position: relative; display: grid; grid-template-columns: 46px minmax(0, 1fr); column-gap: 16px; row-gap: 3px;
+  align-content: center; min-height: 0; padding: 16px 48px 16px 16px;
+  border: 1px solid color-mix(in srgb, var(--link) 22%, var(--line));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--sheet) 74%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 color-mix(in srgb, #fff 35%, transparent) inset, 0 16px 34px -22px var(--glow-1);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.hero .expertise-card .ic {
+  grid-row: 1 / span 3; align-self: center;
+  box-sizing: border-box; width: 46px; height: 46px; padding: 11px; border-radius: 13px;
+  color: var(--on-btn); background: linear-gradient(140deg, var(--btn-1), var(--btn-2));
+  box-shadow: 0 8px 18px -10px var(--btn-1);
+}
+.hero .expertise-card strong { font-size: 16.5px; line-height: 1.25 }
+.hero .expertise-card .tech { font-size: 11.5px; letter-spacing: .02em }
+.hero .expertise-card .detail { font-size: 13.5px; line-height: 1.45 }
+.hero .expertise-card::after {
+  content: "\2192"; position: absolute; right: 18px; top: 50%; translate: 0 -50%;
+  font: 500 18px/1 var(--mono); color: var(--muted); transition: transform .18s ease, color .18s ease;
+}
+.hero .expertise-card:hover { transform: translateY(-2px); border-color: var(--link); box-shadow: 0 1px 0 color-mix(in srgb, #fff 35%, transparent) inset, 0 20px 38px -20px var(--glow-1) }
+.hero .expertise-card:hover::after { color: var(--link); transform: translateX(4px) }
+
+/* Wide screens: headline across the top, story on the left, expertise panel on the right */
+@media (min-width: 961px) {
+  .hero { padding-block: 64px 72px }
+  .hero .wrap {
+    display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); column-gap: 56px; align-items: start;
+    grid-template-areas: "pills pills" "hi hi" "h1 h1" "lede cards" "cta cards";
+    grid-template-rows: auto auto auto auto 1fr;
+  }
+  .hero .role-pills { grid-area: pills }
+  .hero .hi { grid-area: hi }
+  .hero h1.statement { grid-area: h1; margin-bottom: 30px }
+  .hero .lede { grid-area: lede }
+  .hero .cta { grid-area: cta; align-self: start }
+  .hero .expertise-cards { grid-area: cards; margin: 0; align-self: start }
+}
+
+@media (max-width: 760px) {
+  .hero { padding-block: 32px 36px }
+  .hero .role-pills { margin-bottom: 18px }
+  .hero .role-pills .role-pill { font-size: 10.5px; letter-spacing: .1em; padding: 7px 11px 7px 10px }
+  .hero .hi { font-size: 18px }
+  .hero h1.statement { font-size: 22px }
+  .hero .lede { font-size: 16px; padding-left: 16px }
+  .hero .expertise-card { padding: 14px 42px 14px 14px; column-gap: 13px }
+  .hero .expertise-card .ic { width: 42px; height: 42px; padding: 10px }
+  .hero .expertise-card { grid-template-columns: 42px minmax(0, 1fr) }
+}
+@media (max-width: 420px) {
+  .hero .role-pills .role-pill { font-size: 10px; letter-spacing: .05em; padding: 7px 10px 7px 9px; gap: 7px }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .btn, .hero .expertise-card, .hero .expertise-card::after { transition: none }
+  .hero .expertise-card:hover { transform: none }
+}
+@media print {
+  .hero { background: none; border-bottom: 0 }
+  .hero::before { display: none }
+}
