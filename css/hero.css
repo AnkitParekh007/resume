@@ -103,7 +103,7 @@
   }
   .hero .role-pills { grid-area: pills }
   .hero .hi { grid-area: hi }
-  .hero h1.statement { grid-area: h1; margin-bottom: 30px }
+  .hero h1.statement { grid-area: h1; margin-bottom: 16px }
   .hero .lede { grid-area: lede }
   .hero .cta { grid-area: cta; align-self: start }
   .hero .expertise-cards { grid-area: cards; margin: 0; align-self: start }
