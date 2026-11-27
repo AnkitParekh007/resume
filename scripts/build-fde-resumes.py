@@ -31,7 +31,7 @@ CONTACT = [
 ]
 SECTIONS = [
 ("PROFESSIONAL SUMMARY", [
-("body", "Principal Forward-Deployed Engineer and Frontend Architect delivering enterprise software since 2012. I get AI from a working demo into a business that has to live with it. At Bluemeteor I run a seven-person team and personally own the architecture, integrations and production accountability across three products, reporting weekly to a finance-led board. I work directly with customers from pain-point discovery through implementation, demonstrations, feedback and production support. I build with AI coding agents under a three-gate review and evaluation process, which is how a small team ships integrations with Stripe, Firebase and twelve LLM providers. Architected and delivered the AI multi-agent assistant, now live with 11 customer organizations.")
+("body", "Principal Forward-Deployed Engineer and Frontend Architect delivering enterprise software since 2012. I get AI from a working demo into a business that has to live with it. At Bluemeteor, I led a seven-person team and personally owned architecture, integrations and production accountability across three products, reporting weekly to a finance-led board. I worked directly with customers from pain-point discovery through implementation, demonstrations, feedback and production support. I used AI coding agents under a three-gate review and evaluation process, delivering integrations with Stripe, Firebase and twelve LLM providers. I architected and delivered a production AI multi-agent assistant adopted by 11 customer organizations.")
 ]),
 ("CORE CAPABILITIES", [
 ("body", "Customer-facing AI delivery: Customer discovery, requirements translation, demos, iterative feedback, customer troubleshooting, supplier onboarding workflows"),
@@ -44,7 +44,7 @@ SECTIONS = [
 ("meta", "Frontend Architect | Enterprise AI Architect"),
 ("meta", "Sep 2022 - Oct 2026  |  Remote  |  US-based enterprise product-content platform (PIM/PXM/DAM)"),
 ("bullet", "Worked directly with enterprise customers to discover onboarding bottlenecks, demonstrate the AI workflows, gather feedback, deliver improvements and troubleshoot customer-specific issues."),
-("bullet", "Architected and delivered the AI multi-agent assistant end to end, from the Angular client to the NestJS service. It answers with citations and runs multi-step workflows only after the user approves; now live with 11 customer organizations."),
+("bullet", "Architected and delivered the AI multi-agent assistant end to end, from the Angular client to the NestJS service, with cited answers and multi-step workflows gated by user approval; adopted by 11 customer organizations."),
 ("bullet", "Chose a plan-first design: a deterministic action catalog, separate read and write risk classes, re-planning on failure, an audit ledger per run, and hybrid retrieval."),
 ("bullet", "Built evaluation harnesses and release gates for controlled production deployment."),
 ("bullet", "Personally designed and implemented AI-assisted supplier product mapping and missing-SKU-attribute suggestions aligned with distributor-defined validation rules."),
@@ -53,7 +53,7 @@ SECTIONS = [
 ("role", "Forto GmbH  |  Senior Frontend Architect"),
 ("meta", "Sep 2021 - Sep 2022  |  Berlin, Germany  |  Digital freight forwarding"),
 ("bullet", "Led frontend architecture for a production Next.js application, working across React, TypeScript, and API integration."),
-("bullet", "Drove TypeScript adoption across the codebase, introducing strict types and shared interfaces at component and API boundaries; with most of the codebase typed, developer experience and AI coding-agent output improved by an estimated 50%+."),
+("bullet", "Drove TypeScript adoption across the codebase, introducing strict types and shared interfaces at component and API boundaries to improve type safety and maintainability."),
 ("bullet", "Worked with client stakeholders to translate product requirements into application flows, then delivered user-facing features from requirements through release."),
 ("bullet", "Simplified component and interaction patterns while shipping features, so the shared frontend was easier for the team to keep building on.")
 ]),
@@ -67,10 +67,11 @@ SECTIONS = [
 ("bullet", "Ran release coordination with DevOps and platform teams on CI/CD and build tooling."),
 ("role", "Verdantis  |  Senior Frontend Engineer"),
 ("meta", "2012 - 2016"),
-("bullet", "Built data-dense enterprise forms, tables and workflows with strict validation and state handling."),
-("bullet", "Engineered the platform infrastructure behind an NX monorepo serving 5 brands across 12 locales: multi-locale and brand API configuration, CSRF protection, a GraphQL proxy keeping service credentials server-side, and React Query SSR with HydrationBoundary. These were shared foundations consumed by every delivery pod."),
-("bullet", "Re-engineered the local-development and release layer so the shared core repository and the per-partner repositories run from a single folder structure under Vite, then rebuilt the CI/CD pipeline to drive both from one place. Deploying a partner repo now triggers the core pipeline automatically, removing manual release sequencing."),
-("bullet", "Designed a bidirectional middleware between the React interaction layer and the Three.js engine: a property change in React, such as object height, invokes the 3D engine to update the 3D/2D canvas in real time, and engine-side changes propagate back to the UI.")
+("bullet", "Owned the product roadmap end to end as primary hands-on developer, leading a four-member cross-functional team through two-week Agile sprints, Jira planning, bug triage and production deployments."),
+("bullet", "Designed a scalable, modular frontend architecture based on MVC principles and translated Figma designs into a pixel-perfect, mobile-responsive production application."),
+("bullet", "Led UI/UX design and development across three products serving 10,000+ active users, using Angular, Bootstrap CSS, Java and GraphQL."),
+("bullet", "Built an Angular merchant dashboard with real-time analytics, enabling e-commerce merchants to create dynamic, personalized storefront content and increasing engagement by 35%."),
+("bullet", "Built data-dense enterprise forms, tables and workflows with strict validation and state handling.")
 ]),
 ("SELECTED OPEN-SOURCE PROJECTS", [
 ("role", "ReboundOps  |  Local-first Career & Job-search Platform"),

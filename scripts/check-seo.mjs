@@ -52,3 +52,13 @@ assert.ok(!home.includes('id="open-source-projects" hidden'), 'homepage should n
 assert.match(projects, /id="featured"/);
 assert.equal((projects.match(/<article class="project"/g) || []).length, 8, 'all 8 projects must remain');
 console.log('PASS sitemap, robots, social metadata, structured data, internal links and project gallery');
+
+// Keep the public profile and generated resume source aligned with the approved career corrections.
+const resumeSource = readFileSync('scripts/build-fde-resumes.py', 'utf8');
+const agentProfile = readFileSync('agent-api/src/profile.js', 'utf8');
+for (const [file, content] of [['index.html', home], ['resume generator', resumeSource], ['agent profile', agentProfile]]) {
+  for (const required of ['10,000+ active users', 'increasing engagement by 35%', 'four-member', 'type safety and maintainability']) assert.ok(content.includes(required), `${file}: missing ${required}`);
+  for (const stale of ['HydrationBoundary', 'folder structure under Vite', 'AI coding-agent output', 'Zooty.in']) assert.ok(!content.includes(stale), `${file}: stale ${stale}`);
+}
+assert.equal((home.match(/class="d-tab"/g) || []).length, (home.match(/class="d-pane"/g) || []).length, 'sector tabs and panels must match');
+console.log('PASS corrected career facts across portfolio, resume generator and assistant source');
