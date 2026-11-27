@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ankit-parekh.org/sitemap.xml
+Sitemap: https://ankit-parekh.org/blog/sitemap.xml
