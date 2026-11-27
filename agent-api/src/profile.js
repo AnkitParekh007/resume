@@ -18,8 +18,8 @@ Based in Mumbai, India. Building enterprise frontends since 2012 and production 
 ### Principal Forward-Deployed Engineer, Frontend Architect | Enterprise AI Architect. Bluemeteor (formerly Codifyd)
 Listed on his site as Sep 2022 to Oct 2026. Remote, US-based company. Enterprise product-content platform (PIM/PXM/DAM), about 10M platform SKUs.
 Evidence label for everything in this role: employer work (private; he can walk through it on a call).
-- He runs a seven-person team and personally owns the architecture, integrations and production accountability across three products, reporting weekly to a finance-led board.
-- He builds with AI coding agents under a three-gate review and evaluation process. A small team ships integrations with Stripe, Firebase and twelve LLM providers. He carries the pager when it breaks.
+- He led a seven-person team and personally owned the architecture, integrations and production accountability across three products, reporting weekly to a finance-led board.
+- He used AI coding agents under a three-gate review and evaluation process, delivering integrations with Stripe, Firebase and twelve LLM providers. He carried the pager when it broke.
 - AI multi-agent assistant: an in-app agent that plans first and asks before it acts. He led it end to end, from the Angular client to the NestJS service. It answers with citations and runs multi-step workflows only after the user approves. Plan-first design: a deterministic action catalog, separate read and write risk classes, re-planning on failure, an audit ledger per run, and hybrid retrieval. Built evaluation harnesses and release gates for controlled production deployment. Live with 11 customer organizations.
 - AI-assisted supplier product mapping and missing-SKU-attribute suggestions, aligned with distributor-defined validation rules. He personally designed and implemented them, demonstrated them to customers, gathered feedback and troubleshot customer-specific issues.
 - Worked directly with enterprise customers to discover onboarding bottlenecks, demonstrate the AI workflows, gather feedback and deliver improvements.
@@ -31,7 +31,7 @@ Evidence label for everything in this role: employer work (private; he can walk 
 Digital freight forwarding. Relocated to Berlin on a permanent contract and held an EU Blue Card (former holder).
 Evidence label: employer work (private; ask for a walkthrough).
 - Led frontend architecture for a production Next.js application, working across React, TypeScript and API integration.
-- Drove TypeScript adoption across the codebase, introducing strict types and shared interfaces at component and API boundaries. With most of the codebase typed, developer experience and AI coding-agent output improved by an estimated 50%+ (his estimate, not a measured benchmark).
+- Drove TypeScript adoption across the codebase, introducing strict types and shared interfaces at component and API boundaries to improve type safety and maintainability.
 - Worked with client stakeholders to translate product requirements into application flows, then delivered user-facing features from requirements through release.
 - Simplified component and interaction patterns while shipping features, so the shared frontend was easier for the team to keep building on.
 
@@ -44,11 +44,12 @@ Evidence label: employer work (private; ask for a walkthrough).
 - Ran release coordination with DevOps and platform teams on CI/CD and build tooling.
 
 ### Senior Frontend Engineer. Verdantis (2012 to 2016)
-Built data-dense enterprise forms, tables and workflows with strict validation and state handling.
-Evidence label: employer work (private; ask for a walkthrough).
-- Engineered the platform infrastructure behind an NX monorepo serving 5 brands across 12 locales: multi-locale/brand API configuration, CSRF protection, a GraphQL proxy keeping service credentials server-side, and React Query SSR with HydrationBoundary. Shared foundations consumed by every delivery pod.
-- Re-engineered the local-development and release layer so the shared core repository and the per-partner repositories run from a single folder structure under Vite, then rebuilt the CI/CD pipeline to drive both from one place. Deploying a partner repo now triggers the core pipeline automatically, removing manual release sequencing.
-- Designed a bidirectional middleware between the React interaction layer and the Three.js engine: a property change in React (object height, for instance) invokes the 3D engine to update the 3D/2D canvas in real time, and engine-side changes propagate back to the UI.
+Evidence label: employer work (private; ask for a walkthrough). User-reported user and engagement metrics.
+- Owned the product roadmap end to end as primary hands-on developer, leading a four-member cross-functional team through two-week Agile sprints, Jira planning, bug triage and production deployments.
+- Designed a scalable, modular frontend architecture based on MVC principles and translated Figma designs into a pixel-perfect, mobile-responsive production application.
+- Led UI/UX design and development across three products serving 10,000+ active users, using Angular, Bootstrap CSS, Java and GraphQL.
+- Built an Angular merchant dashboard with real-time analytics, enabling e-commerce merchants to create dynamic, personalized storefront content and increasing engagement by 35%.
+- Built data-dense enterprise forms, tables and workflows with strict validation and state handling.
 
 ## Open-source projects (evidence label: public repo, plus live demo where a demo link is given)
 - ngx-copilot-platform: Angular copilot SDK with a Next.js RAG backend on Supabase pgvector, plus streaming chat and enterprise demos. Repo https://github.com/AnkitParekh007/ngx-copilot-platform. Live demo https://ankitparekh007.github.io/ngx-copilot-platform/
