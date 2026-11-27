@@ -61,15 +61,36 @@
 .ask-how b { display: block; color: var(--ink); font-size: 15.5px }
 .ask-how p { margin-top: 4px; font-size: 14.5px; line-height: 1.5 }
 
-/* Launcher: sits beside the table-of-contents button, or in its place on wide screens. */
-.ask-launch { position: fixed; z-index: 41; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 18px 0 14px; border: 0; border-radius: 999px; color: var(--on-btn); background: linear-gradient(135deg, var(--btn-1), var(--btn-2)); font: 600 15px var(--text); box-shadow: 0 6px 18px var(--glow-1); cursor: pointer }
-.ask-launch:hover { transform: translateY(-1px) }
+/* Launcher: a round button with an always-visible tooltip. It sits at the bottom of the stack, below the
+   table-of-contents button, and takes that button's place on wider screens. Offsets come from --fab-bottom (see index.html). */
+.ask-launch {
+  --ask-size: 52px; --ask-bottom: var(--fab-bottom);
+  position: fixed; z-index: 41;
+  right: calc(21px + env(safe-area-inset-right, 0px)); bottom: var(--ask-bottom);
+  display: grid; place-items: center; width: var(--ask-size); height: var(--ask-size); padding: 0;
+  border: 0; border-radius: 50%; color: var(--on-btn); cursor: pointer;
+  background: linear-gradient(135deg, var(--btn-1), var(--btn-2));
+  box-shadow: 0 10px 24px -8px var(--btn-1), 0 2px 6px rgba(0, 0, 0, .18);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.ask-launch:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -8px var(--btn-1), 0 2px 6px rgba(0, 0, 0, .18) }
 .ask-launch:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
-@media (max-width: 1535px) { .ask-launch { right: calc(82px + env(safe-area-inset-right, 0px)) } }
-@media (max-width: 520px) { .ask-launch-label { display: none } .ask-launch { width: 46px; padding: 0; justify-content: center } }
+.ask-launch .ic { width: 24px; height: 24px; animation: ask-icon-flash 1.6s ease-in-out infinite }
+@keyframes ask-icon-flash { 0%, 100% { opacity: 1; transform: scale(1) } 50% { opacity: .35; transform: scale(.82) } }
+@media (prefers-reduced-motion: reduce) { .ask-launch .ic { animation: none } }
+.ask-launch-label {
+  position: absolute; right: calc(100% + 12px); top: 50%; translate: 0 -50%;
+  padding: 7px 12px; border-radius: 10px; white-space: nowrap;
+  font: 600 13px/1.2 var(--text); letter-spacing: .01em; color: var(--paper); background: var(--ink);
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, .35);
+}
+.ask-launch-label::after { content: ""; position: absolute; right: -4px; top: 50%; width: 9px; height: 9px; background: inherit; border-radius: 2px; transform: translateY(-50%) rotate(45deg) }
+/* The tooltip steps aside while the chat panel is open */
+.ask-launch[aria-expanded="true"] .ask-launch-label { display: none }
 
 /* Chat panel */
-.ask-panel { position: fixed; z-index: 42; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(82px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; width: min(404px, calc(100vw - 32px)); height: min(590px, calc(100vh - 120px)); height: min(590px, calc(100dvh - 120px)); overflow: hidden; background: var(--sheet); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 60px -14px color-mix(in srgb, var(--spark-3) 42%, transparent), 0 8px 24px rgba(0, 0, 0, .16); animation: ask-in .18s ease-out }
+.ask-panel { --ask-panel-bottom: calc(var(--fab-bottom) + 64px); position: fixed; z-index: 42; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: var(--ask-panel-bottom); display: flex; flex-direction: column; width: min(404px, calc(100vw - 32px)); height: min(590px, calc(100vh - 200px)); height: min(590px, calc(100dvh - var(--ask-panel-bottom) - 24px)); overflow: hidden; background: var(--sheet); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 60px -14px color-mix(in srgb, var(--spark-3) 42%, transparent), 0 8px 24px rgba(0, 0, 0, .16); animation: ask-in .18s ease-out }
+@media (max-width: 1535px) { .ask-panel { --ask-panel-bottom: calc(var(--fab-bottom) + 122px) } }
 @keyframes ask-in { from { opacity: 0; transform: translateY(8px) } }
 .ask-panel-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line) }
 .ask-av { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%; color: var(--on-btn); background: linear-gradient(135deg, var(--btn-1), var(--btn-2)) }
