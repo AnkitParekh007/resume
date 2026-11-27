@@ -47,8 +47,11 @@ jobs:
           docx = Path('AnkitParekh_Resume.docx')
           assert len(PdfReader(str(pdf)).pages) == 2, "Resume PDF should be 2 pages"
           text = ' '.join(p.text for p in Document(str(docx)).paragraphs)
-          assert 'Senior Forward-Deployed AI Engineering' in text
-          assert '11 customers' in text
+          assert 'Principal Forward-Deployed Engineer' in text
+          assert 'AI multi-agent assistant' in text
+          assert '11 customer organizations' in text
+          for stale in ('SOP', 'Zooty', 'Earlier Professional Experience'):
+              assert stale not in text, f'Stale resume text: {stale}'
           assert pdf.stat().st_size > 1000 and docx.stat().st_size > 1000
           PY
 
@@ -56,7 +59,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site
-          cp index.html open-source-projects.html robots.txt sitemap.xml CNAME AnkitParekh_Resume.pdf AnkitParekh_Resume.docx _site/
+          cp index.html open-source-projects.html privacy.html robots.txt sitemap.xml CNAME AnkitParekh_Resume.pdf AnkitParekh_Resume.docx _site/
           cp -R assets css favicons img js _site/
           cp .nojekyll _site/.nojekyll
           test -s _site/index.html
@@ -64,6 +67,7 @@ jobs:
           test -s _site/sitemap.xml
           test -s _site/CNAME
           test -s _site/open-source-projects.html
+          test -s _site/privacy.html
           test -s _site/AnkitParekh_Resume.pdf
           test -s _site/AnkitParekh_Resume.docx
           echo "Verified portfolio files:"

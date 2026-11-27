@@ -1,0 +1,52 @@
+# "Ask my agent" backend for https://ankit-parekh.org/ (Cloudflare Worker).
+#
+# One-time setup:
+#   cd agent-api && npm install
+#   npx wrangler login
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler deploy
+# Then put the deployed Worker URL in the <meta name="ask-agent-endpoint"> tag in index.html.
+# The page keeps the module hidden until GET <endpoint>/api/health answers ok.
+
+name = "ankit-agent-api"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# Served from a custom domain on the existing ankit-parekh.org Cloudflare zone, so no workers.dev address is needed.
+# Wrangler creates the DNS record and certificate on deploy.
+routes = [
+  { pattern = "api.ankit-parekh.org", custom_domain = true }
+]
+
+[vars]
+ALLOWED_ORIGINS = "https://ankit-parekh.org,https://www.ankit-parekh.org"
+# Change these if the model names are retired. Chat is the cheap, frequent call; JD match is the heavier one.
+ANTHROPIC_CHAT_MODEL = "claude-haiku-4-5"
+ANTHROPIC_JD_MODEL = "claude-sonnet-4-5"
+# Quick message form: mail is sent from CONTACT_FROM to CONTACT_TO through Cloudflare Email Routing.
+# Requires Email Routing enabled on ankit-parekh.org and CONTACT_TO verified as a destination address.
+CONTACT_TO = "ankit77parekh@gmail.com"
+CONTACT_FROM = "portfolio@ankit-parekh.org"
+
+# Nothing is stored: no chat history, no logs of questions or IP addresses.
+[observability]
+enabled = false
+
+# Per-IP limit: 12 requests a minute. The IP is used for the limit only and is not stored.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 12, period = 60 }
+
+# The form can only ever email this one verified address, whatever the code does.
+[[send_email]]
+name = "CONTACT_MAIL"
+destination_address = "ankit77parekh@gmail.com"
+
+# Stricter per-IP limit for the message form: 3 a minute.
+[[unsafe.bindings]]
+name = "CONTACT_LIMITER"
+type = "ratelimit"
+namespace_id = "1002"
+simple = { limit = 3, period = 60 }

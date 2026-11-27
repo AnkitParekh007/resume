@@ -1,0 +1,14 @@
+{
+  "name": "ankit-agent-api",
+  "private": true,
+  "type": "module",
+  "description": "Backend for the Ask my agent module on ankit-parekh.org",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
