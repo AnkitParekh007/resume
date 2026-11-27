@@ -1,0 +1,167 @@
+/* Ask my agent: the "interview my AI agent" section, the floating launcher and the chat panel.
+   Uses the portfolio's own tokens (--sheet, --line, --link, --btn-*), so it follows the light and dark themes. */
+
+:root {
+  --ask-partial: #b45309;
+  --ask-weak: #be123c;
+  --ask-warn-bg: #fff4e0;
+  --ask-warn: #8a4b08;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ask-partial: #fbbf24; --ask-weak: #fb7185; --ask-warn-bg: rgba(251, 191, 36, .12); --ask-warn: #fcd34d } }
+:root[data-theme="dark"] {
+  --ask-partial: #fbbf24; --ask-weak: #fb7185; --ask-warn-bg: rgba(251, 191, 36, .12); --ask-warn: #fcd34d }
+
+.ask-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0 }
+
+/* Section */
+.ask-body { display: grid; gap: 32px; min-width: 0 }
+.ask-title { color: var(--ink); font: 700 clamp(24px, 2.8vw, 32px) / 1.18 var(--display); letter-spacing: -.02em; text-wrap: balance }
+.ask-lede { margin-top: 12px; max-width: 46ch; font-size: 17px; line-height: 1.55 }
+.ask-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start }
+.ask-card { display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 22px; border: 1px solid var(--card-edge, var(--line)); border-radius: var(--card-radius, 16px); background: var(--card-wash, var(--sheet)); box-shadow: var(--card-shadow, none) }
+.ask-card h3 { display: flex; align-items: center; gap: 12px; font-size: 18px; line-height: 1.25 }
+.ask-card h3 .w-tile { margin: 0; flex: none }
+.ask-card > p { font-size: 15.5px; line-height: 1.55 }
+.ask-chips { display: grid; gap: 8px }
+.ask-chip { width: 100%; padding: 10px 16px; text-align: left; border: 1px solid var(--line); border-radius: 16px; background: var(--sheet); color: var(--ink); font: 500 15px / 1.4 var(--text); cursor: pointer; transition: border-color .15s, background .15s }
+.ask-chip:hover { border-color: var(--link); background: color-mix(in srgb, var(--link) 6%, var(--sheet)) }
+.ask-chip:focus-visible, .ask-card .btn:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
+.ask-card .btn { align-self: flex-start; margin-top: auto }
+.ask-card .btn[disabled] { opacity: .6; cursor: progress; transform: none }
+
+.ask-jd { display: grid; gap: 10px }
+.ask-jd textarea { width: 100%; min-height: 150px; resize: vertical; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); font: 400 15px / 1.5 var(--text) }
+.ask-jd textarea:focus-visible { outline: 2px solid var(--link); outline-offset: 2px }
+.ask-jd-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px }
+.ask-jd-foot .mono { color: var(--muted) }
+.ask-jd-foot .btn { align-self: auto; margin-top: 0; padding: 10px 20px; font-size: 15px }
+.ask-jd-error { color: var(--ask-weak); font-size: 14px }
+
+.ask-result { display: grid; gap: 14px; padding-top: 16px; border-top: 1px solid var(--line) }
+.ask-verdict { display: inline-flex; align-items: center; gap: 8px; justify-self: start; padding: 6px 14px; border-radius: 999px; font: 600 14px / 1 var(--text); color: var(--v); background: color-mix(in srgb, var(--v) 14%, transparent); border: 1px solid color-mix(in srgb, var(--v) 40%, transparent) }
+.ask-verdict::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--v) }
+.ask-verdict[data-v="strong"] { --v: var(--ok) }
+.ask-verdict[data-v="partial"] { --v: var(--ask-partial) }
+.ask-verdict[data-v="weak"] { --v: var(--ask-weak) }
+.ask-summary { color: var(--ink); font-size: 15.5px; line-height: 1.55 }
+.ask-result h4 { color: var(--ink); font: 700 13px / 1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase }
+.ask-matches, .ask-gaps { display: grid; gap: 10px }
+.ask-matches li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet) }
+.ask-matches b { display: block; color: var(--ink); font-size: 15px; line-height: 1.4 }
+.ask-matches p { margin-top: 4px; font-size: 14.5px; line-height: 1.5 }
+.ask-label { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 999px; color: var(--link); background: color-mix(in srgb, var(--link) 10%, transparent); font: 500 12px / 1.4 var(--mono) }
+.ask-gaps li { position: relative; padding-left: 18px; font-size: 14.5px; line-height: 1.5 }
+.ask-gaps li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--ask-weak) }
+.ask-caveat { color: var(--muted); font-size: 13px; line-height: 1.5 }
+
+.ask-how-title { color: var(--ink); font-size: 18px }
+.ask-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 28px }
+.ask-how li { padding: 16px 0; border-top: 1px solid var(--line) }
+.ask-how b { display: block; color: var(--ink); font-size: 15.5px }
+.ask-how p { margin-top: 4px; font-size: 14.5px; line-height: 1.5 }
+
+/* Launcher: sits beside the table-of-contents button, or in its place on wide screens. */
+.ask-launch { position: fixed; z-index: 41; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 18px 0 14px; border: 0; border-radius: 999px; color: var(--on-btn); background: linear-gradient(135deg, var(--btn-1), var(--btn-2)); font: 600 15px var(--text); box-shadow: 0 6px 18px var(--glow-1); cursor: pointer }
+.ask-launch:hover { transform: translateY(-1px) }
+.ask-launch:focus-visible { outline: 2px solid var(--link); outline-offset: 3px }
+@media (max-width: 1535px) { .ask-launch { right: calc(82px + env(safe-area-inset-right, 0px)) } }
+@media (max-width: 520px) { .ask-launch-label { display: none } .ask-launch { width: 46px; padding: 0; justify-content: center } }
+
+/* Chat panel */
+.ask-panel { position: fixed; z-index: 42; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(82px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; width: min(404px, calc(100vw - 32px)); height: min(590px, calc(100vh - 120px)); height: min(590px, calc(100dvh - 120px)); overflow: hidden; background: var(--sheet); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 60px -14px color-mix(in srgb, var(--spark-3) 42%, transparent), 0 8px 24px rgba(0, 0, 0, .16); animation: ask-in .18s ease-out }
+@keyframes ask-in { from { opacity: 0; transform: translateY(8px) } }
+.ask-panel-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line) }
+.ask-av { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%; color: var(--on-btn); background: linear-gradient(135deg, var(--btn-1), var(--btn-2)) }
+.ask-panel-head b { display: block; color: var(--ink); font-size: 15.5px; line-height: 1.25 }
+.ask-panel-head small { display: block; color: var(--muted); font-size: 12.5px }
+.ask-x { display: grid; place-items: center; width: 34px; height: 34px; margin-left: auto; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--body); cursor: pointer }
+.ask-x:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink) }
+.ask-x:focus-visible, .ask-send:focus-visible, .ask-start:focus-visible { outline: 2px solid var(--link); outline-offset: 2px }
+.ask-note { padding: 9px 16px; background: var(--ask-warn-bg); color: var(--ask-warn); font-size: 12.5px; line-height: 1.45 }
+.ask-log { display: flex; flex: 1; flex-direction: column; gap: 12px; min-height: 0; padding: 16px; overflow-y: auto; overscroll-behavior: contain }
+.ask-msg { display: flex }
+.ask-msg--user { justify-content: flex-end }
+.ask-bubble { max-width: 90%; padding: 10px 14px; border-radius: 14px; border-bottom-left-radius: 4px; border: 1px solid var(--line); background: var(--paper); color: var(--body); font-size: 15px; line-height: 1.55; overflow-wrap: anywhere }
+.ask-msg--user .ask-bubble { border: 0; border-radius: 14px; border-bottom-right-radius: 4px; background: linear-gradient(135deg, var(--btn-1), var(--btn-2)); color: var(--on-btn); white-space: pre-wrap }
+.ask-msg--error .ask-bubble { border-color: color-mix(in srgb, var(--ask-weak) 50%, var(--line)); color: var(--ask-weak) }
+.ask-bubble p { margin: 0 0 .65em }
+.ask-bubble > :last-child { margin-bottom: 0 }
+.ask-bubble ul, .ask-bubble ol { margin: .4em 0 .65em; padding-left: 1.2em }
+.ask-bubble ul { list-style: disc }
+.ask-bubble ol { list-style: decimal }
+.ask-bubble li + li { margin-top: .25em }
+.ask-bubble strong { color: var(--ink); font-weight: 600 }
+.ask-bubble a { color: var(--link); text-underline-offset: 2px }
+.ask-bubble code { padding: 1px 5px; border-radius: 5px; background: color-mix(in srgb, var(--ink) 8%, transparent); font: 13px var(--mono) }
+.ask-typing { display: inline-flex; gap: 5px; padding-block: 5px }
+@keyframes pulse { 0%, 80%, 100% { opacity: .3; transform: scale(.85) } 40% { opacity: 1; transform: scale(1) } }
+.ask-typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: pulse 1.2s infinite ease-in-out }
+.ask-typing i:nth-child(2) { animation-delay: .15s }
+.ask-typing i:nth-child(3) { animation-delay: .3s }
+.ask-starters { display: grid; gap: 8px; padding: 0 16px 12px }
+.ask-start { padding: 9px 14px; text-align: left; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet); color: var(--ink); font: 400 14px / 1.4 var(--text); cursor: pointer }
+.ask-start:hover { border-color: var(--link) }
+.ask-form { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line) }
+.ask-form input { flex: 1; min-width: 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); font: 400 15px var(--text) }
+.ask-form input:focus-visible { outline: 2px solid var(--link); outline-offset: 1px }
+.ask-send { display: grid; place-items: center; flex: none; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 12px; color: var(--on-btn); background: linear-gradient(135deg, var(--btn-1), var(--btn-2)); cursor: pointer }
+.ask-send[disabled], .ask-form input[disabled] { opacity: .55; cursor: progress }
+
+@media (max-width: 860px) { .ask-grid { grid-template-columns: minmax(0, 1fr) } }
+@media (max-width: 520px) {
+  .ask-panel { left: 0; right: 0; bottom: 0; width: auto; height: min(86vh, 700px); height: min(86dvh, 700px); border-radius: 18px 18px 0 0; border-bottom: 0 }
+  .ask-card { padding: 18px }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ask-panel { animation: none }
+  .ask-typing i { animation: none; opacity: .6 }
+  .ask-launch:hover { transform: none }
+}
+
+/* Footer action rows: buttons that look like the contact links beside them. */
+button.v3-row { width: 100%; border: 0; background: none; font: inherit; text-align: left; cursor: pointer }
+button.v3-row:focus-visible { outline: 2px solid var(--link); outline-offset: -3px }
+button.v3-row:hover > .ic { transform: translateX(3px) }
+
+/* Dialogs: fit check and quick message */
+html.ask-lock { overflow: hidden }
+.ask-dialog { width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--sheet); color: var(--body); overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .55) }
+.ask-dialog[open] { display: flex; flex-direction: column; animation: ask-in .18s ease-out }
+.ask-dialog::backdrop { background: rgba(8, 9, 24, .62); backdrop-filter: blur(3px) }
+.ask-dialog-head { display: flex; align-items: center; gap: 12px; flex: none; padding: 14px 16px 14px 20px; border-bottom: 1px solid var(--line) }
+.ask-dialog-head h2 { display: flex; align-items: center; gap: 10px; color: var(--ink); font: 700 17px / 1.3 var(--display) }
+.ask-dialog-head h2 .ic { flex: none; color: var(--link) }
+.ask-dialog-body { display: grid; gap: 14px; padding: 20px; overflow-y: auto; overscroll-behavior: contain }
+.ask-dialog .ask-jd textarea { min-height: 220px }
+.ask-jd-tools { display: inline-flex }
+.ask-link { display: inline-flex; align-items: center; gap: 8px; padding: 4px 0; border: 0; background: none; color: var(--ink); font: 500 14px var(--text); cursor: pointer }
+.ask-link:hover { color: var(--link) }
+.ask-link:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 4px }
+.ask-wide { justify-content: center; width: 100% }
+.ask-wide[disabled] { opacity: .6; cursor: progress }
+
+.ask-msgform { gap: 16px }
+.ask-field { display: grid; gap: 8px; color: var(--ink); text-align: center; font: 500 16px / 1.3 var(--text) }
+.ask-field small { color: var(--muted); font: inherit; font-weight: 400 }
+.ask-field input, .ask-field select, .ask-field textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: color-mix(in srgb, var(--ink) 5%, var(--sheet)); color: var(--ink); text-align: left; font: 400 16px / 1.4 var(--text) }
+.ask-field textarea { min-height: 124px; resize: vertical }
+.ask-field input:focus-visible, .ask-field select:focus-visible, .ask-field textarea:focus-visible { outline: 2px solid var(--link); outline-offset: 2px }
+.msg-count { margin-top: -8px; text-align: right; color: var(--muted) }
+.msg-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px }
+.msg-foot a { color: var(--muted); font-size: 15px; text-underline-offset: 3px }
+.msg-foot a:hover { color: var(--link) }
+.msg-foot .btn[disabled] { opacity: .6; cursor: progress }
+.msg-done { justify-items: center; padding-block: 36px; text-align: center }
+.msg-done h3 { color: var(--ink); font-size: 20px }
+.msg-done p { max-width: 36ch }
+.ask-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden }
+
+@media (max-width: 520px) {
+  .ask-dialog-body { padding: 16px }
+  .ask-dialog-head h2 { font-size: 16px }
+  .msg-foot .btn { padding-inline: 20px }
+}
+@media (prefers-reduced-motion: reduce) { .ask-dialog[open] { animation: none } }
+
+@media print { .ask, .ask-launch, .ask-panel, .ask-dialog { display: none !important } }

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate the approved forward-deployed-engineering resume downloads for GitHub Pages."""
+import os
 from pathlib import Path
 from xml.sax.saxutils import escape
 from docx import Document
@@ -15,8 +16,14 @@ from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether, PageBreak
 
 ROOT = Path(__file__).resolve().parent.parent
+FONT_DIRS = [Path(d) for d in filter(None, [
+    os.environ.get('RESUME_FONT_DIR'),
+    '/usr/share/fonts/truetype/dejavu',
+    '/Library/Fonts',
+    str(Path.home() / 'Library/Fonts'),
+])]
 NAME = "ANKIT PAREKH"
-HEADLINE = "FRONTEND ARCHITECT | SENIOR FORWARD DEPLOYED ENGINEER | ENTERPRISE AI"
+HEADLINE = "FRONTEND ARCHITECT | PRINCIPAL FORWARD DEPLOYED ENGINEER | ENTERPRISE AI"
 CONTACT = [
     "Mumbai, India  |  +91 99203 53532  |  ankit77parekh@gmail.com",
     "LinkedIn: linkedin.com/in/akkiparekh  |  GitHub: github.com/AnkitParekh007",
@@ -24,7 +31,7 @@ CONTACT = [
 ]
 SECTIONS = [
 ("PROFESSIONAL SUMMARY", [
-("body", "Customer-facing AI solutions architect and frontend architect with 15+ years delivering enterprise software. At Bluemeteor, partnered directly with customers to understand supplier onboarding pain points; personally designed and implemented AI-assisted product data mapping and missing-SKU-attribute suggestions; demonstrated capabilities, incorporated feedback, and troubleshot customer-specific issues. Architected and delivered SOP Co-Pilot as a paid production capability adopted by 11 customer organizations.")
+("body", "Principal Forward-Deployed Engineer and Frontend Architect delivering enterprise software since 2012. I get AI from a working demo into a business that has to live with it. At Bluemeteor I run a seven-person team and personally own the architecture, integrations and production accountability across three products, reporting weekly to a finance-led board. I work directly with customers from pain-point discovery through implementation, demonstrations, feedback and production support. I build with AI coding agents under a three-gate review and evaluation process, which is how a small team ships integrations with Stripe, Firebase and twelve LLM providers. Architected and delivered the AI multi-agent assistant, now live with 11 customer organizations.")
 ]),
 ("CORE CAPABILITIES", [
 ("body", "Customer-facing AI delivery: Customer discovery, requirements translation, demos, iterative feedback, customer troubleshooting, supplier onboarding workflows"),
@@ -33,27 +40,37 @@ SECTIONS = [
 ("body", "Backend & delivery: Node.js, NestJS, Next.js, REST APIs, Supabase, PostgreSQL/pgvector, CI/CD, Playwright, AWS, Docker")
 ]),
 ("PROFESSIONAL EXPERIENCE", [
-("role", "Bluemeteor (formerly Codifyd)  |  Frontend Architect"),
-("meta", "Senior Forward-Deployed AI Engineering | Enterprise AI Solutions"),
-("meta", "Sep 2022 - Oct 2026  |  Remote, India  |  US-based enterprise product-content platform (PIM/PXM/DAM)"),
-("bullet", "Engaged directly with enterprise customers to uncover slow supplier onboarding, manual catalog field mapping, and SKU attributes missing under distributor-defined validation rules."),
-("bullet", "Personally designed and implemented AI-assisted product-data mapping and missing-attribute suggestion capabilities, helping users review mappings and address catalog completeness requirements."),
-("bullet", "Demonstrated solutions to customers, collected feedback, iterated on capabilities, and troubleshot customer-specific implementation and workflow issues."),
-("bullet", "Architected and delivered SOP Co-Pilot across Angular and NestJS, with retrieval-backed answers, controlled tool execution, approval gates, evaluation-led releases and per-run audit logging; adopted as a paid production feature by 11 customers."),
-("bullet", "Eliminated a multi-minute UI freeze by reducing approximately 551 lookup operations to 40 (92.7% fewer operations) on the affected screen; owned enterprise data-grid integration and release pipelines."),
-("role", "Forto GmbH  |  Senior Frontend Engineer"),
+("role", "Bluemeteor (formerly Codifyd)  |  Principal Forward-Deployed Engineer"),
+("meta", "Frontend Architect | Enterprise AI Architect"),
+("meta", "Sep 2022 - Oct 2026  |  Remote  |  US-based enterprise product-content platform (PIM/PXM/DAM)"),
+("bullet", "Worked directly with enterprise customers to discover onboarding bottlenecks, demonstrate the AI workflows, gather feedback, deliver improvements and troubleshoot customer-specific issues."),
+("bullet", "Architected and delivered the AI multi-agent assistant end to end, from the Angular client to the NestJS service. It answers with citations and runs multi-step workflows only after the user approves; now live with 11 customer organizations."),
+("bullet", "Chose a plan-first design: a deterministic action catalog, separate read and write risk classes, re-planning on failure, an audit ledger per run, and hybrid retrieval."),
+("bullet", "Built evaluation harnesses and release gates for controlled production deployment."),
+("bullet", "Personally designed and implemented AI-assisted supplier product mapping and missing-SKU-attribute suggestions aligned with distributor-defined validation rules."),
+("bullet", "Owned AG Grid Enterprise data screens and multi-environment CDN release pipelines."),
+("bullet", "Removed a multi-minute UI freeze by reducing approximately 551 lookup operations to 40 for visible rows (92.7% fewer lookup operations)."),
+("role", "Forto GmbH  |  Senior Frontend Architect"),
 ("meta", "Sep 2021 - Sep 2022  |  Berlin, Germany  |  Digital freight forwarding"),
-("bullet", "Developed shipment-visibility dashboards, exception-handling interfaces and logistics workflows supporting operations, customers and partners."),
-("bullet", "Contributed to cross-functional frontend architecture and delivery for a digital freight-forwarding platform.")
+("bullet", "Led frontend architecture for a production Next.js application, working across React, TypeScript, and API integration."),
+("bullet", "Drove TypeScript adoption across the codebase, introducing strict types and shared interfaces at component and API boundaries; with most of the codebase typed, developer experience and AI coding-agent output improved by an estimated 50%+."),
+("bullet", "Worked with client stakeholders to translate product requirements into application flows, then delivered user-facing features from requirements through release."),
+("bullet", "Simplified component and interaction patterns while shipping features, so the shared frontend was easier for the team to keep building on.")
 ]),
 ("PROFESSIONAL EXPERIENCE (CONTINUED)", [
-("role", "Codifyd - Amazon Client Engagement  |  Team Lead"),
+("role", "Codifyd  |  Team Lead"),
 ("meta", "2018 - 2021  |  Mumbai, India  |  Product information management"),
-("bullet", "Led 7 developers and owned frontend architecture across three enterprise applications: retailer PIM, supplier portal and BridgeWeb."),
-("bullet", "Established Angular module boundaries, reusable patterns and API integration contracts; coordinated CI/CD releases with DevOps teams."),
-("role", "Earlier Professional Experience  |  Frontend Engineering & Technical Leadership"),
-("meta", "2012 - 2018  |  Zooty.in, Musafir.com, Verdantis, Capgemini, E10 InfoTech and Aambit Softwares"),
-("bullet", "Advanced from frontend development to technical leadership across consumer applications, travel booking, enterprise product data and shared UI workflows.")
+("bullet", "Led 5 developers and owned frontend architecture across three enterprise applications: the retailer PIM, the supplier portal and BridgeWeb."),
+("bullet", "Defined module boundaries for large, multi-module Angular apps."),
+("bullet", "Owned technical direction: stack fit, integration contracts and delivery trade-offs."),
+("bullet", "Drove reusable UI patterns and consistency across three products."),
+("bullet", "Ran release coordination with DevOps and platform teams on CI/CD and build tooling."),
+("role", "Verdantis  |  Senior Frontend Engineer"),
+("meta", "2012 - 2016"),
+("bullet", "Built data-dense enterprise forms, tables and workflows with strict validation and state handling."),
+("bullet", "Engineered the platform infrastructure behind an NX monorepo serving 5 brands across 12 locales: multi-locale and brand API configuration, CSRF protection, a GraphQL proxy keeping service credentials server-side, and React Query SSR with HydrationBoundary. These were shared foundations consumed by every delivery pod."),
+("bullet", "Re-engineered the local-development and release layer so the shared core repository and the per-partner repositories run from a single folder structure under Vite, then rebuilt the CI/CD pipeline to drive both from one place. Deploying a partner repo now triggers the core pipeline automatically, removing manual release sequencing."),
+("bullet", "Designed a bidirectional middleware between the React interaction layer and the Three.js engine: a property change in React, such as object height, invokes the 3D engine to update the 3D/2D canvas in real time, and engine-side changes propagate back to the UI.")
 ]),
 ("SELECTED OPEN-SOURCE PROJECTS", [
 ("role", "ReboundOps  |  Local-first Career & Job-search Platform"),
@@ -110,7 +127,9 @@ def word_resume():
     doc.save(ROOT/'AnkitParekh_Resume.docx')
 
 def pdf_resume():
-    font_dir = Path('/usr/share/fonts/truetype/dejavu')
+    font_dir = next((d for d in FONT_DIRS if (d / 'DejaVuSans.ttf').exists()), None)
+    if font_dir is None:
+        raise SystemExit('DejaVu Sans fonts not found. Set RESUME_FONT_DIR to a folder containing DejaVuSans.ttf, DejaVuSans-Bold.ttf and DejaVuSans-Oblique.ttf.')
     pdfmetrics.registerFont(TTFont('FDE-Regular', str(font_dir / 'DejaVuSans.ttf')))
     pdfmetrics.registerFont(TTFont('FDE-Bold', str(font_dir / 'DejaVuSans-Bold.ttf')))
     pdfmetrics.registerFont(TTFont('FDE-Oblique', str(font_dir / 'DejaVuSans-Oblique.ttf')))
@@ -135,7 +154,7 @@ def pdf_resume():
             flow.append(Paragraph(text,st[key]))
     pdf=SimpleDocTemplate(str(ROOT/'AnkitParekh_Resume.pdf'),pagesize=A4,
         leftMargin=46,rightMargin=46,topMargin=41,bottomMargin=41,
-        title='Ankit Parekh - Frontend Architect and Senior Forward Deployed Engineer')
+        title='Ankit Parekh - Frontend Architect and Principal Forward Deployed Engineer')
     pdf.build(flow)
 
 if __name__=='__main__':
