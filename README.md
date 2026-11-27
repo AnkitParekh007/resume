@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AnkitParekh007/resume/master/assets/gitbanner.png" alt="Ankit Parekh Banner" width="100%" />
+</p>
+
 # Ankit Parekh
 
 **Principal Forward-Deployed Engineer · Frontend Architect · Enterprise AI Architect**
