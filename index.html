@@ -90,6 +90,11 @@ ul { list-style: none }
   radial-gradient(34% 56% at 6% 8%, var(--glow-3), transparent 70%) }
 .eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; color: var(--link); text-transform: uppercase; letter-spacing: .08em; font-size: 13px; margin-bottom: 18px }
 .eyebrow i { font-style: normal; color: var(--muted) }
+.role-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 18px }
+.role-pill { display: inline-flex; align-items: center; gap: 11px; max-width: 100%; padding: 10px 18px 10px 14px; border: 1.5px solid #c4b6f8; border-radius: 999px; background: #efeaff; color: #6843e0; font: 500 13px/1 var(--text); letter-spacing: .16em; text-transform: uppercase; white-space: nowrap }
+.role-pill .role-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .role-pill { border-color: #7d70c4; background: #23264a; color: #c3b4ff } }
+:root[data-theme="dark"] .role-pill { border-color: #7d70c4; background: #23264a; color: #c3b4ff }
 .hi { font-size: 20px; color: var(--body) }
 .hi b { font-weight: 600; background: linear-gradient(95deg, var(--spark-1), var(--spark-3)); -webkit-background-clip: text; background-clip: text; color: transparent }
 h1 { font-size: clamp(36px, 6vw, 72px); font-weight: 800; line-height: 1.08; letter-spacing: -.025em; margin-top: 8px; text-wrap: initial }
@@ -551,6 +556,7 @@ a.o1-item:hover b { color: var(--link) }
   .d-pane { position: static; animation: none }
   .d-pane[hidden] { margin-top: 0 }
   .skip, header.top, .toc, .toc-btn, .cta, .more, .dots, .caret, .d-list { display: none !important }
+  .role-pill { background: #fff !important; color: #3b2a8a !important; border-color: #3b2a8a !important }
   body { background: #fff }
   .row, .close { padding-block: 22px; break-inside: avoid-page }
   .w-card, .a-mini, .c-early, .alt, .repo, .edu-card, .s-card, .ways, .b-card, .v3-rows, .o1-list, .c-feat, .d-pane { box-shadow: none !important; background: #fff !important }
@@ -573,7 +579,7 @@ a.o1-item:hover b { color: var(--link) }
    Compact vertical rhythm to prioritize the CTAs above the three expertise cards. */
 @media (min-width: 761px) {
   .hero { padding-block: 28px 24px }
-  .hero .eyebrow { margin-bottom: 8px }
+  .hero .role-pills { margin-bottom: 14px }
   .hero h1 { font-size: clamp(36px, 4.2vw, 60px); line-height: 1.04; margin-top: 5px }
   .hero .lede { max-width: 78ch; font-size: 17px; line-height: 1.42; margin-top: 13px }
   .hero .cta { margin-top: 28px }
@@ -585,7 +591,8 @@ a.o1-item:hover b { color: var(--link) }
 }
 @media (max-width: 760px) {
   .hero { padding-block: 26px 24px }
-  .hero .eyebrow { margin-bottom: 10px }
+  .hero .role-pills { margin-bottom: 12px; gap: 8px }
+  .role-pill { font-size: 11px; letter-spacing: .09em; padding: 8px 12px 8px 10px; gap: 8px }
   .hero .lede { margin-top: 14px }
   .hero .cta { margin-top: 24px }
   .hero .expertise-cards { margin-top: 24px }
@@ -656,7 +663,7 @@ a.o1-item:hover b { color: var(--link) }
 <main id="top">
   <div id="resume-view">
   <section class="hero"><div class="wrap">
-    <p class="eyebrow mono">Frontend Architect<i>·</i>Senior Forward Deployed Engineer<i>·</i>Enterprise AI</p>
+    <p class="role-pills" aria-label="Frontend Architect, Senior Forward Deployed Engineer, Enterprise AI"><span class="role-pill"><span class="role-dot" aria-hidden="true"></span>Frontend Architect</span><span class="role-pill"><span class="role-dot" aria-hidden="true"></span>Senior Forward Deployed Engineer</span><span class="role-pill"><span class="role-dot" aria-hidden="true"></span>Enterprise AI</span></p>
     <p class="hi">Hi, I'm <b>Ankit Parekh</b>,</p>
     <h1 aria-label="Architecting enterprise Angular applications, AI copilots, React interfaces and agentic workflows.">
       <span class="ln" aria-hidden="true">Architecting<span class="dots"><i></i><i></i><i></i></span></span>
