@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grounded Research with Human‑In‑the‑Loop Tool Control for Reliable AI Agents | Engineering Insights</title><meta name="description" content="A practical guide to designing AI agents that combine domain‑specific research, tool invocation limits, and human oversight to keep outputs trustworthy and controllable.">
+<link rel="canonical" href="https://ankit-parekh.org/blog/articles/2026-11-28-grounded-research-with-human-in-the-loop-tool-control-for-reliable-ai-agents/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="Grounded Research with Human‑In‑the‑Loop Tool Control for Reliable AI Agents | Engineering Insights"><meta property="og:description" content="A practical guide to designing AI agents that combine domain‑specific research, tool invocation limits, and human oversight to keep outputs trustworthy and controllable.">
+<meta property="og:url" content="https://ankit-parekh.org/blog/articles/2026-11-28-grounded-research-with-human-in-the-loop-tool-control-for-reliable-ai-agents/"><meta property="og:type" content="article">
+<meta name="twitter:card" content="summary"><link rel="alternate" type="application/rss+xml" title="Engineering Insights" href="/blog/feed.xml">
+<link rel="stylesheet" href="/blog/assets/blog.css"><script src="/blog/assets/theme.js"></script>
+<meta property="article:published_time" content="2026-11-28"><meta property="article:section" content="AI Engineering">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Grounded Research with Human‑In‑the‑Loop Tool Control for Reliable AI Agents","description":"A practical guide to designing AI agents that combine domain‑specific research, tool invocation limits, and human oversight to keep outputs trustworthy and controllable.","datePublished":"2026-11-28","url":"https://ankit-parekh.org/blog/articles/2026-11-28-grounded-research-with-human-in-the-loop-tool-control-for-reliable-ai-agents/","publisher":{"@type":"Person","name":"Ankit Parekh"}}</script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav"><a class="brand" href="/">Ankit Parekh</a><nav aria-label="Primary"><a href="/">Portfolio</a><a href="/blog/" aria-current="page">Blog</a><a href="/blog/feed.xml">RSS</a><label for="theme">Theme</label><select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></nav></div></header>
+<main id="main" class="wrap">
+<article class="article" data-pagefind-body><a href="/blog/">← All articles</a>
+<p class="eyebrow"><a href="/blog/category/ai-engineering/">AI Engineering</a> · <time datetime="2026-11-28">2026-11-28</time> · 3 min read</p>
+<h1>Grounded Research with Human‑In‑the‑Loop Tool Control for Reliable AI Agents</h1><p class="lede">A practical guide to designing AI agents that combine domain‑specific research, tool invocation limits, and human oversight to keep outputs trustworthy and controllable.</p>
+<p class="notice">AI-assisted editorial content. Reviewed before publication.</p>
+<div class="prose"><h2>Problem Statement: Unchecked Tool Use Undermines Trust</h2>
+<p>AI agents that can call external tools (search, code execution, data fetch) risk producing hallucinated or harmful results when tool outputs are taken at face value. In high‑stakes domains—legal, medical, or financial—unvetted tool calls can propagate errors or violate policy.</p>
+<p>The engineering challenge is to create a bounded workflow where the agent can request tool use, but a human operator retains the final say to approve or deny each invocation. This keeps the system grounded in verified evidence while preserving the productivity gains of automation.</p>
+<h2>Design Choice: Structured Tool Registry with Human‑Gate</h2>
+<p>Define each external capability as a named tool entry containing a unique identifier, an optional display title, and a concise description of its function. The registry is static and reviewed by security teams, ensuring only vetted services are exposed to the model.</p>
+<p>When the model generates a tool request, the system extracts the <code>name</code> field and presents the request to a human operator. The operator can approve, modify, or reject the call. Approved calls are executed, and the result is fed back to the model for further reasoning.</p>
+<h2>Trade‑offs and Failure Handling</h2>
+<p>Allowing human approval adds latency, which may be acceptable for batch or research tasks but problematic for real‑time user interactions. To mitigate delay, teams can implement a priority queue that batches low‑risk requests for rapid review.</p>
+<p>If a human denies a request, the agent must gracefully handle the denial. A recommended pattern is to generate a fallback explanation that cites the lack of tool access and suggests alternative, tool‑free reasoning paths. This prevents the model from silently ignoring the denial and producing unsupported statements.</p>
+<h2>Illustrative Example: Domain‑Specific Research Agent</h2>
+<p>Illustrative: An agent tasked with producing a 2,000‑word research report on renewable energy policy first queries a &quot;research&quot; tool that aggregates scholarly sources. The request includes the tool name, a brief description, and the query string. A human reviewer sees the request, verifies that the tool is authorized, and clicks Approve. The tool returns a list of PDFs, which the agent summarizes and incorporates into the draft.</p>
+<p>If the reviewer denies the request—perhaps because the source is behind a paywall—the agent switches to a “knowledge‑base only” mode, citing only internal documents and explicitly noting the limitation.</p>
+<h2>Validation Checklist for Grounded Research Pipelines</h2>
+<ol>
+<li>Verify that every external capability is listed in the tool registry with a unique <code>name</code> and clear <code>description</code>. 2. Confirm that the request‑approval UI logs the operator’s decision and timestamps for auditability. 3. Test denial handling by forcing a reject and ensuring the agent produces a graceful fallback response. 4. Measure end‑to‑end latency for approved requests and compare against service‑level targets. 5. Conduct a periodic review of tool usage logs to detect patterns of unnecessary calls that could be eliminated.</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li><a href="https://github.com/modelcontextprotocol/modelcontextprotocol/blob/fdc75bd0668db05f5b43e4fc76c2e5aa54296a42/docs/specification/2026-07-28/server/tools.mdx">ai-mcp</a></li>
+<li><a href="https://github.com/assafelovic/gpt-researcher/blob/9d39a2f86d55e264f69dfeff2365f27fad3c1144/docs/docs/gpt-researcher/getting-started/introduction.md">ai-research</a></li>
+</ul>
+</div></article>
+<section class="related"><h2>More in AI Engineering</h2><ul></ul></section>
+</main>
+<footer class="wrap footer"><p>Engineering Insights · AI-assisted articles, subject to editorial review.</p><a href="/blog/">All articles</a></footer>
+<script src="/blog/assets/ui.js" defer></script></body></html>

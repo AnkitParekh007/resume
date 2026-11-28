@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deploying a Retrieval‑Augmented Generation Service on Azure OpenAI and AI Search | Engineering Insights</title><meta name="description" content="A practical guide for engineers to design, configure, and validate a secure Azure‑based RAG application that serves ChatGPT‑style answers over private documents.">
+<link rel="canonical" href="https://ankit-parekh.org/blog/articles/2026-11-28-deploying-a-retrieval-augmented-generation-service-on-azure-openai-and-ai-search/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="Deploying a Retrieval‑Augmented Generation Service on Azure OpenAI and AI Search | Engineering Insights"><meta property="og:description" content="A practical guide for engineers to design, configure, and validate a secure Azure‑based RAG application that serves ChatGPT‑style answers over private documents.">
+<meta property="og:url" content="https://ankit-parekh.org/blog/articles/2026-11-28-deploying-a-retrieval-augmented-generation-service-on-azure-openai-and-ai-search/"><meta property="og:type" content="article">
+<meta name="twitter:card" content="summary"><link rel="alternate" type="application/rss+xml" title="Engineering Insights" href="/blog/feed.xml">
+<link rel="stylesheet" href="/blog/assets/blog.css"><script src="/blog/assets/theme.js"></script>
+<meta property="article:published_time" content="2026-11-28"><meta property="article:section" content="Forward Deployed Engineering">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying a Retrieval‑Augmented Generation Service on Azure OpenAI and AI Search","description":"A practical guide for engineers to design, configure, and validate a secure Azure‑based RAG application that serves ChatGPT‑style answers over private documents.","datePublished":"2026-11-28","url":"https://ankit-parekh.org/blog/articles/2026-11-28-deploying-a-retrieval-augmented-generation-service-on-azure-openai-and-ai-search/","publisher":{"@type":"Person","name":"Ankit Parekh"}}</script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav"><a class="brand" href="/">Ankit Parekh</a><nav aria-label="Primary"><a href="/">Portfolio</a><a href="/blog/" aria-current="page">Blog</a><a href="/blog/feed.xml">RSS</a><label for="theme">Theme</label><select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></nav></div></header>
+<main id="main" class="wrap">
+<article class="article" data-pagefind-body><a href="/blog/">← All articles</a>
+<p class="eyebrow"><a href="/blog/category/forward-deployed-engineering/">Forward Deployed Engineering</a> · <time datetime="2026-11-28">2026-11-28</time> · 3 min read</p>
+<h1>Deploying a Retrieval‑Augmented Generation Service on Azure OpenAI and AI Search</h1><p class="lede">A practical guide for engineers to design, configure, and validate a secure Azure‑based RAG application that serves ChatGPT‑style answers over private documents.</p>
+<p class="notice">AI-assisted editorial content. Reviewed before publication.</p>
+<div class="prose"><h2>Problem Statement</h2>
+<p>Enterprises often need to expose conversational interfaces that draw on internal knowledge bases while keeping data isolated from public models. The challenge is to combine large language model inference with reliable document retrieval, enforce Azure‑native security, and provide a repeatable deployment pipeline.</p>
+<p>A typical solution must address three core concerns: (1) low‑latency retrieval of relevant passages, (2) consistent prompt construction for the LLM, and (3) protection of credentials and network boundaries in a multi‑tenant Azure subscription.</p>
+<h2>Design Overview</h2>
+<p>The reference architecture pairs Azure OpenAI Service for GPT inference with Azure AI Search for indexing and vector‑based retrieval. A Python backend orchestrates the workflow: it receives a user query, calls AI Search to fetch top‑k documents, formats a prompt that includes the retrieved snippets, and finally invokes the OpenAI model to generate a response.</p>
+<p>All components are provisioned via Azure Resource Manager templates, allowing the entire stack—search index, OpenAI deployment, and supporting storage—to be recreated in any subscription with a single command.</p>
+<h2>Key Design Choices and Trade‑offs</h2>
+<p>Choosing Azure AI Search over a custom vector store simplifies scaling because the service automatically manages index partitions and replica counts, but it limits fine‑grained control over embedding algorithms. Conversely, a self‑hosted vector database would give more flexibility at the cost of operational overhead.</p>
+<p>The backend runs in Azure Container Apps, which provides per‑request scaling and integrates with managed identity for secret‑less access to both OpenAI and Search. An alternative is Azure Functions, which offers lower cold‑start latency for sporadic traffic but lacks the built‑in HTTP ingress features needed for streaming responses.</p>
+<h2>Failure Handling and Security Hardening</h2>
+<p>Network or service errors are caught at each stage: a retry policy on the Search client mitigates transient throttling, while exponential back‑off on the OpenAI call prevents rapid quota exhaustion. If either service returns an error, the backend returns a generic fallback message to avoid leaking internal state.</p>
+<p>Security recommendations from the template include assigning the deploying principal a role with <code>Microsoft.Authorization/roleAssignments/write</code> permission (e.g., Owner or User Access Administrator) and enabling managed identity for the container. Production deployments should add network restrictions, such as private endpoints for AI Search and Azure OpenAI, and rotate secrets via Azure Key Vault.</p>
+<h2>Validation Checklist</h2>
+<p>Before promoting the RAG service to production, run through the following items: 1) Verify the search index contains the expected document set and that vector embeddings are up‑to‑date. 2) Confirm the container can acquire a token from its managed identity and successfully call both AI Search and OpenAI endpoints. 3) Simulate typical user queries and measure end‑to‑end latency; ensure the 95th‑percentile stays within acceptable limits. 4) Test error paths by forcing a throttling response from Search and observing the retry behavior. 5) Review role assignments and network security groups to guarantee no public internet exposure.</p>
+<p>Document any deviations from the reference template and capture them in the deployment repository's README so future engineers can reproduce the hardened configuration.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://github.com/Azure-Samples/azure-search-openai-demo/blob/6ea003962ea1bd3569eaf0c7d78bc5a111da9219/README.md">fde-azure</a></li>
+<li><a href="https://github.com/modelcontextprotocol/modelcontextprotocol/blob/fdc75bd0668db05f5b43e4fc76c2e5aa54296a42/README.md">fde-mcp</a></li>
+</ul>
+</div></article>
+<section class="related"><h2>More in Forward Deployed Engineering</h2><ul></ul></section>
+</main>
+<footer class="wrap footer"><p>Engineering Insights · AI-assisted articles, subject to editorial review.</p><a href="/blog/">All articles</a></footer>
+<script src="/blog/assets/ui.js" defer></script></body></html>

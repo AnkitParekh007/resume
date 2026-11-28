@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Designing Robust Prompt Regression Tests with OpenAI Evals | Engineering Insights</title><meta name="description" content="A practical guide to building reliable prompt regression suites, covering configuration, provider selection, error handling, and a validation checklist.">
+<link rel="canonical" href="https://ankit-parekh.org/blog/articles/2026-11-28-designing-robust-prompt-regression-tests-with-openai-evals/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="Designing Robust Prompt Regression Tests with OpenAI Evals | Engineering Insights"><meta property="og:description" content="A practical guide to building reliable prompt regression suites, covering configuration, provider selection, error handling, and a validation checklist.">
+<meta property="og:url" content="https://ankit-parekh.org/blog/articles/2026-11-28-designing-robust-prompt-regression-tests-with-openai-evals/"><meta property="og:type" content="article">
+<meta name="twitter:card" content="summary"><link rel="alternate" type="application/rss+xml" title="Engineering Insights" href="/blog/feed.xml">
+<link rel="stylesheet" href="/blog/assets/blog.css"><script src="/blog/assets/theme.js"></script>
+<meta property="article:published_time" content="2026-11-28"><meta property="article:section" content="Harness Engineering">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Designing Robust Prompt Regression Tests with OpenAI Evals","description":"A practical guide to building reliable prompt regression suites, covering configuration, provider selection, error handling, and a validation checklist.","datePublished":"2026-11-28","url":"https://ankit-parekh.org/blog/articles/2026-11-28-designing-robust-prompt-regression-tests-with-openai-evals/","publisher":{"@type":"Person","name":"Ankit Parekh"}}</script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav"><a class="brand" href="/">Ankit Parekh</a><nav aria-label="Primary"><a href="/">Portfolio</a><a href="/blog/" aria-current="page">Blog</a><a href="/blog/feed.xml">RSS</a><label for="theme">Theme</label><select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></nav></div></header>
+<main id="main" class="wrap">
+<article class="article" data-pagefind-body><a href="/blog/">← All articles</a>
+<p class="eyebrow"><a href="/blog/category/harness-engineering/">Harness Engineering</a> · <time datetime="2026-11-28">2026-11-28</time> · 2 min read</p>
+<h1>Designing Robust Prompt Regression Tests with OpenAI Evals</h1><p class="lede">A practical guide to building reliable prompt regression suites, covering configuration, provider selection, error handling, and a validation checklist.</p>
+<p class="notice">AI-assisted editorial content. Reviewed before publication.</p>
+<div class="prose"><h2>The Engineering Problem: Prompt Drift in Production</h2>
+<p>As language models evolve, subtle changes in tokenization, temperature defaults, or underlying data can cause previously stable prompts to produce degraded outputs. In continuous deployment pipelines, undetected regression can lead to broken user experiences or compliance violations.</p>
+<p>Detecting such drift requires an automated test harness that can execute the same prompt across model versions, compare results against expectations, and surface failures before release.</p>
+<h2>Core Design Choices for an Eval‑Based Regression Suite</h2>
+<p>OpenAI Evals provides a declarative YAML format for defining prompts, variables, and assertions. The first design decision is whether to embed prompts directly in the config or reference external prompt IDs. Using external IDs enables reuse across multiple evals and centralizes prompt versioning.</p>
+<p>Second, the suite can target a single provider or a heterogeneous set. The <code>providers</code> field lets you run the same test against different model families, exposing version‑specific regressions without duplicating test definitions.</p>
+<h2>Trade‑offs and Failure Handling Strategies</h2>
+<p>Choosing strict prompt validation (invalid references cause load‑time errors) catches typographical bugs early but reduces flexibility when iterating on prompt names. Conversely, allowing loose references enables rapid prototyping at the cost of runtime failures that may be harder to trace.</p>
+<p>When an assertion fails, the harness can be configured to either abort the entire run (fail‑fast) or continue and aggregate all failures. Fail‑fast reduces noise in CI logs, while aggregation provides a holistic view of regressions across the suite.</p>
+<h2>Illustrative Example: A Simple Factual Consistency Eval</h2>
+<p>Illustrative: Define a prompt ID <code>prompt-factual</code> that asks the model to state the capital of France. In the YAML, list <code>prompts: ['prompt-factual']</code> and add an assertion that the response contains &quot;Paris&quot;. Specify <code>providers: ['gpt-4', 'gpt-3.5-turbo']</code> to compare two model versions in one run.</p>
+<p>The config also includes a <code>defaultTest</code> filter that applies a common set of variables (e.g., temperature=0) to all prompts, ensuring deterministic output for regression comparison.</p>
+<h2>Validation Checklist for Production‑Ready Prompt Regressions</h2>
+<p>Illustrative checklist:</p>
+<ol>
+<li>
+<p>Verify that every prompt reference resolves to an existing prompt ID; run a dry‑load to catch missing IDs.</p>
+</li>
+<li>
+<p>Confirm that all assertions are deterministic (e.g., use exact string matches or regexes with anchored boundaries).</p>
+</li>
+<li>
+<p>Ensure provider list includes all target model versions and that credentials are scoped correctly.</p>
+</li>
+<li>
+<p>Test the suite in a staging CI pipeline with fail‑fast enabled; review the aggregated report for false positives.</p>
+</li>
+<li>
+<p>Document the data licensing for any external test data used, complying with the MIT license and usage policies.</p>
+</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li><a href="https://github.com/openai/evals/blob/8eac7a7de5215c907fbddc30efdaf316913eccdd/README.md">harness-eval</a></li>
+<li><a href="https://github.com/promptfoo/promptfoo/blob/32ab6331d26822456600f8604ea244ac24055c1d/site/docs/configuration/test-cases.md">harness-prompt</a></li>
+</ul>
+</div></article>
+<section class="related"><h2>More in Harness Engineering</h2><ul></ul></section>
+</main>
+<footer class="wrap footer"><p>Engineering Insights · AI-assisted articles, subject to editorial review.</p><a href="/blog/">All articles</a></footer>
+<script src="/blog/assets/ui.js" defer></script></body></html>
