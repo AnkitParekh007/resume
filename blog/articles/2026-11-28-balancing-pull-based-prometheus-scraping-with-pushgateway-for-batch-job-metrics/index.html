@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics | Engineering Insights</title><meta name="description" content="An engineering article in the System Architecture series: Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics.">
+<link rel="canonical" href="https://ankit-parekh.org/blog/articles/2026-11-28-balancing-pull-based-prometheus-scraping-with-pushgateway-for-batch-job-metrics/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics | Engineering Insights"><meta property="og:description" content="An engineering article in the System Architecture series: Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics.">
+<meta property="og:url" content="https://ankit-parekh.org/blog/articles/2026-11-28-balancing-pull-based-prometheus-scraping-with-pushgateway-for-batch-job-metrics/"><meta property="og:type" content="article">
+<meta name="twitter:card" content="summary"><link rel="alternate" type="application/rss+xml" title="Engineering Insights" href="/blog/feed.xml">
+<link rel="stylesheet" href="/blog/assets/blog.css"><script src="/blog/assets/theme.js"></script>
+<meta property="article:published_time" content="2026-11-28"><meta property="article:section" content="System Architecture">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics","description":"An engineering article in the System Architecture series: Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics.","datePublished":"2026-11-28","url":"https://ankit-parekh.org/blog/articles/2026-11-28-balancing-pull-based-prometheus-scraping-with-pushgateway-for-batch-job-metrics/","publisher":{"@type":"Person","name":"Ankit Parekh"}}</script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav"><a class="brand" href="/">Ankit Parekh</a><nav aria-label="Primary"><a href="/">Portfolio</a><a href="/blog/" aria-current="page">Blog</a><a href="/blog/feed.xml">RSS</a><label for="theme">Theme</label><select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></nav></div></header>
+<main id="main" class="wrap">
+<article class="article" data-pagefind-body><a href="/blog/">← All articles</a>
+<p class="eyebrow"><a href="/blog/category/system-architecture/">System Architecture</a> · <time datetime="2026-11-28">2026-11-28</time> · 2 min read</p>
+<h1>Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics</h1><p class="lede">An engineering article in the System Architecture series: Balancing Pull‑Based Prometheus Scraping with Pushgateway for Batch Job Metrics.</p>
+<p class="notice">AI-assisted editorial content. Reviewed before publication.</p>
+<div class="prose"><h2>The Engineering Problem</h2>
+<p>Prometheus excels at gathering time‑series data through a pull model over HTTP, which simplifies reliability and service discovery. However, short‑lived batch jobs disappear before the scraper can collect their metrics, leaving gaps in observability.</p>
+<p>The Pushgateway offers a way to bridge this gap by allowing jobs to push metrics at completion, but its use introduces consistency and lifecycle challenges that can undermine the reliability Prometheus aims to provide.</p>
+<h2>Design Choices: Pull‑Only vs. Hybrid Push</h2>
+<p>A pure pull‑only architecture relies on the scraper to fetch metrics from long‑running services. This avoids stateful intermediaries but cannot capture metrics from transient processes.</p>
+<p>A hybrid approach adds a Pushgateway instance for batch jobs. Jobs push their final metric snapshot, and the gateway retains them until scraped. This design preserves the pull‑based reliability model while extending coverage to short‑lived workloads.</p>
+<h2>Trade‑offs and Failure Scenarios</h2>
+<p>Using the Pushgateway introduces a single point of state: if the gateway crashes, previously pushed metrics are lost, and subsequent scrapes return stale or missing data. Additionally, without careful labeling, metric collisions can occur when multiple jobs reuse the same identifier.</p>
+<p>Conversely, a pull‑only system avoids gateway state but may produce blind spots for batch workloads, leading to incomplete capacity planning and alerting. The decision hinges on the acceptable risk of metric loss versus the operational overhead of managing the gateway.</p>
+<h2>Failure Handling Strategies</h2>
+<p>To mitigate gateway loss, deploy the Pushgateway in a highly available configuration (e.g., replicated pods behind a load balancer) and enable persistent storage for its metric files. Regular health checks should verify that the gateway is reachable before jobs attempt to push.</p>
+<p>For pull‑only gaps, instrument batch jobs to emit logs or tracing spans that can be correlated with external monitoring systems, ensuring that a lack of metrics does not hide failures entirely.</p>
+<h2>Illustrative Validation Checklist</h2>
+<p>The following checklist can be used to validate a hybrid metric collection deployment:</p>
+<ol>
+<li>
+<p>Verify that Prometheus scrape targets include the Pushgateway endpoint and that scrape intervals are shorter than the expected metric retention window. (illustrative)</p>
+</li>
+<li>
+<p>Confirm that each batch job includes unique job and instance labels to prevent metric overwrites. (illustrative)</p>
+</li>
+<li>
+<p>Test gateway resilience by terminating a replica and ensuring that remaining instances continue serving previously pushed metrics. (illustrative)</p>
+</li>
+<li>
+<p>Simulate a job crash before push and verify that no partial metrics appear in Prometheus, confirming that only completed pushes are retained. (illustrative)</p>
+</li>
+<li>
+<p>Measure Pushgateway request latency and error rates during a load test to ensure the gateway can handle the expected push volume without degradation. (illustrative)</p>
+</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li><a href="https://github.com/prometheus/docs/blob/a8a024746f7022f015a005c3fa58e64e08ac545a/docs/introduction/overview.md">arch-alt-prom</a></li>
+<li><a href="https://github.com/envoyproxy/envoy/blob/e4fa4448abab039505719936ada023c1ae380eb4/docs/root/intro/arch_overview/observability/statistics.rst">arch-alt-envoy</a></li>
+<li><a href="https://github.com/prometheus/docs/blob/a8a024746f7022f015a005c3fa58e64e08ac545a/docs/practices/pushing.md">arch-alt-push</a></li>
+</ul>
+</div></article>
+<section class="related"><h2>More in System Architecture</h2><ul></ul></section>
+</main>
+<footer class="wrap footer"><p>Engineering Insights · AI-assisted articles, subject to editorial review.</p><a href="/blog/">All articles</a></footer>
+<script src="/blog/assets/ui.js" defer></script></body></html>
